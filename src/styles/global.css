@@ -30,7 +30,8 @@
     /* TEXT COLORS */
     /* main text color */
     --color-body: #ebdbb2;
-    --color-body-subtle: #d5c4a1;
+    /* --color-body-subtle: #d5c4a1; */
+    --color-body-subtle: #bdae93;
     --color-heading: #fbf1c7;
 
     /* BORDER COLORS */
@@ -82,15 +83,15 @@
 }
 
 .writing h1 {
-    @apply text-4xl/normal;
+    @apply text-4xl/loose;
 }
 
 .writing h2 {
-    @apply text-3xl/normal;
+    @apply text-3xl/loose;
 }
 
 .writing h3 {
-    @apply text-2xl/normal;
+    @apply text-2xl/loose;
 }
 
 .writing h4, h5, h6 {
