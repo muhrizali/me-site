@@ -1,0 +1,14 @@
+---
+import BlockQuote from "./BlockQuote.astro";
+import { DateTime } from "luxon";
+
+interface Props {
+    date: string;
+}
+
+const { date } = Astro.props;
+const statusDate = DateTime.fromISO(date).toLocaleString(DateTime.DATE_MED);
+---
+<BlockQuote source={statusDate}>
+    <slot />
+</BlockQuote>

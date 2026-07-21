@@ -1,0 +1,21 @@
+---
+# astro: layout
+layout: "../../layouts/PageLayout.astro"
+
+# metatdata
+title: "Blogs"
+
+# dates and times
+# states
+isDraft: true
+---
+import PostList from "../../components/PostList.astro";
+import Writing from "../../components/Writing.astro";
+
+<Writing>
+# {frontmatter.title}
+
+</Writing>
+
+
+<PostList target="blogs" />

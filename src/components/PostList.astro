@@ -1,0 +1,78 @@
+---
+import Post from "./Post.astro";
+import { getCollection } from "astro:content";
+import * as _ from "lodash-es";
+
+
+interface Props {
+    target: "blogs" | "projects" | "books" | "notes";
+    count: number;
+    showMore: boolean;
+}
+
+
+async function getOurCollection(key: string, count: number) {
+
+    // const collection = (await getCollection(key, ({ data }) => { return !data.isDraft}))
+    //     .sort((entryA, entryB) => DateTime.fromISO(entryA.data.datePublished) - DateTime.fromISO(entryB.data.datePublished))
+    //     .reverse();
+    let collection = await getCollection(key);
+    collection = _.filter(collection, (item) => !item.data['isDraft']);
+    collection = _.reverse(_.sortBy(collection, ['data.datePublished']));
+
+    if (count === 0) {
+      return collection
+    } else if (collection.length < count) {
+      return collection.slice(0, collection.length);
+    } else {
+      return collection.slice(0, count);
+    }
+}
+
+let collection;
+let itemLabelLink;
+const { target, count = 0, showMore = false } = Astro.props;
+
+
+switch (target) {
+    case "blogs":
+        collection = await getOurCollection("blogPosts", count);
+        itemLabelLink = { "label": "Blogs", "href": "/blogs" };
+        break;
+    case "notes":
+        collection = await getOurCollection("notePosts", count);
+        itemLabelLink = { "label": "Notes", "href": "/notes" };
+        break;
+    case "projects":
+        collection = await getOurCollection("projectPosts", count);
+        itemLabelLink = { "label": "Projects", "href": "/projects" };
+        break;
+    case "books":
+        collection = await getOurCollection("bookPosts", count);
+        itemLabelLink = { "label": "Books", "href": "/books" };
+        break;
+}
+
+---
+<ul class="">
+    {
+        collection.map(
+            (item) => (
+                <Post target={target} postItem={item} />
+            )
+        )
+    }
+</ul>
+    { showMore
+        ? (
+            <div
+                class="text-lg text-body-subtle  mt-4">
+                <span> ~> </span>
+                <a href={itemLabelLink?.href} class="special-a hover:italic">
+                    More {itemLabelLink?.label}
+                </a>
+            </div>
+        )
+        : ""
+
+    }

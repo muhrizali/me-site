@@ -1,0 +1,38 @@
+---
+import Layout from "../layouts/Layout.astro";
+import Writing from "../components/Writing.astro";
+// import HomeBanner from "../components/HomeBanner.astro";
+import PostList from "../components/PostList.astro";
+---
+
+<Layout>
+
+<Writing>
+    <h2>
+        BLOGS
+    </h2>
+</Writing>
+<PostList target="blogs" count={3} showMore={true} />
+
+<Writing>
+    <h2>
+        PROJECTS
+    </h2>
+</Writing>
+<PostList target="projects" count={3} showMore={true} />
+
+<Writing>
+    <h2>
+        BOOKS
+    </h2>
+</Writing>
+<PostList target="books" count={3} showMore={true} />
+
+<Writing>
+    <h2>
+        NOTES
+    </h2>
+</Writing>
+<PostList target="notes" count={3} showMore={true} />
+
+</Layout>

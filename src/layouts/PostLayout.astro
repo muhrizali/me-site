@@ -1,0 +1,15 @@
+---
+import Layout from "./Layout.astro";
+import Writing from "../components/Writing.astro";
+import PostBanner from "../components/PostBanner.astro";
+
+const { frontmatter } = Astro.props;
+
+---
+
+<Layout>
+    <PostBanner frontmatter={frontmatter} />
+    <Writing>
+        <slot />
+    </Writing>
+</Layout>

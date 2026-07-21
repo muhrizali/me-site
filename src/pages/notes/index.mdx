@@ -1,0 +1,28 @@
+---
+# astro: layout
+layout: "../../layouts/PageLayout.astro"
+
+# metatdata
+title: "Notes"
+
+# dates and times
+# states
+isDraft: true
+---
+import Writing from "../../components/Writing.astro";
+import PostList from "../../components/PostList.astro";
+
+<Writing>
+# {frontmatter.title}
+
+{/*
+Writing the things I learnt in my own words and from my own understanding has become a major part of the learning process for me. I have only begun to realize its potential from the last few years (I used to be a stupid little dude back then, don't know how I survived this long without it).
+
+Two of the most excellent applications I use in my learning process are:
+- [Obsidian](https://obsidian.md/): The best note-taking software ever made in the history of software applications (not just my opinion, its a literal fact). I have always relied on this app for when I want to learn something in-depth.
+- [Anki](https://apps.ankiweb.net/): The space-repetition flashcards application for retaining the stuff you have learnt. Going to be honest, I do not use this app as much as I should but it is something every diligent student should use daily. Mainly used this for when to prepare for an exam.
+*/}
+
+</Writing>
+
+<PostList target="notes" />

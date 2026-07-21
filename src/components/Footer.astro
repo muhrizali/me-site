@@ -1,0 +1,50 @@
+---
+const footerItems = [
+    {
+        label: "About",
+        href: "/about",
+    },
+    {
+        label: "FAQ",
+        href: "/faq",
+    },
+    {
+        label: "Contact",
+        href: "/contact",
+    },
+];
+---
+
+<footer
+    class="bg-neutral-primary rounded-base shadow-xs border-0 border-default">
+    <div class="max-w-5xl w-full mx-auto">
+        <div class="sm:flex sm:items-center sm:justify-between mb-6">
+            <!-- BRAND LOGO -->
+            <!-- <a href="https://flowbite.com/" class="flex items-center mb-4 sm:mb-0 space-x-3 rtl:space-x-reverse">
+            <img src="https://flowbite.com/docs/images/logo.svg" class="h-7" alt="Flowbite Logo" />
+            <span class="text-heading self-center text-2xl font-semibold whitespace-nowrap">Flowbite</span>
+          </a> -->
+            <!-- <ul
+                class="flex flex-wrap items-center text-base font-medium text-body p-4 lg:p-0">
+                {
+                    footerItems.map((item) => (
+                        <li>
+                            <a
+                                href={item.href}
+                                class="hover:text-brand me-4 md:me-6">
+                                {item.label}
+                            </a>
+                        </li>
+                    ))
+                }
+            </ul> -->
+        </div>
+    </div>
+    <div class="border-t-2 border-default p-6">
+        <!-- <hr class="my-6 border-default sm:mx-auto lg:my-8" /> -->
+        <span
+            class="block text-sm text-body sm:text-center">
+            (C)  2026 Any Ali -- All Rights Reserved
+        </span>
+    </div>
+</footer>

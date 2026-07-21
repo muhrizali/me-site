@@ -1,0 +1,26 @@
+---
+# astro: layout
+layout: "../../layouts/PageLayout.astro"
+
+# metatdata
+title: "Now"
+
+# dates and times
+# states
+isDraft: true
+---
+import Writing from "../../components/Writing.astro";
+import SummaryDetails from "../../components/SummaryDetails.astro";
+import Status from "../../components/Status.astro";
+
+<Writing>
+# {frontmatter.title}
+
+<Status date="2026-07-17">
+</Status>
+
+<SummaryDetails title="Previous">
+    <Status date="2026-07-17">
+    </Status>
+</SummaryDetails>
+</Writing>

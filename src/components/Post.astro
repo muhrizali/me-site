@@ -1,0 +1,46 @@
+---
+import { DateTime } from 'luxon';
+
+
+interface Props {
+    target: "blogs" | "notes" | "books" | "projects";
+    postItem: any;
+}
+
+const { target, postItem } = Astro.props;
+let prefix: string = "/";
+
+switch (target) {
+    case "blogs":
+        prefix = "/blogs";
+        break;
+    case "notes":
+        prefix = "/notes";
+        break;
+    case "books":
+        prefix = "/books";
+        break;
+    case "projects":
+        prefix = "/projects";
+        break;
+}
+
+const postDatePublished = DateTime.fromISO(postItem.data.datePublished).toLocaleString(DateTime.DATETIME_MED);
+
+
+---
+
+<li class="border-2 border-transparent hover:border-default px-4 py-2">
+    <a href={`${prefix}/${postItem.id}`}>
+        <h3 class="text-xl/tight font-bold text-heading">
+            {postItem.data.title}
+        </h3>
+        <p class="mb-2 text-body-subtle text-sm font-sans">
+            {postDatePublished}
+
+        </p>
+        <small class="text-body text-sm/snug italic tracking-tight line-clamp-2">
+            {postItem.data.description}
+        </small>
+    </a>
+</li>

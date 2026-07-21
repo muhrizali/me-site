@@ -1,23 +1,47 @@
+---
+import "../styles/global.css";
+import Navigation from "../components/Navigation.astro";
+import Footer from "../components/Footer.astro";
+import Main from "../components/Main.astro";
+import { ClientRouter } from "astro:transitions";
+
+const { title = "Stupid Ali" } = Astro.props;
+---
+
 <!doctype html>
 <html lang="en">
-	<head>
-		<meta charset="utf-8" />
-		<meta name="viewport" content="width=device-width" />
-		<link rel="icon" type="image/svg+xml" href="/favicon.svg" />
-		<link rel="icon" href="/favicon.ico" />
-		<meta name="generator" content={Astro.generator} />
-		<title>Astro Basics</title>
-	</head>
-	<body>
-		<slot />
-	</body>
-</html>
+  <head>
+    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+    <link rel="icon" href="/favicon.ico" />
+    <link rel="stylesheet" href="../../node_modules/flowbite/dist/flowbite.min.css" />
+    <meta name="generator" content={Astro.generator} />
 
-<style>
-	html,
-	body {
-		margin: 0;
-		width: 100%;
-		height: 100%;
-	}
-</style>
+    <!-- Primary Meta Tags -->
+    <title>{title}</title>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width" />
+    <meta name="robots" content="index,find" />
+    <meta name="googlebot" content="index,find" />
+    <meta name="description" content="A description for the page" />
+
+
+    <!-- Astro View Transitions -->
+    <ClientRouter />
+  </head>
+  <body class="bg-neutral-primary">
+    <!-- NAVIGATION BAR -->
+     <Navigation />
+
+
+    <!-- MAIN BODY -->
+    <Main>
+      <slot />
+    </Main>
+    <!-- <main class="bg-neutral-primary max-w-5xl mx-auto mb-16 px-4 min-h-dvh lg:px-0">
+    </main> -->
+
+    <!-- FOOTER -->
+    <Footer />
+    <script src="../../node_modules/flowbite/dist/flowbite.min.js"></script>
+  </body>
+</html>
