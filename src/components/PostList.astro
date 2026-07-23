@@ -5,20 +5,37 @@ import * as _ from "lodash-es";
 
 
 interface Props {
-    target: "blogs" | "projects" | "books" | "notes";
+    target: string;
     count: number;
     showMore: boolean;
+    tag: string;
 }
 
 
-async function getOurCollection(key: string, count: number) {
+async function getOurCollection(key: string, count: number, tag: string = "all") {
 
-    // const collection = (await getCollection(key, ({ data }) => { return !data.isDraft}))
-    //     .sort((entryA, entryB) => DateTime.fromISO(entryA.data.datePublished) - DateTime.fromISO(entryB.data.datePublished))
-    //     .reverse();
-    let collection = await getCollection(key);
-    collection = _.filter(collection, (item) => !item.data['isDraft']);
-    collection = _.reverse(_.sortBy(collection, ['data.datePublished']));
+    let collection = [];
+
+    // Getting the list of posts from target
+    if (key === "all") {
+        collection = [
+            ...(await getCollection("blogPosts")),
+            ...(await getCollection("notePosts")),
+            ...(await getCollection("bookPosts")),
+            ...(await getCollection("projectPosts")),
+        ];
+    } else {
+        collection = await getCollection(key);
+    }
+
+    // Getting the list of posts from the tags
+    if (tag !== "all") {
+        collection = _.filter(collection, (item) => item.data["tags"].includes(tag));
+    }
+    
+    // Filtering and organizing the returned posts
+    collection = _.reverse(_.sortBy(collection, ["data.datePublished"]));
+    collection = _.filter(collection, (item) => !item.data["isDraft"]);
 
     if (count === 0) {
       return collection
@@ -29,36 +46,35 @@ async function getOurCollection(key: string, count: number) {
     }
 }
 
-let collection;
-let itemLabelLink;
-const { target, count = 0, showMore = false } = Astro.props;
+let { target, count = 0, showMore = false, tag = "all" } = Astro.props;
 
+if (tag === "all") {
+    showMore = false;
+}
+let collection = await getOurCollection(target, count, tag);
+let morePostsLink = { href: "/", label: "Generic" };
 
-switch (target) {
-    case "blogs":
-        collection = await getOurCollection("blogPosts", count);
-        itemLabelLink = { "label": "Blogs", "href": "/blogs" };
+switch(target) {
+    case "blogPosts":
+        morePostsLink = { href: "/blogs", label: "Blogs" };
         break;
-    case "notes":
-        collection = await getOurCollection("notePosts", count);
-        itemLabelLink = { "label": "Notes", "href": "/notes" };
+    case "notePosts":
+        morePostsLink = { href: "/notes", label: "Notes" };
         break;
-    case "projects":
-        collection = await getOurCollection("projectPosts", count);
-        itemLabelLink = { "label": "Projects", "href": "/projects" };
+    case "projectPosts":
+        morePostsLink = { href: "/projects", label: "Projects" };
         break;
-    case "books":
-        collection = await getOurCollection("bookPosts", count);
-        itemLabelLink = { "label": "Books", "href": "/books" };
+    case "bookPosts":
+        morePostsLink = { href: "/books", label: "Books" };
         break;
 }
 
 ---
-<ul class="">
+<ul>
     {
         collection.map(
             (item) => (
-                <Post target={target} postItem={item} />
+                <Post postItem={item} />
             )
         )
     }
@@ -68,8 +84,8 @@ switch (target) {
             <div
                 class="text-lg text-body-subtle  mt-4">
                 <span> ~> </span>
-                <a href={itemLabelLink?.href} class="special-a hover:italic">
-                    More {itemLabelLink?.label}
+                <a href={morePostsLink.href} class="special-a hover:italic">
+                    More {morePostsLink.label}
                 </a>
             </div>
         )

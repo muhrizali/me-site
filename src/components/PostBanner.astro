@@ -1,5 +1,6 @@
 ---
 import { DateTime } from "luxon";
+
 const { frontmatter } = Astro.props;
 const datePublished = DateTime.fromISO(frontmatter.datePublished).toLocaleString(DateTime.DATETIME_MED);
 ---
@@ -9,7 +10,7 @@ const datePublished = DateTime.fromISO(frontmatter.datePublished).toLocaleString
         {frontmatter.tags.map(
             (item) => (
                 <li class="text-body-subtle border-2 border-transparent font-medium">
-                    <a href="#" class="decoration-2 decoration-brand hover:underline h-full w-full">{item}</a>
+                    <a href={`/tags/${item}`} class="decoration-2 decoration-brand hover:underline h-full w-full">{item}</a>
                 </li>
           )
         )}

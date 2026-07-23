@@ -42,6 +42,15 @@ const projectPosts = defineCollection({
     schema: validation,
 });
 
+// all posts
+// const allPosts = defineCollection({
+//     loader: glob({ 
+//         base: "./src/pages/", 
+//         pattern: "{blogs,notes,projects}/*/index.{md,mdx}" 
+//     }),
+//     schema: validation,
+// });
+
 
 // exporting all collections
 export const collections = { blogPosts, notePosts, bookPosts, projectPosts };

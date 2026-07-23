@@ -3,25 +3,24 @@ import { DateTime } from 'luxon';
 
 
 interface Props {
-    target: "blogs" | "notes" | "books" | "projects";
     postItem: any;
 }
 
-const { target, postItem } = Astro.props;
-let prefix: string = "/";
+const { postItem } = Astro.props;
+let postLink: string = "/";
 
-switch (target) {
-    case "blogs":
-        prefix = "/blogs";
+switch (postItem.collection) {
+    case "blogPosts":
+        postLink = `/blogs/${postItem.id}`;
         break;
-    case "notes":
-        prefix = "/notes";
+    case "notePosts":
+        postLink = `/notes/${postItem.id}`;
         break;
-    case "books":
-        prefix = "/books";
+    case "bookPosts":
+        postLink = `/books/${postItem.id}`;
         break;
-    case "projects":
-        prefix = "/projects";
+    case "projectPosts":
+        postLink = `/projects/${postItem.id}`;
         break;
 }
 
@@ -31,7 +30,7 @@ const postDatePublished = DateTime.fromISO(postItem.data.datePublished).toLocale
 ---
 
 <li class="border-2 border-transparent hover:border-default px-4 py-2">
-    <a href={`${prefix}/${postItem.id}`}>
+    <a href={postLink}>
         <h3 class="text-xl/tight font-bold text-heading">
             {postItem.data.title}
         </h3>
