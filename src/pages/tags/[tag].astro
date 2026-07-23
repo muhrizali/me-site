@@ -38,7 +38,7 @@ const { tag } = Astro.params;
         <span class="text-body-subtle">[{tag}] </span>
         Tag
     </h1>
-    <PostList target="all" tag={tag} />
+    <PostList target={"all"} tag={tag} showMore={false} />
 </Layout>
 
 

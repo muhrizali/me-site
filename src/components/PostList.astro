@@ -6,9 +6,9 @@ import * as _ from "lodash-es";
 
 interface Props {
     target: string;
-    count: number;
     showMore: boolean;
-    tag: string;
+    count?: number;
+    tag?: string;
 }
 
 
@@ -46,11 +46,8 @@ async function getOurCollection(key: string, count: number, tag: string = "all")
     }
 }
 
-let { target, count = 0, showMore = false, tag = "all" } = Astro.props;
+let { target = "all", count = 0, showMore, tag = "all" } = Astro.props;
 
-if (tag === "all") {
-    showMore = false;
-}
 let collection = await getOurCollection(target, count, tag);
 let morePostsLink = { href: "/", label: "Generic" };
 
