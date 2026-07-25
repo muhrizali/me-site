@@ -46,7 +46,7 @@ async function getOurCollection(key: string, count: number, tag: string = "all")
     }
 }
 
-let { target = "all", count = 0, showMore, tag = "all" } = Astro.props;
+let { target = "all", count = 0, tag = "all", showMore } = Astro.props;
 
 let collection = await getOurCollection(target, count, tag);
 let morePostsLink = { href: "/", label: "Generic" };
@@ -87,5 +87,4 @@ switch(target) {
             </div>
         )
         : ""
-
     }
