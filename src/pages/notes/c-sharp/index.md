@@ -73,23 +73,19 @@ Console.WriteLine("Hello World!");
 
 Every programming language has its own distinct unique structure, its own set of rules that describe how to make a working program. This set of rules is called the _language's syntax_. C# code like the one above also has specific syntax that we have to follow to make programs work.
 
-**Comments:** The lines starting with `//` spanning the whole line are called comments. They are ignored by the compiler.
-
-**String Literals:** The `"Hello World!"` text is a string literal because it is enclosed in double quotes `""`. A literal is a piece of code that defines some specific value, precisely as written. Any text in double quotes will be called string literal.
-
 **Identifiers:** A name that allows us to refer to some existing code element. The `Console` and `WriteLine` are identifier names. As we build code elements of our own, we would also pick names for them as well.
 
-**Statements:** The entire line `Console.WriteLine(...);` is called a statement. A statement is a single unit step or command for computer to run. Most C# statements end with a semicolon `;`.
-
-**Whitespaces:** C# ignores whitespaces (spaces, tabs, newlines) as long as it can tell where one thing ends and the next begins. Therefore, we can also write `Console.WriteLine("Hello");` as `Console  .  WriteLine ( "Hello"  );`.
-
 **Expressions:** Expression are bits of code that process or evaluate to some value and gives it back. We use same word in Math to refer to something like `3 + 4` or `-2 * 4.5`. Expressions describe how to produce a value from smaller elements. C# uses expressions heavily, anywhere a value is needed an expression can be put in its place.
+
+**Statements:** A statement is a single unit step or command for computer to run that consists of one or more expressions. Most C# statements end with a semicolon `;`. The entire line `Console.WriteLine(...);` is a statement.
+
+**Whitespaces:** C# ignores whitespaces (spaces, tabs, newlines) as long as it can tell where one thing ends and the next begins. Therefore, we can write `Console.WriteLine("Hello");` as `Console  .  WriteLine ( "Hello"  );`.
 
 ## HEIRARCHICAL ORGANIZATION
 
 Code elements like `Console` and `WriteLine` are organized heirarchically, the `Console` acting like a container and `WriteLine` one of its members or children. The dot operator `.` between them is called the member access operator to access the members of container `Console`.
 
-**CLASSES AND METHODS** 
+**CLASSES AND METHODS**
 Named code elements come in various categories. Here `Console` is a class and `WriteLine` is its method. Methods are only available through their classes, like we cannot call `WriteLine` on its own without its assoicated class `Console`.
 
 Classes are primarily composed of two things: (1) the data they need to do their job (called fields) and (2) the tasks they can perform (called methods). The act of calling a method to run it is called method invocation or method call and is done by writing method name with set of parentheses `()`.
@@ -97,36 +93,41 @@ Classes are primarily composed of two things: (1) the data they need to do their
 **NAMESPACES** 
 Just like the methods lives inside containers called classes, classes also lives inside broader container called namespaces. Namespaces are code organization tools which contains collection of closely-related classes. The class `Console` lives inside the namespace called `System`.
 
-Therefore, we can refer to the `Console` class like `System.Console` too and call the `WriteLine` method as `System.Console.WriteLine(...);`.
-
-**The `using` directive:** We can also use the `using` directive to indicate we will be using the classes from a given namespace in our code. For example, `using System;` allows us to refer to classes contained in the `System` namespace like `Console` without writing the whole `System.Console`.
-
 **BASE CLASS LIBRARY:** The entire collection of organized namespaces, classes and methods which stores all of them together is called the Base Class Library (BCL). The Base Class Library contains many namespaces, each with many classes and each with many methods. It provides every C# program with set of fundamental building blocks.
 
-**PROGRAM AND MAIN METHOD:**
+**PROGRAM AND MAIN METHOD**
 In the above program we have just used the top level statements to write our program to be executed. Behind the scenes, C# uses the concept of `Program` class and `Main` method within it. 
 
 This `Main` method is the every program's entry point, the code that will be automatically run when the computer runs our program. Other methods will not be called if the `Main` method does not call them.
 
-**VARIABLES:** Variables are containers for data, allows us to store data for later use. They are called variables because their contents can change or vary as the program runs. We first declare the name and type of variable and then assign some value to it. The two parts are called declaration and assignment respectively.
-
-**READING TEXT FROM CONSOLE:** The `Console` class has `ReadLine` method which allows us to take inputs from command line until the Enter key is pressed. We can use it like `Console.ReadLine();`. We can also store its returned value in a variable as `string name = Console.ReadLine();`.
-
-**DEBUGGING:** Trying to figure out why a program does not do what you expected and then adjusting it is called debugging.
-
-**BUILD CONFIGURATIONS:** 
+**BUILD CONFIGURATIONS**
 The compiler uses your source code files and configuration data to produce the compiled output that the computer can run. 
 
 Configuration data is organized into different build configurations, each providing different settings to compiler about building our program. The two configurations defined by default are: the "Debug" configuration and the "Release" configuration.
 
 The "Release" configuration has optimizations turned for final production release whereas "Debug" configurations are used to debug our program during development.
 
+## TRADITIONAL ENTRY POINT
+
+**Top-Level Statements:** Writing your code statements directly in the file `Program.cs` refers to top-level statements. These statements and code will are placed in designated method inside a designated class behind the scenes which is responsible for being the entry-point of the project.
+
+**THE ENTRY POINT** 
+The part of the program that executes automatically when the project is run (executed) is called the entry-point of the project. The `Main` method inside the `Program` which is contained inside the `Program.cs` file is considered the traditional entry-point most C# projects.
+
+**Program Class:** We create a regular or internal `Program` class inside the file `Program.cs`. The class can optionally be a part of the namespace with same name as the project like `namespace OurProject { internal class Program { ... } }`.
+
+**Main Method:** After creating the `Program` class, we create a static method inside the class that returns nothing like `static void Main() {...}`. The method can consist of optional CLI parameters represented as array of strings like `static void Main(string[] args) {...}`.
+
 ## COMMENTS
 Comments are bits of text placed in your program that the compiler and the computer ignores. They can provide information to help programmers understand or remember what the code does.
 
-**SINGLE LINE COMMENTS:** We can start our comment in our code by placing two forward slashes `//` and then writing the comment after it. For example, `// This is a single line comment` is a single line comment and will span till the end of line.
+**SINGLE LINE COMMENTS:** We create single line comments by placing two forward slashes `//` before the text.
+- `// This comment spans a single line`
+- `// A single comment that overexplains`
 
-**MUTILINE COMMENTS:** We can also create a comment slash and asterisk characters `/*` and `*/`. Comments created like this can span multiple lines starting with `/*` and ending with `*/`. For example, `/* This is a multiline comment */`.
+**MUTILINE COMMENTS:** We create multi-line comments by enclosing the text between `/*` and `*/`. Comments created like this can span multiple lines starting with `/*` and ending with `*/`.
+- `/* This comment spans multiple lines */`
+- `/* Useful for documenting variables or methods */`
 
 **TIP:** Create comments that adds value to your code. Don't mention things that can be inferred easily from the code itself.
 
@@ -194,7 +195,7 @@ Reference types are always copied by reference, only the reference address is co
 
 Follows reference semantics, which means two objects are equal only if they have the same reference, that is they point to the same object.
 
-These are complex compound types; strings, arrays, dictionaries, other data structures and our created classes.
+These are complex compound types; strings, arrays, lists, dictionaries, other data objects and our created classes.
 
 ## INTEGER TYPES
 
@@ -330,16 +331,14 @@ The boolean types can only contain values `true` or `false`. For example; We can
 - `!` NOT operator negates the input operand value, `!true` evaluates to `false` and `!false` evaluates to `true`
 
 ## CHARACTERS
-The character type represents a single character.
-
-Character types uses two bytes to allow for 65,536 distinct unicode characters. They are created using single quotes `''` using the `char` type like `char a = 'a';` or `char b = 'B';`.
+The character type represents a single character. These types uses two bytes to allow for 65,536 distinct unicode characters. They are created using single quotes `''` using the `char` type like `char a = 'a';` or `char b = 'B';`.
 - `char` - `System.Char`
 
 **Hexadecimal Unicodes:** We can also create character types by using hexadecimal unicode number for a symbol after `\u` like `char aLetter = '\u0061';`.
 
 ## STRINGS
 
-The string types represents a sequence of text characters to create arbitrary text. String types are created using double quotes `""` using the `string` type like `string msg = "Hello World;"`.
+The string types `string` represents a sequence of text characters to create arbitrary text. String types are created using double quotes `""` using the `string` type annotation like `string msg = "Hello World;"`.
 - `string` - `System.String`
 
 **Escape Sequences:** Special string characters starting with `\` that carry special meaning: `\'` for escaping single quotes, `\"` for escaping double quotes, `\\` for escaping backslash, `\n` for rendering new line characetr, `\t` for rendering tab characeters, `\b` for emitting the beep character.
@@ -352,9 +351,171 @@ The string types represents a sequence of text characters to create arbitrary te
 
 **Combining Verbatim and Interpolated Strings:** We can combine verbatim and interpolated strings by prefixing both the characters like `@$"..."` and `$@"..."`.
 
+**THE STRINGBUILDER CLASS**
+When working intensively with lots of string objects, C# has to duplicate all of the string contents in memory for every modification. 
+
+The `StringBuilder` class in `System.Text` namespace allows us to efficiently work large amounts of strings data. It is an optimization to use when necessary, not something to use all the time.
+
+**Creating String Builders:** The `StringBuilder` class is contained inside the `System.Text` namespace. So we either have to use the `using` directive like `using System.Text;` to import the class or refer to `System.Text.StringBuilder` class directly. We do `new StringBuilder();` or `new System.Text.StringBuilder();` to create a new string builder object.
+- `StringBuilder text = new StringBuilder();` after `using System.Text;`
+- `System.Text.StringBuilder text = new System.Text.StringBuilder();`
+
+**Appending Strings:** We use the `.Append()` method of string builder object to append strings to the current state like `text.Append(textValue)`.
+- `text.Append("Hello");`
+- `text.Append(" World!");`
+
+**Getting Final String:** We use the `.ToString()` method to have the final string value returned to us from the string builder object like `text.ToString()`.
+- `text.ToString();`
+
+#TODO more on stringbuidler
+
+For working heavily large strings, we should use the `StringBuilder` class in the ``
+
+## ARRAYS
+
+An array is a linear collection of values of the same types. It allows us to create a collection of values.
+
+**CREATING ARRAYS**
+Before creating arrays we must know the data type of values that this array consists of and the total length/size of elements that this array should contain.
+Arrays are created by first annotating their types using square brackets `[]`, their variable name, the `new` keyword for initializing the array and then again the type of array.
+
+**Creating Arrays with Uninitialized Values:** Involves creating arrays with specific size/length whose elements/values are not initialized and are set to their default values (like `0` for integers, `false` for booleans). The syntax looks like `Type[] items = new Type[size]` where `Type[]` represents "array of type `Type`", `items` is the array variable name and `new Type[size];` initializes the new array with a specific length of `size`.
+- `int[] nums;` - Empty array of integers
+- `int[] nums = new int[10];` - Array of 10 integer values
+- `string[] names = new string[5];` - Array of 5 String values
+
+**Creating Arrays With Specific Elements:** Also called collection Initializer syntax, it involves creating arrays with all the elements or values initialized at the time of assignment, defining the size/length of the array is optional here. The syntax looks like `Type[] items = new Type[size] {...};` where `{...}` is the sequence of elements of the array.
+- `int[] eves = new int[] {2, 4, 6};`
+- `int[] odds = new int[3] {3, 5, 7};`
+
+The syntax `SomeType[]` represents "array of `SomeType`" whereas `SomeType[][]` represents "array of arrays of `SomeType`".
+
+The `new` keyword is used to create new instances of complex reference types like arrays, strings and more.
+
+**Getting Array Values:** We can use indices to get values of arrays from the beginning through the index operator `[]` like `array[0]` or `array[1]`. We could also get the elements from the end of array through `[^]` like `array[^1]` or `array[^2]`.
+- `nums[1]` - Second element of array `num`
+- `nums[^1]` - Last element
+- `nums[^2]` - Second Last element
+
+**Setting Array Values:** We can use the index operator `[]` with assignment operator `=` to set or modify existing elements of the arrays like `nums[0] = 12` or `nums[2] = 16`.
+- `nums[0] = 12` - Setting first element to 12
+- `nums[^1] = 10` - Setting last element to 10
+
+**Default Element Values In Arrays:** When we create arrays with unitialized element values, the compiler will take the array memory location and will set every bit to 0. This means that each element in the array is initialized to their default value (depending on the type). 
+- For integers and floating point numbers, the default value is `0` or `0.0`
+- For booleans, the default is `false`
+- For characters, the default is a null character
+- For strings, the default value is null
+
+**Accessing Out-of-Bound Indices:** Attempting to access or set the elements whose indices are beyond the size of the array (from left or right), will lead to bad and even dangerous things. This is why this type of operation leads to errors.
+
+**Getting Array Length:** We use the `.Length` property of the array object to get the total length or size of the array. It tells us how many elements the array can contain (which is declared/inferred from when we created the array).
+
+**RANGES**
+Ranges are used to get a small section or range within an array through the range operator `..` like `array[start..end]`. In the range `start..end`, the `start` represents the index to start at and the `end` represents the index to end at (but not including it). We can also leave out either ends like `start..` or `..end` to use arrays default end or start.
+- `nums[0..3]` - Get array with elements at `0`, `1` and `2` indices
+- `nums[..3]` - Get array with elements from beginning till `2`
+- `nums[1..]` - Get array with elements at `1` till the end
+
+**The For-Each Loop:** The `foreach` loops are used with arrays to iterate (traverse) over the elements or items of the array. The syntax looks like `foreach (Type item in items) {...}` where `item` is the loop variable we can use inside the loop body.
+- `foreach (int num in nums) {...}`
+- `foreach (string name in names) {...}`
+
+**MULTI DIMENSIONAL ARRAYS**
+- **Jagged Arrays:** Jagged arrays are multi-dimensional arrays that are created like `int[][] matrix = new int[3][];` which represents an array of 3 arrays of inetegers. The syntax is kind of ugly.
+- **Rectangular Arrays:** Rectangular are also multi-dimensional arrays that are created like `int[,] matrix = new int[3, 2] {...};` which represents an array containing 3 rows and 2 columns.
 
 
-#TODO: more on strings
+## LISTS
+
+The `List<T>` class in `System.Collections.Generic` namespace allows us to store objects in an ordered manner, items can be accessed through an index and more items can be added or removed easily.
+
+The list class is kind of like an extension to the arrays we have learnt earlier. But we rarely have to use arrays after learning about lists.
+
+**Creating Lists:** We create the list objects through `new` keyword, the `List` constructor along with its elements types in angular braces `<T>` like `new List<Type>();`. We can also create a list with specific items through collection initializer syntax like `new List<Type>() { A, B, C };`
+- `List<int> numbers = new List<int>();`
+- `List<int> evens = new List<int>() { 2, 4, 6, 8 };`
+- `List<string> names = new List<string>() { "Jake", "Finn" };`
+
+**Getting Elements:** We can access elements of the list objects through their index in the list like `list[index]`. Lists also uses zero-based indexing just like arrays.
+- `evens[0]` - Returns `2`
+- `names[1]` - Returns `"Finn"`
+
+**Modifying Elements:** We can modify the elements in their place through their index and a new value like `list[index] = newValue;`.
+- `evens [1] = 6;`
+- `names[0] = "Pubs";`
+
+**Getting Number Of Elements:** We use `.Count` property of the list object to determine the number of elements in the list object like `list.Count`.
+- `evens.Count;`
+- `names.Count;`
+
+**Element Membership:** We use `.Contains` method to determine if an element is present or a member of the list object like `list.Contains(value)`. It returns a boolean value.
+- `evens.Contains(3);`
+- `names.Contains("Finn");`
+
+**Getting Elements Index:** We use the `.IndexOf` method to get the index of an element by its value like `list.IndexOf(value)`. It returns `-1` if the element is not found.
+- `evens.IndexOf(2)` - Returns `0`
+- `evens.IndexOf("Finn")` - Returns `1`
+
+**Adding Elements:** We use the `.Add()` method to add a new element at the end of the list object like `list.Add(value);`.
+- `evens.Add(8);`
+- `names.Add("Marceline");`
+
+**Adding Multiple Elements:** We use `.AddRange()` method to add multiple elements at the end of the list object like `list.AddRange(values);`.
+- `evens.AddRange(new int[] { 10, 12 });`
+- `names.AddRange(new string[] { "Lady", "Pubs" });`
+
+**Inserting Elements In Middle:** We use `.Insert` method to add new element in the middle of the list object through their index like `list.Insert(2, value)`.
+- `evens.Insert(1, 2);` - Inserting `2` at second index
+- `names.Insert(2, "Lady");` - Inserting `"Lady"` at third index
+
+**Inserting Multiple Elements In Middle:** We use `.InsertRange()` method to add multiple elements in the middle of the list object like `list.InsertRange(values)`.
+- `evens.InsertRange(1, new int[] { 10, 12 });`
+- `names.InsertRange(2, new string[] { "John", "Doe" });`
+
+**Removing Elements By Value:** We use the `.Remove()` method to remove an element from the list object by its value like `list.Remove(value)`. If the number of values in the list is more than one, only the first one is removed. The `.Remove()` method returns a boolean value indicating if any value is removed from list.
+- `evens.Remove(2);`
+- `names.Remove("Jake");`
+
+**Removing Elements By Index:** We use the `.RemoveAt()` method to remove an element from the list object through its index like `list.RemoveAt(index)`.
+- `evens.RemoveAt(0);`
+- `names.RemoveAt(0);`
+
+**Clearing All Elements:** To remove all elements and empty out the list object we use the `.Clear()` method just like `list.Clear()`.
+
+**Iterating Over Loop:** The `foreach` loop is used to iterate over the elements of list object (or any other object implemented with `IEnumerable`) like `foreach (Type item in list) {...}`. You cannot add or remove elements in a list object while a `foreach` loop is in progress.
+- `foreach (int num in evens) {...}`
+- `foreach (string name in names) {...}`
+
+Note: Every kind of collection in C# implements the interface `IEnumerable<T>` that further implements a method called `GetEnumerator()` which returns an object that implements `IEnumerator<T>`.
+
+## DICTIONARIES
+
+The dictionary class `Dictionary<TKey, TValue>` allows us to store values through keys in the object. It allows us to store the items as a key-value pair in the object.
+
+**Creating Dictionaries:** We use the `Dictionary<TK, TV>` type for creating new dictionaries like `new Dictionary<int, string>();`. The type has two generic type parameters, `TKey` for the type of key and `TValue` for the type of value associated with the key.
+- `Dictionary<int, int> dict = new Dictionary<int, int>();`
+- `Dictionary<string, string> dict = new Dictionary<string, string>();`
+
+**Adding Items:** We use the indexing operator `[]` with the key's name along with assignment to value add the key-value pair to the dictionary like `dict[key] = value;`.
+- `dict[3] = 42;`
+- `dict["India"] = "New Delhi";`
+
+**Getting Values:** We use the indexing operator `[]` with the key's value to retrieve the value associated with it like `dict[key]`. When we try to retrieve a key that is not present in the dictionary, it throws an error.
+- `dict[0]`
+- `dict["India"]`
+
+**Checking Key:** We use the `.ContainsKey()` method to check if the key is present in the dictionary or not like `dict.ContainsKey(key)`.
+- `dict.ContainsKey(0)` - Returns `true`
+- `dict.ContainsKey("USA")` - Returns `false`
+
+**Getting Values Or Fallback:** We use the `.GetValueOrDefault()` to retrieve the value associated with key if it exists, otherwise a fallback default value like `dict.GetValueOrDefault(key, fallback)`.
+- `dict.GetValueOrDefault(3, -1)`
+- `dict.GetValueOrDefault("USA", "Unknown")`
+
+**Remove Items:** We use the `.Remove()` method to remove the key-value pair from the dictionary object like `dict.Remove(key)`. The method returns a boolean value indicating if anything is removed or not.
+- `dict.Remove(0)`
+- `dict.Remove("India")`
 
 ## TYPE CONVERSION
 Every variable, value and expression has some specific known type in C#. Types matter greatly in C# or in any other statically typed (compiled) language.
@@ -374,21 +535,29 @@ Sometimes we must convert the input string into appropriate numeric types. There
 1. The `Convert` Class
 2. The `.Parse()` Method
 
-**THE `Convert` CLASS:**
-The `Convert` class is used for converting between C# types. It consists of methods in the form `Convert.To[WhateverType](SomeValue)`.
+**THE CONVERT CLASS**
+The `Convert` class is used for conversion and casting between C# types. It consists of methods in the form `Convert.To[WhateverType](SomeValue)`.
 
-All the methods for converting types are: 
-- For converting to Signed Integers: `Convert.ToSByte()`, `Convert.ToInt16()`, `Convert.ToInt32()`, `Convert.ToInt64()`. 
-- For converting to Unsigned Integers: `Convert.ToByte()`, `Convert.ToUInt16()`, `Convert.ToUInt32()`, `Convert.ToUInt64()`
-- For converting to Floating Numbers: `Convert.ToSingle()`, `Convert.ToDouble()`, `Convert.ToDecimal()`.
-- For converting to Characters: `Convert.ToChar()`.
-- For converting to Strings: `Convert.ToString()`.
-- For converting to Booleans: `Convert.ToBoolean()`.
+Methods for converting types to integers:
+- Signed Integers: `Convert.ToSByte()`, `Convert.ToInt16()`, `Convert.ToInt32()`, `Convert.ToInt64()`. 
+- Unsigned Integers: `Convert.ToByte()`, `Convert.ToUInt16()`, `Convert.ToUInt32()`, `Convert.ToUInt64()`
 
-**THE `.Parse` METHOD**
+Methods for converting types to floating numbers:
+- `Convert.ToSingle()`, `Convert.ToDouble()`, `Convert.ToDecimal()`
+
+Methods for converting types to booleans:
+- `Convert.ToBoolean()`
+
+Methods for converting types to characters:
+- `Convert.ToChar()`
+
+Methods for converting types to strings:
+- Strings: `Convert.ToString()`.
+
+**THE PARSE METHOD**
 The process of analyzing text, breaking it apart and transforming it into other data is called parsing.
 
-Many of the types in C# consists of a method called `.Parse(someValue)` which we can use to some string value to that type.
+Many of the types in C# consists of a method called `.Parse(someValue)` which we can use to convert some string value to that type.
 
 The syntax for using parse method is `[type].Parse(someValue);`, like `int.Parse("3000");`.
 
@@ -420,8 +589,7 @@ The operator `(byte)` here acts as the conversion operator which converts the `l
 **NOTE:** For `short` types `a` and `b`, `int c = (int) (a + b);` and `int c = (int) a + b;` are NOT one and same, both have different meanings; The first converts whole `(a + b)` to `int` while the second converts `a` to `int` and then `b` to `int`.
 
 
-**Casting Solves Problems**
-
+**CASTING SOLVES PROBLEMS**
 **Addition for Small Types:** Through casting we can store the result of sum of two smaller (`short`) types into a larger (`int`) type. Math operations like addition and multiplication are not defined for some small types like `short`.
 
 **Float Division for Integers:** Through casting we can store result of division between two `int` types as a `double` type like `double fraction = (double) amountDone / amountPending;`.
@@ -533,90 +701,35 @@ While most of the for loops uses all three statements, we can left out either of
 
 **Variables Created in Block Statements:** Like any block, variables declared within the loop blocks, if-else blocks or any other block cannot be accessed outside of that block (after it has ended). If you want to access variables used in a block, prefer to declare them outside the blocks.
 
-## ARRAYS
 
-An array is a linear collection of values of the same types. It allows us to create a collection of values.
+## FUNCTIONS AND METHODS
 
-**CREATING ARRAYS**
-Before creating arrays we must know the data type of values that this array consists of and the total length/size of elements that this array should contain.
-Arrays are created by first annotating their types using square brackets `[]`, their variable name, the `new` keyword for initializing the array and then again the type of array.
+Functions are reusable set of statements that we can use in multiple places. This allows us to capsulate a set of instructions into a reusable directive that we can execute through name.
+- **Methods:** Functions that are always associated with a specific class are called methods. They are available everywhere the associated class is available.
+- **Local Functions:** Functions that are defined inside of other methods are called local functions. They will be available only inside the methods they are defined in.
 
-**Creating Arrays with Uninitialized Values:** Involves creating arrays with specific size/length whose elements/values are not initialized and are set to their default values (like `0` for integers, `false` for booleans). The syntax looks like `Type[] items = new Type[size]` where `Type[]` represents "array of type `Type`", `items` is the array variable name and `new Type[size];` initializes the new array with a specific length of `size`.
-- `int[] nums;` - Empty array of integers
-- `int[] nums = new int[10];` - Array of 10 integer values
-- `string[] names = new string[5];` - Array of 5 String values
-
-**Creating Arrays with Elements:** Also called Collection Initialized Syntax, it involves creating arrays with all the elements or values initialized at the time of assignment, defining the size/length of the array is optional here. The syntax looks like `Type[] items = new Type[size] {...};` where `{...}` is the sequence of elements of the array.
-- `int[] eves = new int[] {2, 4, 6};`
-- `int[] odds = new int[3] {3, 5, 7};`
-
-The syntax `SomeType[]` represents "array of `SomeType`" whereas `SomeType[][]` represents "array of arrays of `SomeType`".
-
-The `new` keyword is used to create new instances of complex reference types like arrays, strings and more.
-
-**Getting Array Values:** We can use indices to get values of arrays from the beginning through the index operator `[]` like `array[0]` or `array[1]`. We could also get the elements from the end of array through `[^]` like `array[^1]` or `array[^2]`.
-- `nums[1]` - Second element of array `num`
-- `nums[^1]` - Last element
-- `nums[^2]` - Second Last element
-
-**Setting Array Values:** We can use the index operator `[]` with assignment operator `=` to set or modify existing elements of the arrays like `nums[0] = 12` or `nums[2] = 16`.
-- `nums[0] = 12` - Setting first element to 12
-- `nums[^1] = 10` - Setting last element to 10
-
-**Default Element Values In Arrays:** When we create arrays with unitialized element values, the compiler will take the array memory location and will set every bit to 0. This means that each element in the array is initialized to their default value (depending on the type). 
-- For integers and floating point numbers, the default value is `0` or `0.0`
-- For booleans, the default is `false`
-- For characters, the default is a null character
-- For strings, the default value is null
-
-**Accessing Out-of-Bound Indices:** Attempting to access or set the elements whose indices are beyond the size of the array (from left or right), will lead to bad and even dangerous things. This is why this type of operation leads to errors.
-
-**Getting Array Length:** We use the `.Length` property of the array object to get the total length or size of the array. It tells us how many elements the array can contain (which is declared/inferred from when we created the array).
-
-
-**RANGES**
-Ranges are used to get a small section or range within an array through the range operator `..` like `array[start..end]`. In the range `start..end`, the `start` represents the index to start at and the `end` represents the index to end at (but not including it). We can also leave out either ends like `start..` or `..end` to use arrays default end or start.
-- `nums[0..3]` - Get array with elements at `0`, `1` and `2` indices
-- `nums[..3]` - Get array with elements from beginning till `2`
-- `nums[1..]` - Get array with elements at `1` till the end
-
-**The For-Each Loop:** The `foreach` loops are used with arrays to iterate (traverse) over the elements or items of the array. The syntax looks like `foreach (Type item in items) {...}` where `item` is the loop variable we can use inside the loop body.
-- `foreach (int num in nums) {...}`
-- `foreach (string name in names) {...}`
-
-**MULTI DIMENSIONAL ARRAYS**
-- **Jagged Arrays:** Jagged arrays are multi-dimensional arrays that are created like `int[][] matrix = new int[3][];` which represents an array of 3 arrays of inetegers. The syntax is kind of ugly.
-- **Rectangular Arrays:** Rectangular are also multi-dimensional arrays that are created like `int[,] matrix = new int[3, 2] {...};` which represents an array containing 3 rows and 2 columns.
-
-## METHODS
-
-Functions are reusable set of statements that we can use in multiple places while methods are functions associated with a single object or class. 
-
-**Creating Methods:** Methods can be created by first writing their return type, their name with parentheses and then the method body. The syntax looks like `[returnType] [methodName]() {...}`. Methods in C# uses the upper camel case `UpperCamelCase` for their names. Method body contains set of statements required to accomplish a certain task.
+**Creating Methods:** Methods can be created by first writing their return type, their name with parentheses and then the method body. The syntax looks like `[returnType] [methodName]() {...}`. Method body contains set of statements required to accomplish a certain task.
 - `void CountToTen() {...}` - Method that returns nothing `void`
 - `int GetItems() {...}` - Method that returns nothing `int`
 
-**Local Functions:** Functions or methods that are defined inside of other methods are called local functions. They will be available only inside the function or methods they are defined in.
+**Method Name Conventions:** Methods in C# uses the upper camel case `UpperCamelCase` for their names while their parameters or argument names uses lower camel case `lowerCamelCase`.
 
-**Calling Methods:** Functions and methods can be called by writing their names and putting parentheses after that. Functions (not inside a class) can be called just through their name like `CountToTen()` and methods inside are called through their class and their name like `Counter.CountToTen()`.
-
-**Scope Of Methods:** Functions or methods get their own set of variables to work with. Variables created inside the function or method are local to that function/method and cannot be used outside of it (local variables). 
+**Scope Of Methods:** Methods or local functions get their own set of variables to work with. Variables created inside the method or local function are always local to that function/method and cannot be used outside of it. These variables are called local variables.
 - Though you can use the variables defined in the outer scope (or global scope), it should not be encouraged and is not considered a good practice.
 
-**Passing Data To Methods:** Parameters are defined while creating the method inside the parentheses separated by commas. They are defined by their annotated types and can also have a default value. Arguments are values passed to parameters when we call our methods.
+**Passing Data To Methods:** Parameters are defined while creating the method inside the parentheses separated by commas like `void OurMethod(int number, float ratio)`. They are defined by their annotated types. Arguments are values passed to parameters when we call our methods.
 - `void CountTo(int num) {...}`
-- `void CountTo(int num, string message) {...}` 
+- `int GetCountTo(int num, string message) {...}` 
+
+**Default Parameter Values:** We can also set default values for parameters while creating the method through assignment operator `=` like `void OurMethod(int num = 10)`. Default parameters should always come after the non-default parameters (the required parameters). 
+- `void CountTo(int num = 10) {...}`
+- `void GreetUser(int num, string msg = "Greeting") {...}`
+
+Default parameters makes the arguments to the method calls optional. We don't need to pass arguments for parameters which have appropriate default values unless we want to call with different arguments.
 
 **Returning Data Back:** For returning values from a method, we first have to define the return type while creating the method and then return the appropriate value inside the method body through `return` keyword anywhere. Flow of execution stops when it reaches the `return` statement. 
 - `int GetAge(string name) { return 0; }`
 - `string GetName(int id) { return "Ali"; }`
-
-**METHOD OVERLOADING** 
-In C#, two methods inside a class can share same names that does the same job but with different set of parameters. Sharing the same method names with slightly different parameter lists is called method overloading. Local functions does not allow overloading.
-
-When the compiler enounters a method call to an overloaded method, it must figure out which overload to use based on the type and number of arguments provided. This is called overload resolution.
-
-The set or collection of all overloads of a method (all methods with same names) is called the method group. 
 
 **Simple Methods:** Simple methods allows us to define a new method in a single line of code as a statement. If we can represent a method with a single expression, we can shorted our method by putting the return value arrow `=>`, after the method name. These methods are said to have expression body.
 - `int DoubleNum(int value) => value * 2;`
@@ -624,10 +737,38 @@ The set or collection of all overloads of a method (all methods with same names)
 
 The arrow `=>` usually indicates that a value or expression is coming next.
 
+**Calling Methods:** Local functions are called by writing their names and followed by a pair of parentheses with the list of arguments separated by commas like `OurLocalFunction(42, 10)`. Methods are called similarly but they need to mention their class through dot operator `.` like `OurClass.OurMethod(42, 10)`.
+- `CountToTen(10);`
+- `Counter.CountToTen(10);`
+
+**Named Arguments:** We can also explicitly write out the parameter names for each argument value we are passing in the method call through colon `:` separated by commas like `GetPoint(x: 10, y: 15)`. This allows us to call the method with parameters in any order (not just the order in which they are defined in).
+- `Math.Clamp(min: 50, max: 100, value: 20)`
+
+**Variable Number Of Arguments:** We use the `params` keyword on the parameters of methods that allows us to treat multiple arguments passed to method call as an array like `public void Method(params int[] numbers)`. We can only have one `params` parameter in the method and it must come after all the regular parameters.
+- `void GetMax(params int[] numbers)` - Called like `GetMax(2, 3, 4)`
+- `void Average(params int[] numbers)` - Called like `Average(2, 3, 4)`
+
+**Method Overloading:** We can create two methods inside a class with same names that does the same job but with different set of parameters. This is called method overloading where we have more than method with same names but with different set of parameters. Local functions does not allow overloading.
+- The set or collection of all overloads of a method (all methods with same names) is called the method group.
+- When the compiler enounters a method call to an overloaded method, it figures out which method to use based on the type and number of arguments provided. This is called overload resolution.
+
 **Methods Documentation:** XML documentation comments allows us to document our created methods. Just go over the line above your defined method and write `///`. The IDE will recognize this and expands the comment to include helpfule documentation.
 
 **Recursion:** The paradigm where the method or function calls itself inside its own body. In C# we can simply call the method inside its own body, the same way we call it anywhere else.
 - `int RecurMethod() { ... RecurMethod() ... }`
+
+**PASSING OF ARGUMENT TYPES**
+**Passing By Value:** When an argument which belongs to value data type or reference data type is passed to the methods, the value contents are duplicated and copied into the method parameter. This is called as passing by value.
+
+**Passing By Reference:** When two methods share the same variable through its memory location address rather than the actual copy of value it is called passing by reference. Only the memory address pointer location is passed to the methods rather than the actual contents copy.
+- Passing by reference is primarily for value types (like structs). Reference types already get most of the benefits by their nature.
+- This can make your program run faster and consume less memory when passing large structs or large number of objects.
+
+**Passing Arguments By Reference:** We use the `ref` keyword on the parameters and arguments to indicate that this value or object is to be passed by reference (memory address) and not the actual value like `void OurMethod(ref int x) {...}`. We will also use `ref` keyword when calling the method like `OurMethod(ref y)` where `int y = 3;`.
+- The called methods has total access to the caller's variables shared through `ref` keyword. The method can access them and can also change them which might not be always desirable.
+- Passing `ref` parameters can only be done with a variable, something that has a memory location already allocated. We cannot supply an expression or direct value to it.
+
+#TODO output parameters, deconstructors, extension methods
 
 ## MEMORY MANAGEMENT
 
@@ -1018,7 +1159,7 @@ Structs are like classes that allows us to define data structures without comple
 
 #TODO : most of built-in types are structs, some are classes
 
-## #TODO : RECORDS
+#TODO : RECORDS
 
 ## GENERICS
 
@@ -1132,16 +1273,254 @@ The `TimeSpan` struct represents a span of time or period of time. There are two
 - `ts.TotalSeconds`
 - `ts.TotalMilliseconds`
 
-**No Time Period:** The `TimeSpan` struct contains one more property that represents no time period at all. This is called zero time period defined by `ts.Zero`.
+**No Time Period:** The `TimeSpan` struct contains one more property that represents no time period at all. This is called zero time period accessed by `TimeSpan.Zero`.
 
-**Operation Between DateTimes and TimeSpans:** TODO
+**Operation Between DateTimes and TimeSpans:** Both `DateTime` and `TimeSpan` have defined various types of operations through comparison operators like (`<`, `>`, `<=`, `>=`, `==`, `!=`) as well as addition `+` and subtraction `-`.
 
+## THE GUID STRUCT
+
+The `Guid` struct in the `System` namespace represents a globally unique identifier or GUID. It allows us to generate random ID identifiers that are globally unique (no two can be same).
+
+**Creating Identifiers:** We use the method `Guid.NewGuid()` like to generate new GUIDs. If we already have our own GUID in the string form, we can also use it to create new GUID through `new Guid("...")`.
+- `Guid id = Guid.NewGuid();`
+- `Guid id = new Guid("10A24EC2-3008-4678-AD86-FCCCDA8CE868");`
+
+## NAMESPACES
+
+It is conventional in C# to put the types (like classes and structs) into their own separate files with filenames that matches the type's name contained in it. Tiny type definitions like enumerations and records can be lumped in with closely related types.
+
+A program project can only contain one file with the main method. This is because the `Main()` method is the entry point of running the project.
+
+**Full Qualified Names:** A descriptive way to refer to the types which combines the namespace it lives in and the type name itself like `[NameSpace].[Type]`. Any time we use a type's name, we have the option to use the type's fully qualified name.
+- `System.Console` - Refers to the `Console` class inside `System` namespace
+- `System.Text.StringBuilder` - Refers to the `StringBuilder` class inside `System.Text` namespace
+
+**Namespaces:** Allows us to organize various related types into a container. A namespace is a named container or module for containing and organizing types. We have seen various namespaces like `System`, `System.Text` and `System.Collections.Generic`.
+
+**Using Directives:** The `using` directive along with a namespace is placed at the top of the file to indicate that you will be using the types from this namespace inside current program. It allows us to use the types in that namespace without typing out their fully qualified names. We do this like `using [Namespace];`.
+- `using System.Text;` - Can use types like `StringBuilder` now
+- `using System.Collections.Generic;` - Can use types like `List` or `Dictionary` now
+
+**Implicit Using Directives:** The C# projects now adds several `using` directives implicitly in the project configuration settings to import some of the most common namespaces automatically. We don't need to add them ourselves. Therefore, we only need to add `using` directives for namespaces that are not obvious and required in our program files.
+
+**Global Using Directives:** Global using directives allows us to import namespaces globally in all of the files of the project. We use the `global using` directive to in any file to globally use the types in the included namespace like `global using [Namespace]`.
+- The `global using` directive must appear before any regular `using` directives.
+- It is recommended to include all the `global using` directives in a single file like `GlobalUsings.cs` or `ProjectSettings.cs`.
+
+**Static Using Directives:** Static using directives allows us to use the members of static types (like static classes) as simple variables or local functions without mentioning the type itself. We use the `using static [Namespace.StaticType];` directive for static using directives.
+- `using static System.Math;` - Allows us to use `PI` and `Sin(x)` members of static `Math` class type
+- `using System.Console;` - Allows us to use `WriteLine()` and `ReadLine()` members of static `Console` class type
+
+**Using Directives Aliases:** Using directives also allows us to use the types from some namespaces through aliases. We use the `using [Alias] = [Namespace.Type];` directive to create aliases for included types in the namespace.
+- `using OurMath = System.Math;`
+- `using PPoint = OurPhysicsEngine.Point;`
+- `using RPoint = RayPhysicsEngine.Point;`
+
+**ORGANIZING TYPES INTO NAMESPACES**
+All the types we have used are contained in one namespace or another. Anything that is meant to be shared and reused in other projects should be in a namespace. A namespace name should convey the relationship between the related types it contains.
+
+**Creating Namespaces:** We use the `namespace` keyword, along with the namespace name and block of body `{...}` to indicate that the following types will be contained inside this namespace like `namespace [Name] {}`. We can also end the namespace directive with semi-colon `;` to indicate that the whole file is a namespace (won't need to indent inside `{...}` now).
+- `namespace OurAwesomeSpace;`
+- `namespace OurAwesomeSpace {...}`
+
+**Nesting Namespaces:** We can create nested namespaces through organizing the dot operator `.` like `namespace [Name.Nested] {...}` or `namespace [Name.Nested];`. This allows us to organize our types further.
+- `namespace SpaceGame.Ships {...}`
+- `namespace SpaceGame.PhysicsEngine {...}`
+
+**Namespace Name Conventions:** Most of the times namespace names mirrors the name of the project. Project names are usually given a short and memorable name like `SpaceGame` or they are prefixed by the company name like `RBTech.SpaceGame`. Large projects are made of multiple components whose names are added at the end of project names like `SpaceGame.Client` or `RBTech.SpaceGame.Client`.
+
+
+**TRADITIONAL ENTRY POINT**
+
+**Top-Level Statements:** Writing your code statements directly in the file `Program.cs` refers to top-level statements. These statements and code will are placed in designated method inside a designated class behind the scenes which is responsible for being the entry-point of the project.
+
+**THE ENTRY POINT**
+The part of the program that executes automatically when the project is run (executed) is called the entry-point of the project. The `Main` method inside the `Program` which is contained inside the `Program.cs` file is considered the traditional entry-point most C# projects.
+
+**Program Class:** We create a regular or internal `Program` class inside the file `Program.cs`. The class can optionally be a part of the namespace with same name as the project like `namespace OurProject { internal class Program { ... } }`.
+
+**Main Method:** After creating the `Program` class, we create a static method inside the class that returns nothing like `static void Main() {...}`. The method can consist of optional CLI parameters represented as array of strings like `static void Main(string[] args) {...}`.
+
+## ERRORS AND EXCEPTIONS
+
+**Exceptions:** When some code encounters a failure condition, something exceptional and outside of the ordinary then the code creates a new object that represents these errors called exceptions. Exceptions are objects that represents problems occurred in the code. They are thrown at us when the compiler detects something that it does not know how to deal with.
+- All exception objects that are generated by problematic code are instances of the class `System.Exception` or classes that are derived from it.
+
+**Bubbling Up:** Exceptions always bubble up from the bottom. They bubble up from a method to its caller and then to that method's caller, looking to see if anything knows how to resolve the problem.
+
+**Errors Handling Mechanism**
+1. We first find the set of statements that could possibly lead to error and put it inside a `try` block. We only put the problematic code in the `try` block.
+2. Then if some exception is thrown by the problematic code (some error occured), it would be catched by the `catch` block. The `catch` block contains the code that allows us to deal and recover from the errors raised. 
+3. In the end we can optionally have `finally` block which always runs whether some exception is raised or not. It contains code that we want to run no matter what happens in `try` and `catch` block.
+
+**THE TRY BLOCK** 
+We create the try block through the `try` keyword followed by block body `{}` like `try {...}`. The try block always contains the problematic code that could lead to errors (dividing some number by zero, some data object not found in database and more). 
+
+If some exception occurrs in the try block then the execution is moved to the `catch` which handles that exception. If there are no errors then the execution will skip `catch` blocks and will continue normally.
+
+When a code statement in the `try` block first throws an exception, the rest of the code will be skipped (not run). It is important to place the right statements in the `try` block (smaller is usually better).
+
+**THE CATCH BLOCK**
+We create the catch block through the `catch` keyword, the specific exception to deal with in the previous `try` block and followed by block body `{}` like `catch (SomeException) {...}`. The catch block always contains the code that deals and recovers from the error occurred in the last `try` block.
+
+**Specific Exceptions:** We can have more than one `catch` blocks that deal with different exceptions raised from the problematic code like `catch (SomeException) {...} catch (OtherException) {...}`.
+
+**Don't Catch All:** We would never want to create a catch block that handles the `Exception` like `catch (Exception) {...}`. Handle only the exception types you can recover from and handle different excpetions differently.
+
+**Using Exceptions:** We can use the exception object in the `catch` block body if we want. We can add the name of exception object after the exception in the catch block like `catch (SomeException error)`. Exception objects defines a `Message` property that we can use in catch body like `error.Message`.
+
+> "Code that cannot reasonably resolve a specific problem type should not catch it"
+> "If there is no recourse for an error, it is reasonable for the program to end"
+
+**THE FINALLY BLOCK**
+We create the finally block after try and catch block, through the the `finally` keyword followed by block body `{...}`. It contains code that should run regardless of how the flow of execution (whether any exception raised or not). A finally block allows for ensuring you can get back to your original state of the code.
+
+**EXCEPTIONS**
+Exceptions are object instances of class `System.Exception` or classes that derive from `System.Exception`. The `Exception` class is the most basic and fundamental exception that are used to create other derived exception classes. We should never use `Exception` directly.
+
+There are various kinds of exceptions in C# for various situations that allows us. All of these exceptions are derived from `Exception` class. Some of the common ones are:
+- `NotImplementedException`
+- `NotSupportedException`
+- `InvalidOperationException`
+- `ArgumentOutOfRangeException`
+- `ArgumentNullException`
+- `ArgumentException`
+
+**Creating Our Exceptions:** We can create our own exceptions by creating a class that derives from the `Exception` class or one of the various classes that derive from `Exception` class like `public class OurException : Exception {...}`. Conventionally all the exceptions name should end with `Exception` word.
+
+Now we have to create two constructors with no statements, inside our exception class that maps to the base class like:
+- `public OurException() : base() {}`
+- `public OurException(string message) : base(message) {}`
+
+After creating our exception class, we can create exception instance objects just like normal objects, through `new` and one of the constrcutors like `new OurException()` or `new OurException("Yo! shits gone south")`.
+
+**Throwing Excpetions:** We use the `throw` directive to raise exception instances (errors) in our code like `throw new OurException();`. We can throw exceptions wherever we want in our code, which starts the process of bubbling up to find a handler (catch block) that can deal with errors.
+
+## DELEGATES
+
+A delegate is a type that can hold a reference to a method or local function. It allows us to pass around methods or local functions to other methods as though it were simple data. Delegates can significantly increase the flexibility of sections of code. It can allow you to define operations with replaceable elements in the middle, filled in by other methods via delegates.
+
+**OUR OWN DELEGATE TYPES**
+**Creating Delegates:** We define a delegate type through the `delegate` keyword, the return type, the name of the delegate type and the parameter list inside parentheses like `delegate returnType OurDelegate(parameters);`. Delegate type names conventionall ends with the `Delegate` word.
+- `public delegate int NumberDelegate(int number);`
+- `public delegate bool CheckNumberDelegate(int number);`
+
+**Passing Delegates:** We can pass delegates to methods by annotating the parameter with a delegate type like `void OurMethod(OurDelegate operation) {...}`. Now we can pass methods to `OurMethod` that matches the `OurDelegate` signature (return type and parameters) without brackets.
+- We pass methods like `OurMethod(SomeMethod)` where `SomeMethod` match the return type and parameter list of the delegate type `OurDelegate`.
+- We can also pass methods from other class or objects like `OurMethod(thing.SomeMethod)` as along as it matches the delegate type `OurDelegate`.
+
+**Calling Passed Delegates:** Inside the method body, we can use the provided delegate method just like a regular method. There are two ways in which we can call the passed delegate method: 
+- We can call the method like a regular method with parentheses like `operation()` passing necessary arguments inside the parentheses.
+- We can call the method through `Invoke()` method like `operation.Invoke()` passing necessary arguments inside the `Invoke()`. This allows us to check for null delegate value like `operation?.Invoke()`.
+
+**Example**
+- For the delegate type defined like `public delegate int NumberDelegate(int number);` can have all the methods that accepts an integer and returns an integer as the delegate value.
+- To use this `NumberDelegate` in one of our methods we have to define it in the method like `void ChangeArray(int[] numbers, NumberDelegate operation) {...}`.
+- All the following methods can be passed to the `ChangeArray` method with the delegate type `NumberDelegate` type like `ChangeArray(new int[] {1, 2, 3}, AddOne)` or `ChangeArray(new int[] {3, 4, 5}, SubtractOne)`.
+	- `int AddOne(int number) => number + 1;`
+	- `int SubtractOne(int number) => number - 1;`
+	- `int Double(int number) => number * 2;`
+- Inside the method body we can call these methods like `operation(10)` or `operation.Invoke(10)`.
+
+**PREDEFINED DELEGATE TYPES**
+The base call library provides a flexible extensive collection of delegate types that covers most of the scenarios for us. If we use one of these delegate types, we might not need to define our delegate types.
+
+There are three kinds of generic delegate types that covers virtually all the scenarios: 
+- `Action` Delegate 
+- `Func` Delegate
+- `Predicate` Delegate
+
+**The Action Delegate Type:** The `Action` generic delegate type has a `void` return type. They capture all delegate methods where the method performs a job without returning any value.
+- `Action`: The simplest delegate type for methods with no parameters and with `void` return type like `void DoSomething() {...}`.
+- `Action<TParam>`: Delegate type for methods that recieves one parameter of type `TParam` and with `void` return type like `void DoSeomthing(string name) {...}` for `Action<string>`.
+- `Action<TParamA, TParamB>`: Delegate type for methods that recieves two parameters of type `TParamA` and `TParamB` with `void` return type like `void DoSomething(int num, string msg) {...}` for `Action<int, string>`.
+
+**The Func Delegate Type:** The `Func` generic delegate type capture all the methods where the method returns some value.
+- `Func<TResult>`: The simplest delegate type for methods with no parameters which returns value of type `T` like `int DoSomething() {...}` for `Func<int>`.
+- `Func<TParam, TResult>`: Delegate type for methods that receives one parameter of type `TParam` and returns a value of type `TResult` like `int DoSomething(string msg) {}` for `Func<string, int>`.
+- `Func<TParamA, TParamB, TResult>`: Delegate type for methods that receives two parameters of types `TParamA` and `TParamB`, and returns a value of type `TResult` like `int DoSomething(float ratio, string msg) {}` for `Func<float, string, int>`.
+
+**The Predicate Delegate Type:** The `Predicate` generic delegate type capture all methods where the method returns a boolean value.
+- `Predicate<TParam>`: The simplest delegate type for methods that receives one parameter of type `TParam` which returns a boolean value like `bool DoSomething(int input) {...}` for `Predicate<int>`.
+- `Predicate<TParamA, TParamB>`: Delegate type for methods that receives two parameters of types `TParamA` and `TParamB` which returns a boolean value like `bool DoSomething(int num, string msg) {...}` for `Predicate<int, string>`.
+
+#TODO: multi-cast delegates, delegate method chaining
+
+## EVENTS
+
+Events are a mechanism that allows a class (or an object) to notify observers that something has changed or happened, so they can respond.
+
+**Events Mechanism:** Any class can create an event as a member (like properties and methods). Any other object can act as a listener or an observer and can subscribe to the event to be notified when the event occurs. The class that owns the event can then raise or fire the event when the time is right, causing each listener's handler to run.
+
+**Events:** Signals that lives inside a class that indicate that something has happened.
+**Event Handlers:** The method that runs when an event has occurred or raised up.
+
+**USING EVENTS**
+**Creating Events:** We define events inside a class as its member through the `event` keyword followed by its delegate type and then the event name like `event [Delegate]? EventName;`. Events can be `null` (that `?` in `Delegate?`) when no event handlers are attached to them.
+- `public event Action? ShipExploded;`
+- `public event Action<Point>? ShipExploded;`
+
+**Invoking Events:** After our event is created we can raise or fire the event at the appropriate moment or place by invoking it just like delegate methods like `EventName(...)` or `EventName.Invoke(...)`. The raising or firing of event can be placed anywhere inside the owned class within any method.
+- `ShipExploded()`
+- `ShipExploded.Invoke(location)`
+
+**Creating Event Handlers:** Now on the observer side, we will create our event handler method inside another class that observes the event. The event handler should match the delegate type of the event in the source class like `public void OnEventName() {...}` or `public void HandleEventName(...) {...}`. Event handler method names conventionally starts with `On` or `Handle`.
+- `public void OnShipExploded() {...}`
+- `public void OnShipExploded(Point location) {...}`
+
+**Subscribing To Events:** On the observer side, we attach and subscribe our event handler in observer class method to the event in the source class. We subscribe event handlers to events by simply adding the event handler to the event in-place like `source.EventName += OnEventName`. We can subscribe to events at any place we want but most of the times it is best to do it in the observer class constructor.
+- `ship.ShipExploded += OnShipExploded;`
+- `ship.GameLevelEnded += OnGameLevelEnded;`
+
+**Unsubscribing To Events:** On the observer side, after we are done with the event we can detach or unsubscribe to them. We usubscribe event handlers from events by simply subtracting event handler to the event in-place like `source.EventName -= OnEventName;`.
+- `ship.ShipExploded -= OnShipExploded;`
+- `ship.GameLevelEnded -= OnGameLevelEnded;`
+
+**Event Leaks:** If an object is accidentally surviving during the runtime because of an event subscription alone, it is called an event leak or an event memory leak.
+- **Cleanup Method:** A common solution is to make a `Cleanup` method that ussubscribe from all the previous subscribed events. When it is time for the object to die, we call this method.
+- **Dispose Methods:** Another common solution is to make a `Dispose` method and make the class implement `IDisposable` interface.
+
+**Custom Event Accessors:** Two accessors can be defined inside events body `{}`
+- `add {...}` for when attaching the event handler 
+- `remove {...}` for when detaching the event handler
+
+## LAMBDA EXPRESSIONS
+
+Lambda expressions are small unnamed methods created using a short syntax. A lambda expression defines a single-use method inline right where it is needed. We can use lambda expressions for delegate types.
+
+Lambda functions are created by first listing all the parameters inside parentheses `(...)` followed by an arrow operator `=>` and then the return expression or statements body.
+
+**Parameters:** We can have zero or more than zero parameters for our lambda functions inside parentheses `(...)` like
+- `() => 42`: Lambda function with no parameters
+- `(n) => n > 2`: Lambda function with single parameter
+- `(a, b) => a + b`: Lambda function with two parameters
+
+**Type Inference:** Though lambda expressions are meant to be simple without the boilerplate stuff of regular methods, we can define the parameter and return types of the lambda functions.
+- Return types of lambda functions are mentioned before the lambda function like 
+	- `int (a, b) => a + b`
+	- `bool (a) => a == 42`
+- Parameter types of lambda functions are mentioned before the parameters inside `()` like
+	- `bool (int a) => a == 42`
+	- `int (int a, int b) => a + b`
+
+**Discards:** We can use a discard parameter represented by `_` when you don't need to be using all the parameters in the lambda functions like
+- `(a, _) => 42`
+- `(int a, int _, int _) => 42`
+
+**Lambda Expressions:** Lambda functions that makes use of simple expressions in the output which also makes use of the lambda parameters are called lambda expressions like
+- `() => 42`
+- `(a) => a > 2`
+- `(a, b) => a * b`
+
+**Lambda Statements:** Lambda functions that makes use of statements body `{...}` in the output which also makes use of some lambda parameters are called lambda statements like `(...) => {...}`.
+- `(n) => { return (n % 2) == 0; }`
+- `(n) => { Console.WriteLine("Hello"); return (n % 2) == 0; }`
+
+## FILES
 
 ---
 ## MORE
 - lifetimes in c#
-- 
 
 ---
 ## REFERENCES
--

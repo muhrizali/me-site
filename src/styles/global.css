@@ -127,7 +127,7 @@
 }
 
 .writing code {
-    @apply  text-heading bg-neutral-primary-medium px-1 py-0.5;
+    @apply  text-sm text-heading bg-neutral-primary-medium px-1 py-0.5;
 }
 
 .writing pre {

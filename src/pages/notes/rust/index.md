@@ -11,7 +11,7 @@ datePublished: "2025-08-22T08:23:44"
 dateModified: "2025-08-22T08:23:44"
 
 # states
-isDraft: false
+isDraft: true
 tags:
   - Rust
   - Systems
