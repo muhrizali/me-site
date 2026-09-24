@@ -10,7 +10,7 @@ const datePublished = DateTime.fromISO(frontmatter.datePublished).toLocaleString
         {frontmatter.tags.map(
             (item: any) => (
                 <li class="text-body-subtle border-2 border-transparent font-medium">
-                    <a href={`/tags/${item}`} class="decoration-2 decoration-brand hover:underline h-full w-full">{item}</a>
+                    <a href={`/tags/${item}`} class="decoration-2 decoration-brand hover:underline active:underline h-full w-full">{item}</a>
                 </li>
           )
         )}

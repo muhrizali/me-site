@@ -28,40 +28,17 @@ const navigationItems = [
     class="bg-neutral-primary w-full z-20 top-0 inset-s-0 border-b-0 border-default">
     <div
         class="max-w-5xl flex flex-wrap items-center justify-start mx-auto px-4 py-4 lg:px-0">
-
-        <!-- <button
-            data-collapse-toggle="navbar-default"
-            type="button"
-            class="inline-flex items-center p-2 w-10 h-10 justify-center text-sm text-body rounded-base md:hidden hover:bg-neutral-secondary hover:text-heading border-2 border-default"
-            aria-controls="navbar-default"
-            aria-expanded="false">
-            <span class="sr-only">Open Navigation</span>
-            <svg
-                class="w-6 h-6"
-                aria-hidden="true"
-                xmlns="http://www.w3.org/2000/svg"
-                width="24"
-                height="24"
-                fill="none"
-                viewBox="0 0 24 24">
-                <path
-                    stroke="currentColor"
-                    stroke-linecap="round"
-                    stroke-width="2"
-                    d="M5 7h14M5 12h14M5 17h14"></path>
-            </svg>
-        </button> -->
         <div class="w-full" id="navbar-default">
             <ul
-                class="font-bold text-3xl sm:text-lg flex flex-row gap-6 sm:gap-6 mt-4">
+                class="font-medium text-3xl sm:text-lg flex flex-row gap-6 mt-4">
                 {
                     navigationItems.map((item) => (
                         <li>
                             <a
                                 href={item.href}
                                 class="block text-heading">
-                                <span class="block p-1 hover:bg-neutral-secondary border-2 border-transparent hover:border-brand rounded-sm hover:no-underline sm:hidden">{item.icon}</span>
-                                <span class="hidden decoration-2 decoration-brand hover:underline sm:inline">{item.label}</span>
+                                <span class="block sm:hidden p-1 hover:bg-neutral-secondary active:bg-neutral-secondary border-2 border-transparent rounded-sm hover:border-brand active:border-brand hover:no-underline">{item.icon}</span>
+                                <span class="hidden sm:inline decoration-2 decoration-brand hover:underline active:underline">{item.label}</span>
                             </a>
                         </li>
                     ))}
