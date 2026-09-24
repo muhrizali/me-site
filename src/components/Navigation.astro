@@ -3,41 +3,24 @@ const navigationItems = [
     {
         label: "Home",
         href: "/",
+        icon: "🏠",
     },
-    // {
     {
         label: "Posts",
         href: "/posts",
+        icon: "📝",
+        // icon: "🗃️",
     },
-    // {
     {
         label: "About",
         href: "/about",
+        icon: "😗",
     },
     {
         label: "Now",
         href: "/now",
+        icon: "⏳"
     },
-// {
-    // {
-    //     label: "Blog",
-    //     href: "/blogs",
-    // },
-    // {
-    //     label: "Notes",
-    //     href: "/notes",
-    // },
-    // {
-    //     label: "Projects",
-    //     href: "/projects",
-    // },
-    // {
-    //     label: "Books",
-    //     href: "/books",
-    // },
-    //     name: "Home",
-    //     href: "/home",
-    // },
 ];
 ---
 
@@ -46,13 +29,7 @@ const navigationItems = [
     <div
         class="max-w-5xl flex flex-wrap items-center justify-start mx-auto px-4 py-4 lg:px-0">
 
-        <!-- <a href="/" class="block h-full p-1 border-2 border-default">
-            <span
-                class="text-2xl text-heading font-semibold whitespace-nowrap"
-                >stupidali</span
-            >
-        </a> -->
-        <button
+        <!-- <button
             data-collapse-toggle="navbar-default"
             type="button"
             class="inline-flex items-center p-2 w-10 h-10 justify-center text-sm text-body rounded-base md:hidden hover:bg-neutral-secondary hover:text-heading border-2 border-default"
@@ -73,18 +50,18 @@ const navigationItems = [
                     stroke-width="2"
                     d="M5 7h14M5 12h14M5 17h14"></path>
             </svg>
-        </button>
-        <div class="hidden w-full md:block md:w-auto" id="navbar-default">
+        </button> -->
+        <div class="w-full" id="navbar-default">
             <ul
-                class="font-medium flex flex-col p-4 md:p-0 mt-4 border-2 border-default rounded-base bg-neutral-secondary md:flex-row md:space-x-8 rtl:space-x-reverse md:mt-0 md:border-0 md:bg-neutral-primary">
+                class="font-bold text-3xl sm:text-lg flex flex-row gap-6 sm:gap-6 mt-4">
                 {
                     navigationItems.map((item) => (
                         <li>
                             <a
                                 href={item.href}
-                                class="block py-2 px-3 text-heading decoration-2 decoration-brand hover: hover:bg-neutral-tertiary hover:underline md:hover:bg-transparent md:border-0  md:p-0 md:dark:hover:bg-transparent"
-                                aria-current="page">
-                                {item.label}
+                                class="block text-heading">
+                                <span class="block p-1 hover:bg-neutral-secondary border-2 border-transparent hover:border-brand rounded-sm hover:no-underline sm:hidden">{item.icon}</span>
+                                <span class="hidden decoration-2 decoration-brand hover:underline sm:inline">{item.label}</span>
                             </a>
                         </li>
                     ))}

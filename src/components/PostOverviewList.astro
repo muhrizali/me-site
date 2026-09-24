@@ -1,12 +1,10 @@
 ---
-import Post from "./Post.astro";
 import { getCollection } from "astro:content";
 import * as _ from "lodash-es";
 
 
 interface Props {
     target: string;
-    // showMore: boolean;
     count?: number;
 }
 
@@ -68,7 +66,7 @@ switch(target) {
                 (item) => (
                     // <Post postItem={item} />
                     <li class="mb-0">
-                        <a class="text-fg-brand no-underline decoration-1 hover:underline line-clamp-1" href={sectionLink + item.id}>{item.data.title}</a>
+                        <a class="text-fg-brand no-underline decoration-2 hover:underline line-clamp-1" href={sectionLink + item.id}>{item.data.title}</a>
                     </li>
                 )
             )

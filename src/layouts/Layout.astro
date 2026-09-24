@@ -3,7 +3,9 @@ import "../styles/global.css";
 import Navigation from "../components/Navigation.astro";
 import Footer from "../components/Footer.astro";
 import Main from "../components/Main.astro";
+
 import { ClientRouter } from "astro:transitions";
+import { Font } from "astro:assets";
 
 const { title = "Stupid Ali" } = Astro.props;
 ---
@@ -24,7 +26,10 @@ const { title = "Stupid Ali" } = Astro.props;
     <meta name="googlebot" content="index,find" />
     <meta name="description" content="A description for the page" />
 
-
+    <!-- Astro Fonts Config -->
+    <Font cssVariable="--font-plex-mono" />
+    <Font cssVariable="--font-fira-code" />
+    
     <!-- Astro View Transitions -->
     <ClientRouter />
   </head>

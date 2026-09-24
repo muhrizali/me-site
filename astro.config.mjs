@@ -1,5 +1,5 @@
 // @ts-check
-import { defineConfig } from 'astro/config';
+import { defineConfig, fontProviders } from 'astro/config';
 
 import tailwindcss from '@tailwindcss/vite';
 
@@ -20,6 +20,19 @@ export default defineConfig({
       theme: 'gruvbox-dark-hard',
     }
   },
+
+  fonts: [
+    {
+      provider: fontProviders.fontsource(),
+      name: "IBM Plex Mono",
+      cssVariable: "--font-plex-mono",
+    },
+    {
+      provider: fontProviders.fontsource(),
+      name: "Fira Code",
+      cssVariable: "--font-fira-code",
+    },
+  ],
 
   adapter: cloudflare()
 });

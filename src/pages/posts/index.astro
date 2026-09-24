@@ -1,15 +1,11 @@
 ---
 import Layout from "../../layouts/Layout.astro";
-import Writing from "../../components/Writing.astro";
-// import HomeBanner from "../components/HomeBanner.astro";
 import PostList from "../../components/PostList.astro";
 ---
 
 <Layout>
 
-<!-- <Writing> -->
-<h2 class="text-3xl/tight">BLOGS</h2>
-<!-- </Writing> -->
+<h2 class="text-3xl/tight font-extrabold">BLOGS</h2>
 <PostList target="blogPosts" count={3} showMore={true} />
 
 <h2 class="text-3xl/tight">BOOKS</h2>
