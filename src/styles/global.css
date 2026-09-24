@@ -79,19 +79,19 @@
 }
 
 .writing h1, h2, h3, h4, h5, h6 {
-    @apply mt-2 tracking-tight font-bold text-heading;
+    @apply mt-4 tracking-tight font-bold text-heading;
 }
 
 .writing h1 {
-    @apply text-4xl/loose;
+    @apply text-2xl/tight;
 }
 
 .writing h2 {
-    @apply text-3xl/loose;
+    @apply text-xl/normal;
 }
 
 .writing h3 {
-    @apply text-2xl/loose;
+    @apply text-lg/normal;
 }
 
 .writing h4, h5, h6 {
@@ -99,7 +99,7 @@
 }
 
 .writing p {
-    @apply my-4 text-body text-base/snug tracking-tight;
+    @apply mt-4 text-body text-base/snug tracking-tight;
 }
 
 .writing a {
@@ -107,7 +107,7 @@
 }
 
 .writing blockquote {
-    @apply px-4 py-2 mb-4 border-s-4 border-default bg-neutral-secondary;
+    @apply px-4 py-2 mt-4 border-s-4 border-default bg-neutral-secondary;
 }
 
 .writing blockquote p {

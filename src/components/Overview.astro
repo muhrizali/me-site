@@ -1,0 +1,21 @@
+---
+import PostOverviewList from "./PostOverviewList.astro";
+---
+<div class="grid md:grid-cols-2 gap-2 my-4">
+    <article class="p-2">
+        <h3 class="text-xl/tight">BLOGS</h3>
+        <PostOverviewList target="blogPosts" count={3} />
+    </article>
+    <article class="p-2">
+        <h3 class="text-xl/tight">BOOKS</h3>
+        <PostOverviewList target="bookPosts" count={3} />
+    </article>
+    <article class="p-2">
+        <h3 class="text-xl/tight">NOTES</h3>
+        <PostOverviewList target="notePosts" count={3} />
+    </article>
+    <article class="p-2">
+        <h3 class="text-xl/tight">PROJECTS</h3>
+        <PostOverviewList target="projectPosts" count={3} />
+    </article>
+</div>

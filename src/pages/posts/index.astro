@@ -7,32 +7,18 @@ import PostList from "../../components/PostList.astro";
 
 <Layout>
 
-<Writing>
-    <h2>
-        BLOGS
-    </h2>
-</Writing>
+<!-- <Writing> -->
+<h2 class="text-3xl/tight">BLOGS</h2>
+<!-- </Writing> -->
 <PostList target="blogPosts" count={3} showMore={true} />
 
-<Writing>
-    <h2>
-        BOOKS
-    </h2>
-</Writing>
+<h2 class="text-3xl/tight">BOOKS</h2>
 <PostList target="bookPosts" count={3} showMore={true} />
 
-<Writing>
-    <h2>
-        NOTES
-    </h2>
-</Writing>
+<h2 class="text-3xl/tight">NOTES</h2>
 <PostList target="notePosts" count={3} showMore={true} />
 
-<Writing>
-    <h2>
-        PROJECTS
-    </h2>
-</Writing>
+<h2 class="text-3xl/tight">PROJECTS</h2>
 <PostList target="projectPosts" count={3} showMore={true} />
 
 </Layout>

@@ -6,13 +6,12 @@ import * as _ from "lodash-es";
 
 interface Props {
     target: string;
-    showMore: boolean;
+    // showMore: boolean;
     count?: number;
-    tag?: string;
 }
 
 
-async function getOurCollection(key: string, count: number, tag: string = "all") {
+async function getOurCollection(key: string, count: number) {
 
     let collection = [];
 
@@ -26,11 +25,6 @@ async function getOurCollection(key: string, count: number, tag: string = "all")
         ];
     } else {
         collection = await getCollection(key);
-    }
-
-    // Getting the list of posts from the tags
-    if (tag !== "all") {
-        collection = _.filter(collection, (item: any) => item.data["tags"].includes(tag));
     }
     
     // Filtering and organizing the returned posts
@@ -46,47 +40,38 @@ async function getOurCollection(key: string, count: number, tag: string = "all")
     }
 }
 
-let { target = "all", count = 0, tag = "all", showMore } = Astro.props;
+let { target = "all", count = 0 } = Astro.props;
 
-let collection = await getOurCollection(target, count, tag);
-let morePostsLink = { href: "/", label: "Generic" };
+let collection = await getOurCollection(target, count);
+let sectionLink: string = "/";
 
 switch(target) {
     case "blogPosts":
-        morePostsLink = { href: "/blogs", label: "Blogs" };
+        sectionLink = "/blogs/";
         break;
     case "notePosts":
-        morePostsLink = { href: "/notes", label: "Notes" };
+        sectionLink = "/notes/";
         break;
     case "projectPosts":
-        morePostsLink = { href: "/projects", label: "Projects" };
+        sectionLink = "/projects/";
         break;
     case "bookPosts":
-        morePostsLink = { href: "/books", label: "Books" };
+        sectionLink = "/books/";
         break;
 }
 
 ---
-<div class="mb-8">
-    <ul>
+<div class="">
+    <ul class="ml-4 text-body list-disc list-outside text-base/snug tracking-tight">
         {
             collection.map(
                 (item) => (
-                    <Post postItem={item} />
+                    // <Post postItem={item} />
+                    <li class="mb-0">
+                        <a class="text-fg-brand no-underline decoration-1 hover:underline line-clamp-1" href={sectionLink + item.id}>{item.data.title}</a>
+                    </li>
                 )
             )
         }
 </ul>
-{ showMore
-        ? (
-            <div
-            class="text-lg text-body-subtle  mt-4">
-                <span> ~> </span>
-                <a href={morePostsLink.href} class="special-a hover:italic">
-                    More {morePostsLink.label}
-                </a>
-            </div>
-        )
-        : ""
-    }
 </div>
