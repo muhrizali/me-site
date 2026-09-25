@@ -68,7 +68,7 @@ switch(target) {
 
 ---
 <div class="mb-8">
-    <ul>
+    <ul class="space-y-2">
         {
             collection.map(
                 (item) => (
@@ -80,8 +80,8 @@ switch(target) {
 { showMore
         ? (
             <div
-            class="text-lg text-body-subtle  mt-4">
-                <span> ~> </span>
+            class="text-lg text-body-subtle text-right mt-4">
+                <span>/ </span>
                 <a href={morePostsLink.href} class="hover:text-brand active:text-brand">
                     More {morePostsLink.label}
                 </a>

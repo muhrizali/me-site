@@ -59,16 +59,14 @@ switch(target) {
 }
 
 ---
-<div class="">
-    <ul class="ml-4 text-body list-disc list-outside text-base/snug tracking-tight">
-        {
-            collection.map(
-                (item) => (
-                    <li class="mb-0">
-                        <a class="text-brand no-underline decoration-2 hover:underline active:underline line-clamp-1" href={sectionLink + item.id}>{item.data.title}</a>
-                    </li>
-                )
+<ul class="ml-4 text-body list-disc list-outside text-base/snug tracking-tight">
+    {
+        collection.map(
+            (item) => (
+                <li class="mb-0">
+                    <a class="text-brand no-underline decoration-2 hover:underline active:underline line-clamp-1" href={sectionLink + item.id}>{item.data.title}</a>
+                </li>
             )
-        }
+        )
+    }
 </ul>
-</div>

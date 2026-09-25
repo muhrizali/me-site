@@ -75,8 +75,13 @@
     @apply decoration-2 decoration-brand hover:underline;
 } */
 
-.writing h1, h2, h3, h4, h5, h6 {
-    @apply mt-4 tracking-tight font-bold text-heading;
+.writing h1, 
+.writing h2, 
+.writing h3, 
+.writing h4, 
+.writing h5, 
+.writing h6 {
+    @apply mt-6 mb-1 tracking-tight font-bold text-heading;
 }
 
 .writing h1 {
@@ -96,7 +101,7 @@
 }
 
 .writing p {
-    @apply mt-4 text-body text-base/snug tracking-tight hyphens-auto;
+    @apply mb-5 text-body text-base/snug tracking-tight hyphens-auto;
 }
 
 .writing a {
@@ -104,7 +109,7 @@
 }
 
 .writing blockquote {
-    @apply px-4 py-2 mt-4 border-s-4 border-default bg-neutral-secondary;
+    @apply px-4 py-2 mb-5 border-s-4 border-default bg-neutral-secondary;
 }
 
 .writing blockquote p {
@@ -116,11 +121,11 @@
 }
 
 .writing ul {
-    @apply space-y-1 ml-6 text-body list-disc list-outside text-base/snug tracking-tight;
+    @apply ml-6 mb-5 text-body list-disc list-outside text-base/snug tracking-tight;
 }
 
 .writing ol {
-    @apply space-y-1 ml-10 text-body list-decimal list-outside text-base/snug tracking-tight;
+    @apply ml-10 mb-5 text-body list-decimal list-outside text-base/snug tracking-tight;
 }
 
 .writing code {
