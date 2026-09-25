@@ -64,9 +64,8 @@ switch(target) {
         {
             collection.map(
                 (item) => (
-                    // <Post postItem={item} />
                     <li class="mb-0">
-                        <a class="text-fg-brand no-underline decoration-2 hover:underline line-clamp-1" href={sectionLink + item.id}>{item.data.title}</a>
+                        <a class="text-brand no-underline decoration-2 hover:underline active:underline line-clamp-1" href={sectionLink + item.id}>{item.data.title}</a>
                     </li>
                 )
             )

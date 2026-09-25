@@ -71,9 +71,9 @@
     --font-mono: var(--font-fira-code);
 }
 
-@utility special-a {
+/* @utility special-a {
     @apply decoration-2 decoration-brand hover:underline;
-}
+} */
 
 .writing h1, h2, h3, h4, h5, h6 {
     @apply mt-4 tracking-tight font-bold text-heading;
@@ -100,7 +100,7 @@
 }
 
 .writing a {
-    @apply text-fg-brand no-underline decoration-2 hover:underline;
+    @apply text-fg-brand no-underline decoration-2 hover:underline active:underline;
 }
 
 .writing blockquote {
