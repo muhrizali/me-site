@@ -71,9 +71,9 @@
     --font-mono: var(--font-fira-code);
 }
 
-/* @utility special-a {
-    @apply decoration-2 decoration-brand hover:underline;
-} */
+@utility typography-common {
+    @apply text-body text-base/snug tracking-tight hyphens-auto;
+}
 
 .writing h1, 
 .writing h2, 
@@ -81,7 +81,7 @@
 .writing h4, 
 .writing h5, 
 .writing h6 {
-    @apply mt-6 mb-1 tracking-tight font-bold text-heading;
+    @apply mt-6 mb-2 tracking-tight font-bold text-heading;
 }
 
 .writing h1 {
@@ -101,11 +101,11 @@
 }
 
 .writing p {
-    @apply mb-5 text-body text-base/snug tracking-tight hyphens-auto;
+    @apply typography-common mb-5;
 }
 
 .writing a {
-    @apply text-fg-brand no-underline decoration-2 hover:underline active:underline;
+    @apply text-brand decoration-2 hover:underline active:underline;
 }
 
 .writing blockquote {
@@ -113,23 +113,28 @@
 }
 
 .writing blockquote p {
-    @apply my-0 mb-4 last:mb-0 text-base/snug tracking-tight text-heading;
+    @apply typography-common my-0 mb-4 last:mb-0 text-heading;
 }
 
 .writing blockquote figcaption {
     @apply text-body-subtle text-right mr-4;
 }
 
+.writing ul,
+.writing ol {
+    @apply typography-common mb-5;
+}
+
 .writing ul {
-    @apply ml-6 mb-5 text-body list-disc list-outside text-base/snug tracking-tight;
+    @apply ml-6 list-disc list-outside;
 }
 
 .writing ol {
-    @apply ml-10 mb-5 text-body list-decimal list-outside text-base/snug tracking-tight;
+    @apply ml-10 list-decimal list-outside;
 }
 
 .writing code {
-    @apply  text-sm text-heading bg-neutral-primary-medium px-1 py-0.5;
+    @apply inline-block px-1 font-medium border-default rounded-xs text-sm text-heading bg-neutral-secondary;
 }
 
 .writing pre {
@@ -137,7 +142,7 @@
 }
 
 .writing pre code {
-    @apply bg-inherit;
+    @apply bg-inherit border-none;
 }
 
 .writing hr {

@@ -3,18 +3,18 @@ import Layout from "../../layouts/Layout.astro";
 import PostList from "../../components/PostList.astro";
 ---
 
-<Layout>
+<Layout title="Posts">
 
-<h2 class="mb-4 text-2xl/tight text-heading font-bold">BLOGS</h2>
+<h2 class="mt-6 mb-2 text-2xl/tight tracking-tight text-heading font-bold">Blogs</h2>
 <PostList target="blogPosts" count={3} showMore={true} />
 
-<h2 class="mb-4 text-2xl/tight text-heading font-bold">BOOKS</h2>
+<h2 class="mt-6 mb-2 text-2xl/tight tracking-tight text-heading font-bold">Books</h2>
 <PostList target="bookPosts" count={3} showMore={true} />
 
-<h2 class="mb-4 text-2xl/tight text-heading font-bold">NOTES</h2>
+<h2 class="mt-6 mb-2 text-2xl/tight tracking-tight text-heading font-bold">Notes</h2>
 <PostList target="notePosts" count={3} showMore={true} />
 
-<h2 class="mb-4 text-2xl/tight text-heading font-bold">PROJECTS</h2>
+<h2 class="mt-6 mb-2 text-2xl/tight tracking-tight text-heading font-bold">Projects</h2>
 <PostList target="projectPosts" count={3} showMore={true} />
 
 </Layout>
