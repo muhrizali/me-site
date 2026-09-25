@@ -67,7 +67,6 @@
 
 
     /* FONTS */
-    /* --font-sans: var(--font-ubuntu-sans); */
     --font-sans: var(--font-plex-mono);
     --font-mono: var(--font-fira-code);
 }
