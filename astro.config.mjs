@@ -24,14 +24,14 @@ export default defineConfig({
   fonts: [
     {
       provider: fontProviders.fontsource(),
-      name: "IBM Plex Mono",
-      cssVariable: "--font-plex-mono",
+      name: "Fira Code",
+      cssVariable: "--font-fira-code",
       weights: [100, 200, 300, 400, 500, 600, 700, 800, 900],
     },
     {
       provider: fontProviders.fontsource(),
-      name: "Fira Code",
-      cssVariable: "--font-fira-code",
+      name: "Ubuntu Sans Mono",
+      cssVariable: "--font-ubuntu-mono",
       // weights: [100, 200, 300, 400, 500, 600, 700, 800, 900],
     },
   ],

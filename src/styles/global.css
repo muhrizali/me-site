@@ -67,8 +67,8 @@
 
 
     /* FONTS */
-    --font-sans: var(--font-plex-mono);
-    --font-mono: var(--font-fira-code);
+    --font-sans: var(--font-fira-code);
+    --font-mono: var(--font-ubuntu-mono);
 }
 
 @utility typography-common {
