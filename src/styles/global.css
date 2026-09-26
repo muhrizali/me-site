@@ -30,7 +30,6 @@
     /* TEXT COLORS */
     /* main text color */
     --color-body: #ebdbb2;
-    /* --color-body-subtle: #d5c4a1; */
     --color-body-subtle: #bdae93;
     --color-heading: #fbf1c7;
 
@@ -89,15 +88,15 @@
 }
 
 .writing h2 {
-    @apply text-xl/normal;
+    @apply text-xl/tight;
 }
 
 .writing h3 {
-    @apply text-lg/normal;
+    @apply text-lg/tight;
 }
 
 .writing h4, h5, h6 {
-    @apply text-base/normal;
+    @apply text-base/tight;
 }
 
 .writing p {
@@ -105,7 +104,7 @@
 }
 
 .writing a {
-    @apply text-brand decoration-2 hover:underline active:underline;
+    @apply typography-common text-brand decoration-2 hover:underline active:underline;
 }
 
 .writing blockquote {
@@ -122,7 +121,7 @@
 
 .writing ul,
 .writing ol {
-    @apply typography-common mb-5;
+    @apply typography-common space-y-0.5 mb-5;
 }
 
 .writing ul {
