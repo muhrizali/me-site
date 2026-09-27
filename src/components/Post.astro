@@ -31,14 +31,14 @@ const postDatePublished = DateTime.fromISO(postItem.data.datePublished).toLocale
 
 <li class="border-2 border-transparent hover:border-default active:border-default p-3">
     <a href={postLink}>
-        <h3 class="text-lg/tight font-bold text-heading">
+        <h3 class="typography-common text-lg/tight font-semibold text-heading">
             {postItem.data.title}
         </h3>
-        <small class="mb-2 text-body-subtle text-sm font-medium">
+        <p class="typography-common mb-2 text-body-subtle text-base font-normal">
             {postDatePublished}
 
-        </small>
-        <p class="text-body text-sm/snug tracking-tight line-clamp-2">
+        </p>
+        <p class="typography-common text-body text-sm/tight line-clamp-2">
             {postItem.data.description}
         </p>
     </a>

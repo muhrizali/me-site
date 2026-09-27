@@ -6,17 +6,17 @@ const datePublished = DateTime.fromISO(frontmatter.datePublished).toLocaleString
 ---
 
 <div class="w-full my-4">
-    <ul class="flex flex-row gap-4 text-sm/tight tracking-tight mt-6">
+    <ul class="flex flex-row gap-4 text-sm/snug mt-6">
         {frontmatter.tags.map(
             (item: any) => (
-                <li class="px-1.5 border-2 rounded-xs font-medium border-neutral-tertiary hover:border-brand active:border-brand text-body-subtle hover:text-body active:text-body hover:bg-neutral-secondary active:bg-neutral-secondary">
+                <li class="tag-link">
                     <a href={`/tags/${item}`} class="h-full w-full">{item}</a>
                 </li>
           )
         )}
     </ul>
-    <h1 class="my-2 tracking-tighter font-bold text-heading text-4xl/tight">{frontmatter.title}</h1>
-    <small class="text-sm font-medium text-body-subtle">{datePublished}</small>
+    <h1 class="my-2 tracking-tighter font-bold text-heading text-3xl/tight">{frontmatter.title}</h1>
+    <p class="tracking-tight text-base text-body-subtle">{datePublished}</p>
 
     <div class="p-4 typography-common text-body-subtle text-lg/tight">
         <p><span class="text-brand font-bold">//</span> {frontmatter.description}</p>

@@ -28,7 +28,6 @@
 @theme inline {
 
     /* TEXT COLORS */
-    /* main text color */
     --color-body: #ebdbb2;
     --color-body-subtle: #bdae93;
     --color-heading: #fbf1c7;
@@ -63,8 +62,6 @@
 
     --color-gray: var(--color-gray-300);
 
-
-
     /* FONTS */
     --font-sans: var(--font-fira-code);
     --font-mono: var(--font-ubuntu-mono);
@@ -72,6 +69,18 @@
 
 @utility typography-common {
     @apply text-body text-base/snug tracking-tight hyphens-auto;
+}
+
+@utility tag-common {
+    @apply px-1.5 border-2 rounded-sm font-medium font-mono text-body-subtle tracking-tight border-neutral-tertiary;
+}
+
+.tag-link {
+    @apply tag-common rounded-xs hover:border-brand active:border-brand hover:text-body active:text-body hover:bg-neutral-secondary active:bg-neutral-secondary;
+}
+
+.tag-heading {
+    @apply tag-common border-brand text-body bg-neutral-secondary;
 }
 
 .writing h1, 
@@ -112,7 +121,7 @@
 }
 
 .writing blockquote p {
-    @apply typography-common my-0 mb-4 last:mb-0 text-heading;
+    @apply typography-common mb-4 last:mb-0 text-heading;
 }
 
 .writing blockquote figcaption {

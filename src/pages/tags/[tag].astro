@@ -34,8 +34,8 @@ const { tag } = Astro.params;
 ---
 
 <Layout>
-    <h1 class="mt-6 mb-2 tracking-tight text-2xl/tight">
-        <span class="px-1.5 border-2 rounded-sm font-semibold border-brand text-body bg-neutral-secondary">{tag}</span>
+    <h1 class="mt-6 mb-2 text-2xl/tight">
+        <span class="tag-heading">{tag}</span>
     </h1>
     <PostList target={"all"} tag={tag} showMore={false} />
 </Layout>
