@@ -1,20 +1,22 @@
 ---
 import Layout from "../../layouts/Layout.astro";
 import PostList from "../../components/PostList.astro";
+import PostMap from "../../components/PostMap.astro";
 ---
 
 <Layout title="Posts">
 
 <h2 class="mt-6 mb-2 text-2xl/tight tracking-tight text-heading font-bold">BLOGS</h2>
-<PostList target="blogPosts" count={3} showMore={true} />
+<PostList category={"BLOGS"} count={3} showMore={true} />
 
 <h2 class="mt-6 mb-2 text-2xl/tight tracking-tight text-heading font-bold">BOOKS</h2>
-<PostList target="bookPosts" count={3} showMore={true} />
+<PostList category={"BOOKS"} count={3} showMore={true} />
 
 <h2 class="mt-6 mb-2 text-2xl/tight tracking-tight text-heading font-bold">NOTES</h2>
-<PostList target="notePosts" count={3} showMore={true} />
+<PostList category={"NOTES"} count={3} showMore={true} />
 
 <h2 class="mt-6 mb-2 text-2xl/tight tracking-tight text-heading font-bold">PROJECTS</h2>
-<PostList target="projectPosts" count={3} showMore={true} />
+<PostList category={"PROJECTS"} count={3} showMore={true} />
 
+<PostMap />
 </Layout>

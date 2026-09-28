@@ -5,6 +5,7 @@ layout: "../../../layouts/PostLayout.astro"
 # metatdata
 title: "Rust"
 description: "A statically typed, compiled and memory-safe programming language with a unique ownership model. I wanted to learn a low-level compiled language for a long time and this seems like good (albiet young) choice."
+category: "NOTES"
 
 # dates and times
 datePublished: "2025-08-22T08:23:44"

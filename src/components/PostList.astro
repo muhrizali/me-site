@@ -1,70 +1,24 @@
 ---
-import Post from "./Post.astro";
-import { getCollection } from "astro:content";
+import PostLink from "./PostLink.astro";
+// import { getCollection } from "astro:content";
 import * as _ from "lodash-es";
+import { getOurCollection } from "../scripts/utils";
+import type { CollectionEntry } from "astro:content";
+
 
 
 interface Props {
-    target: string;
-    showMore: boolean;
-    count?: number;
+    category?: string;
     tag?: string;
+    count?: number;
+    showMore: boolean;
 }
 
 
-async function getOurCollection(key: string, count: number, tag: string = "all") {
+let { category = null, tag = null, count = null, sortby = null, showMore = false } = Astro.props;
 
-    let collection = [];
-
-    // Getting the list of posts from target
-    if (key === "all") {
-        collection = [
-            ...(await getCollection("blogPosts")),
-            ...(await getCollection("notePosts")),
-            ...(await getCollection("bookPosts")),
-            ...(await getCollection("projectPosts")),
-        ];
-    } else {
-        collection = await getCollection(key);
-    }
-
-    // Getting the list of posts from the tags
-    if (tag !== "all") {
-        collection = _.filter(collection, (item: any) => item.data["tags"].includes(tag));
-    }
-    
-    // Filtering and organizing the returned posts
-    collection = _.reverse(_.sortBy(collection, ["data.datePublished"]));
-    collection = _.filter(collection, (item: any) => !item.data["isDraft"]);
-
-    if (count === 0) {
-      return collection
-    } else if (collection.length < count) {
-      return collection.slice(0, collection.length);
-    } else {
-      return collection.slice(0, count);
-    }
-}
-
-let { target = "all", count = 0, tag = "all", showMore } = Astro.props;
-
-let collection = await getOurCollection(target, count, tag);
-let morePostsLink = { href: "/", label: "Generic" };
-
-switch(target) {
-    case "blogPosts":
-        morePostsLink = { href: "/blogs", label: "Blogs" };
-        break;
-    case "notePosts":
-        morePostsLink = { href: "/notes", label: "Notes" };
-        break;
-    case "projectPosts":
-        morePostsLink = { href: "/projects", label: "Projects" };
-        break;
-    case "bookPosts":
-        morePostsLink = { href: "/books", label: "Books" };
-        break;
-}
+let collection = await getOurCollection({category, tag, count, sortby});
+// let morePostsLink = { href: "/", label: "Generic" };
 
 ---
 <div class="mb-8">
@@ -72,12 +26,12 @@ switch(target) {
         {
             collection.map(
                 (item) => (
-                    <Post postItem={item} />
+                    <PostLink postEntry={item} />
                 )
             )
         }
 </ul>
-{ showMore
+<!-- { showMore
         ? (
             <div
             class="text-lg font-medium text-body-subtle text-right mt-4">
@@ -88,5 +42,5 @@ switch(target) {
             </div>
         )
         : ""
-    }
+    } -->
 </div>

@@ -1,62 +1,16 @@
 ---
-import { getCollection } from "astro:content";
+import { getOurCollection } from "../scripts/utils";
 import * as _ from "lodash-es";
 
-
 interface Props {
-    target: string;
-    count?: number;
+    category: string | null;
+    count: number;
 }
 
 
-async function getOurCollection(key: string, count: number) {
+let { category = null, count = 0 } = Astro.props;
 
-    let collection = [];
-
-    // Getting the list of posts from target
-    if (key === "all") {
-        collection = [
-            ...(await getCollection("blogPosts")),
-            ...(await getCollection("notePosts")),
-            ...(await getCollection("bookPosts")),
-            ...(await getCollection("projectPosts")),
-        ];
-    } else {
-        collection = await getCollection(key);
-    }
-    
-    // Filtering and organizing the returned posts
-    collection = _.reverse(_.sortBy(collection, ["data.datePublished"]));
-    collection = _.filter(collection, (item: any) => !item.data["isDraft"]);
-
-    if (count === 0) {
-      return collection
-    } else if (collection.length < count) {
-      return collection.slice(0, collection.length);
-    } else {
-      return collection.slice(0, count);
-    }
-}
-
-let { target = "all", count = 0 } = Astro.props;
-
-let collection = await getOurCollection(target, count);
-let sectionLink: string = "/";
-
-switch(target) {
-    case "blogPosts":
-        sectionLink = "/blogs/";
-        break;
-    case "notePosts":
-        sectionLink = "/notes/";
-        break;
-    case "projectPosts":
-        sectionLink = "/projects/";
-        break;
-    case "bookPosts":
-        sectionLink = "/books/";
-        break;
-}
+let collection = await getOurCollection({category, count, tag: null, sortby: null});
 
 ---
 <ul class="ml-4 text-body list-disc list-outside text-base/snug tracking-tight">
@@ -64,7 +18,7 @@ switch(target) {
         collection.map(
             (item) => (
                 <li class="mb-0">
-                    <a class="text-brand no-underline decoration-2 hover:underline active:underline line-clamp-1" href={sectionLink + item.id}>{item.data.title}</a>
+                    <a class="text-brand no-underline decoration-2 hover:underline active:underline line-clamp-1" href={`/posts/${item.id}`}>{item.data.title}</a>
                 </li>
             )
         )

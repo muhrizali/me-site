@@ -5,6 +5,11 @@ layout: "../../../layouts/PostLayout.astro"
 # metatdata
 title: "C-Sharp"
 description: "An extremely mature, statically typed, highly versatile programming language created by Microsoft. I wanted to learn and get into it from some time as I have heard very good things about it. Also I wanted to learn a mature compiled language (started this after rust which has fairly young ecosystem)."
+category: "NOTES"
+tags:
+  - C-Sharp
+  - Programming
+  - .NET
 
 # dates and times
 datePublished: "2026-03-04T14:14:04"
@@ -12,10 +17,6 @@ dateModified: "2026-03-04T14:14:04"
 
 # states
 isDraft: false
-tags:
-  - C-Sharp
-  - Programming
-  - .NET
 ---
 
 ## THE C# PROGRAMMING LANGUAGE

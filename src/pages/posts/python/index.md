@@ -5,16 +5,16 @@ layout: "../../../layouts/PostLayout.astro"
 # metatdata
 title: "Python"
 description: "An excellent high-level, dynamically typed programming language used in web development, CLI development, scripting, APIs, artificial intelligence, data science and much much more. I consider this as one standard programming language."
-
+category: "NOTES"
+tags:
+  - Python
+  - Programming
 # dates and times
 datePublished: "2023-10-17T18:44:44"
 dateModified: "2023-10-17T18:44:44"
 
 # states
 isDraft: false
-tags:
-  - Python
-  - Programming
 ---
 
 ## BASICS / STARTING

@@ -1,32 +1,12 @@
 ---
 import Layout from "../../layouts/Layout.astro";
 import PostList from "../../components/PostList.astro";
-import { getCollection } from "astro:content";
+import { getAllPostTags } from "../../scripts/utils";
 import * as _ from "lodash-es";
 
 
 export async function getStaticPaths() {
-    async function getAllPosts() {
-        let blogPosts = await getCollection("blogPosts");
-        let notePosts = await getCollection("notePosts");
-        let bookPosts = await getCollection("bookPosts");
-        let projectPosts = await getCollection("projectPosts");
-        
-        return [
-            ...blogPosts,
-            ...notePosts,
-            ...bookPosts,
-            ...projectPosts,
-        ];
-    }
-    
-    async function getAllTags() {
-        let allPosts = await getAllPosts();
-        let allTags = _.flatMap(allPosts, (post: any) => post.data["tags"]);
-        return _.uniq(allTags);
-    }
-
-    let allTags = await getAllTags();
+    let allTags = await getAllPostTags();
     return allTags.map((tagValue: string) => ({ params: { tag: tagValue } }));
 }
 
@@ -37,7 +17,7 @@ const { tag } = Astro.params;
     <h1 class="mt-6 mb-2 text-2xl/tight">
         <span class="tag-heading">{tag}</span>
     </h1>
-    <PostList target={"all"} tag={tag} showMore={false} />
+    <PostList tag={tag} showMore={false} />
 </Layout>
 
 

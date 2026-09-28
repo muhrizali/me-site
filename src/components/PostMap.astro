@@ -1,0 +1,32 @@
+---
+import { getAllPostCategories,  getAllPostTags } from "../scripts/utils";
+
+let categories = await getAllPostCategories();
+let tags = await getAllPostTags();
+
+---
+<div class="border-2 border-white">
+
+categories
+    <ul>
+        {
+            categories.map(
+                (category: string) => (
+                    <li>{category}</li>
+                )
+            )
+        }
+</ul>
+
+tags
+<ul>
+    {
+        tags.map(
+            (tag: string) => (
+                <li>{tag}</li>
+            )
+        )
+    }
+</ul>
+</div>
+
