@@ -146,7 +146,7 @@
 }
 
 .writing code {
-    @apply inline-block px-1 font-medium border-default rounded-xs text-sm text-heading bg-neutral-secondary;
+    @apply inline px-1 font-medium border-default rounded-xs text-sm text-heading bg-neutral-secondary;
 }
 
 .writing pre {
