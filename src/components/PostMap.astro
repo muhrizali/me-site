@@ -16,7 +16,7 @@ let tags = await getAllPostTags();
                     {
                         categories.map(
                             (category: string) => (
-                                <a href="#" class="typography-common text-sm inline-block font-medium text-brand decoration-2 hover:underline active:underline my-0.5 mx-1">{category}</a>
+                                <a href={`/category/${category}`} class="typography-common text-sm inline-block font-medium text-brand decoration-2 hover:underline active:underline my-0.5 mx-1">{category}</a>
                             )
                         )
                     }
@@ -30,7 +30,7 @@ let tags = await getAllPostTags();
                     {
                         tags.map(
                             (tag: string) => (
-                                <a href="#" class="inline-block tag-link m-0.5">{tag}</a>
+                                <a href={`/tags/${tag}`} class="inline-block tag-link m-0.5">{tag}</a>
                             )
                         )
                     }

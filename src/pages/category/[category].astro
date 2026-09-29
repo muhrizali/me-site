@@ -1,0 +1,23 @@
+---
+import Layout from "../../layouts/Layout.astro";
+import PostList from "../../components/PostList.astro";
+import { getAllPostCategories } from "../../scripts/utils";
+import * as _ from "lodash-es";
+
+
+export async function getStaticPaths() {
+    let allTags = await getAllPostCategories();
+    return allTags.map((catValue: string) => ({ params: { category: catValue } }));
+}
+
+const { category } = Astro.params;
+---
+
+<Layout>
+    <h1 class="mt-6 mb-2 text-2xl/tight tracking-tight font-bold text-brand">
+        <span class="">{category}</span>
+    </h1>
+    <PostList category={category} showMore={false} />
+</Layout>
+
+
