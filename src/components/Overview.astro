@@ -1,21 +1,21 @@
 ---
 import PostOverviewList from "./PostOverviewList.astro";
+import { getAllPostCategories } from "../scripts/utils";
+
+const allCategories = await getAllPostCategories();
+
 ---
-<div class="grid md:grid-cols-2 gap-2 my-4">
-    <article class="p-2">
-        <h3 class="text-xl/tight text-heading font-bold">BLOGS</h3>
-        <PostOverviewList category={"BLOGS"} count={3} />
-    </article>
-    <article class="p-2">
-        <h3 class="text-xl/tight text-heading font-bold">BOOKS</h3>
-        <PostOverviewList category={"BOOKS"} count={3} />
-    </article>
-    <article class="p-2">
-        <h3 class="text-xl/tight text-heading font-bold">NOTES</h3>
-        <PostOverviewList category={"NOTES"} count={3} />
-    </article>
-    <article class="p-2">
-        <h3 class="text-xl/tight text-heading font-bold">PROJECTS</h3>
-        <PostOverviewList category={"PROJECTS"} count={3} />
-    </article>
+<div class="grid md:grid-cols-2 gap-2">
+    {
+        allCategories.map(
+            (category: string) => (
+                <section class="p-2">
+                    <h3 class="text-xl/tight text-heading font-bold">
+                        <a href={`/category/${category}`} class="decoration-2 decoration-brand hover:underline active:underline">{category}</a>
+                    </h3>
+                    <PostOverviewList category={category} count={3} />
+                </section>
+            )
+        )
+    }
 </div>

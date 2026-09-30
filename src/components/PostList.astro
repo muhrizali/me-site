@@ -3,7 +3,6 @@ import PostLink from "./PostLink.astro";
 // import { getCollection } from "astro:content";
 import * as _ from "lodash-es";
 import { getOurCollection } from "../scripts/utils";
-import type { CollectionEntry } from "astro:content";
 
 
 
@@ -11,14 +10,12 @@ interface Props {
     category?: string;
     tag?: string;
     count?: number;
-    showMore: boolean;
 }
 
 
-let { category = null, tag = null, count = null, sortby = null, showMore = false } = Astro.props;
+let { category = null, tag = null, count = null, sortby = null } = Astro.props;
 
 let collection = await getOurCollection({category, tag, count, sortby});
-// let morePostsLink = { href: "/", label: "Generic" };
 
 ---
 <div class="mb-8">
@@ -30,17 +27,5 @@ let collection = await getOurCollection({category, tag, count, sortby});
                 )
             )
         }
-</ul>
-<!-- { showMore
-        ? (
-            <div
-            class="text-lg font-medium text-body-subtle text-right mt-4">
-                <span class="text-brand font-bold">/ </span>
-                <a href={morePostsLink.href} class="hover:text-brand active:text-brand">
-                    More {morePostsLink.label}
-                </a>
-            </div>
-        )
-        : ""
-    } -->
+    </ul>
 </div>
