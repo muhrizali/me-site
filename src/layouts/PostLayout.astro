@@ -3,13 +3,14 @@ import Layout from "./Layout.astro";
 import Writing from "../components/Writing.astro";
 import PostBanner from "../components/PostBanner.astro";
 
-const { frontmatter } = Astro.props;
+const { frontmatter, headings } = Astro.props;
 
 ---
 
 <Layout>
-    <PostBanner frontmatter={frontmatter} />
+    <PostBanner frontmatter={frontmatter} headings={headings} />
     <Writing>
+        <!-- {Object.keys(rest)} -->
         <slot />
     </Writing>
 </Layout>

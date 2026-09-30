@@ -1,0 +1,25 @@
+---
+interface Props {
+    headings: {depth: number, text: string, slug: string}[]
+}
+const { headings } = Astro.props;
+
+---
+<div class="py-2 px-4 text-sm border-2 border-default bg-neutral-primary-medium">
+    <details class="text-body-subtle">
+        <summary class="font-medium">
+            CONTENTS
+        </summary>
+        <ul class="mt-1 ml-0 text-xs/tight">
+            {
+                headings.map(
+                    (heading: any) => (
+                        <li style={`margin-left: ${0.5 * heading.depth}rem`} class="border-l-2 border-l-transparent hover:border-brand active:border-brand pl-1 pb-0.5">
+                            <a href={`#${heading.slug}`} class="block w-full h-full text-body hover:text-brand active:text-brand">{heading.text}</a>
+                        </li>
+                    )
+                )
+            }
+        </ul>
+    </details>
+</div>

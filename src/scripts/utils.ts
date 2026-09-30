@@ -92,12 +92,14 @@ async function getOurCollection({category = null, tag = null, sortby = null, cou
 async function getAllPostTags() {
     let allPosts = await getValidPosts();
     let allTags = _.uniq(_.flatMap(allPosts, (post: CollectionEntry<"posts">) => post.data["tags"]));
+    allTags = _.sortBy(allTags);
     return allTags;
 }
 
 async function getAllPostCategories() {
     let allPosts = await getValidPosts();
     let allCategories = _.uniq(_.flatMap(allPosts, (post: CollectionEntry<"posts">) => post.data["category"]));
+    allCategories = _.sortBy(allCategories);
     return allCategories;
 }
 

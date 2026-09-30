@@ -1,8 +1,13 @@
 ---
 import { DateTime } from "luxon";
+import TOCList from "./TOCList.astro";
 
-const { frontmatter } = Astro.props;
+// headings structure
+// {depth: (number), text: (string), slug: (string slug)}
+
+const { frontmatter, headings } = Astro.props;
 const datePublished = DateTime.fromISO(frontmatter.datePublished).toLocaleString(DateTime.DATETIME_MED);
+
 ---
 
 <div class="w-full my-4">
@@ -18,7 +23,17 @@ const datePublished = DateTime.fromISO(frontmatter.datePublished).toLocaleString
     <h1 class="my-2 tracking-tighter font-bold text-heading text-3xl/tight">{frontmatter.title}</h1>
     <p class="tracking-tight text-base text-body-subtle">{datePublished}</p>
 
+    <!-- Description -->
     <div class="p-4 typography-common text-body-subtle text-lg/tight">
         <p><span class="text-brand font-bold">//</span> {frontmatter.description}</p>
     </div>
+
+    <!-- Table Of Contents -->
+    {
+        headings.length > 0
+            ? (<TOCList headings={headings}/>)
+            : ""
+    }
+
+
 </div>
