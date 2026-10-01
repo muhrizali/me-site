@@ -18,14 +18,12 @@ let { category = null, tag = null, count = null, sortby = null } = Astro.props;
 let collection = await getOurCollection({category, tag, count, sortby});
 
 ---
-<div class="mb-8">
-    <ul class="space-y-2">
-        {
-            collection.map(
-                (item) => (
-                    <PostLink postEntry={item} />
-                )
+<ul class="space-y-2">
+    {
+        collection.map(
+            (item) => (
+                <PostLink postEntry={item} />
             )
-        }
-    </ul>
-</div>
+        )
+    }
+</ul>

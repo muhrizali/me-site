@@ -1,8 +1,7 @@
 ---
 import Layout from "../../layouts/Layout.astro";
-import PostList from "../../components/PostList.astro";
+import CategorySection from "../../components/CategorySection.astro";
 import { getAllPostCategories } from "../../scripts/utils";
-import * as _ from "lodash-es";
 
 
 export async function getStaticPaths() {
@@ -14,10 +13,7 @@ const { category } = Astro.params;
 ---
 
 <Layout>
-    <h1 class="mt-6 mb-2 text-2xl/tight tracking-tight font-bold text-brand">
-        {category}
-    </h1>
-    <PostList category={category} />
+    <CategorySection category={category} />
 </Layout>
 
 

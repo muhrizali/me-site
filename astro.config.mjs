@@ -9,18 +9,24 @@ import cloudflare from '@astrojs/cloudflare';
 
 // https://astro.build/config
 export default defineConfig({
+  
+  // EXTENSIONS/INTEGRATIONS
   vite: {
     plugins: [tailwindcss()]
   },
-
   integrations: [mdx()],
-
+  adapter: cloudflare(),
+  
+  // PREFETCH: VIEW TRANSITIONS
+  
+  // MARKDOWN CONFIG
   markdown: {
     shikiConfig: {
       theme: 'gruvbox-dark-hard',
     }
   },
 
+  // FONTS USAGE
   fonts: [
     {
       provider: fontProviders.fontsource(),
@@ -36,6 +42,4 @@ export default defineConfig({
       weights: [300, 400, 500, 600],
     },
   ],
-
-  adapter: cloudflare()
 });

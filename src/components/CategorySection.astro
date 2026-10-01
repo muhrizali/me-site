@@ -1,0 +1,13 @@
+---
+import PostList from "./PostList.astro";
+
+interface Props {
+    category: string;
+}
+
+const { category } = Astro.props;
+---
+<section class="mb-8">
+    <h2 class="mt-6 mb-2 text-2xl/tight tracking-tight text-heading font-bold">{category}</h2>
+    <PostList category={category} count={3} />
+</section>

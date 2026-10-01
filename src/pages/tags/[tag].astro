@@ -1,8 +1,7 @@
 ---
 import Layout from "../../layouts/Layout.astro";
-import PostList from "../../components/PostList.astro";
+import TagSection from "../../components/TagSection.astro";
 import { getAllPostTags } from "../../scripts/utils";
-import * as _ from "lodash-es";
 
 
 export async function getStaticPaths() {
@@ -14,10 +13,7 @@ const { tag } = Astro.params;
 ---
 
 <Layout>
-    <h1 class="mt-6 mb-2 text-2xl/tight">
-        <span class="tag-heading">{tag}</span>
-    </h1>
-    <PostList tag={tag} showMore={false} />
+    <TagSection tag={tag} />
 </Layout>
 
 

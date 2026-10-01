@@ -1,0 +1,15 @@
+---
+import PostList from "./PostList.astro";
+
+interface Props {
+    tag: string;
+}
+
+const { tag } = Astro.props;
+---
+<section id="tag-section" class="mb-8">
+    <h1 class="mt-6 mb-2 text-2xl/tight">
+        <span class="tag-heading">{tag}</span>
+    </h1>
+    <PostList tag={tag} />
+</section>
