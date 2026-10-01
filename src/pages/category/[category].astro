@@ -15,9 +15,9 @@ const { category } = Astro.params;
 
 <Layout>
     <h1 class="mt-6 mb-2 text-2xl/tight tracking-tight font-bold text-brand">
-        <span class="">{category}</span>
+        {category}
     </h1>
-    <PostList category={category} showMore={false} />
+    <PostList category={category} />
 </Layout>
 
 

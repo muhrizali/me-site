@@ -5,7 +5,7 @@ interface Props {
 const { headings } = Astro.props;
 
 ---
-<div class="py-2 px-4 text-sm border-2 border-default bg-neutral-primary-medium">
+<div class="py-2 px-4 text-sm border-2 border-default bg-neutral-primary-strong">
     <details class="text-body-subtle">
         <summary class="font-medium cursor-pointer marker:text-brand">
             CONTENTS
@@ -14,7 +14,7 @@ const { headings } = Astro.props;
             {
                 headings.map(
                     (heading: any) => (
-                        <li style={`margin-left: ${0.5 * heading.depth}rem`} class="border-l-2 border-l-transparent hover:border-brand active:border-brand pl-1 pb-0.5">
+                        <li style={`margin-left: ${0.5 * heading.depth}rem`} class="border-l-2 border-l-transparent hover:border-brand active:border-brand pl-1 pt-0.5">
                             <a href={`#${heading.slug}`} class="block w-full h-full text-body hover:text-brand active:text-brand">{heading.text}</a>
                         </li>
                     )

@@ -2,13 +2,22 @@
 import Layout from "../../layouts/Layout.astro";
 import PostList from "../../components/PostList.astro";
 import PostMap from "../../components/PostMap.astro";
+import { getAllPostCategories } from "../../scripts/utils";
+
+const categories = await getAllPostCategories();
 ---
 
 <Layout title="Posts">
+    {
+        categories?.map(
+            (category: string) => (
+                <h2 class="mt-6 mb-2 text-2xl/tight tracking-tight text-heading font-bold">{category}</h2>
+                <PostList category={category} count={3} />
+            )
+        )
+    }
 
-<h2 class="mt-6 mb-2 text-2xl/tight tracking-tight text-heading font-bold">BLOGS</h2>
-<PostList category={"BLOGS"} count={3} />
-
+<!-- 
 <h2 class="mt-6 mb-2 text-2xl/tight tracking-tight text-heading font-bold">BOOKS</h2>
 <PostList category={"BOOKS"} count={3} />
 
@@ -16,7 +25,7 @@ import PostMap from "../../components/PostMap.astro";
 <PostList category={"NOTES"} count={3} />
 
 <h2 class="mt-6 mb-2 text-2xl/tight tracking-tight text-heading font-bold">PROJECTS</h2>
-<PostList category={"PROJECTS"} count={3} />
+<PostList category={"PROJECTS"} count={3} /> -->
 
 <PostMap />
 </Layout>
