@@ -1,48 +1,50 @@
 ---
 const navigationItems = [
-    {
-        label: "Home",
-        href: "/",
-        icon: "🏠",
-    },
-    {
-        label: "Posts",
-        href: "/posts",
-        icon: "📝",
-        // icon: "🗃️",
-    },
-    {
-        label: "Now",
-        href: "/now",
-        icon: "⏳"
-    },
-    {
-        label: "About",
-        href: "/about",
-        icon: "😗",
-    },
+  {
+    label: "Home",
+    href: "/",
+    icon: "🏠",
+  },
+  {
+    label: "Posts",
+    href: "/posts",
+    icon: "📝",
+    // icon: "🗃️",
+  },
+  {
+    label: "Now",
+    href: "/now",
+    icon: "⏳",
+  },
+  {
+    label: "About",
+    href: "/about",
+    icon: "😗",
+  },
 ];
 ---
 
 <nav
-    class="bg-neutral-primary w-full z-20 top-0 inset-s-0 border-b-0 border-default">
-    <div
-        class="max-w-5xl flex flex-wrap items-center justify-start mx-auto px-4 py-4 lg:px-0">
-        <div class="w-full" id="navbar-default">
-            <ul
-                class="font-medium text-3xl sm:text-lg flex flex-row gap-6 mt-4">
-                {
-                    navigationItems.map((item) => (
-                        <li>
-                            <a
-                                href={item.href}
-                                class="block text-heading">
-                                <span class="block sm:hidden p-1 hover:bg-neutral-secondary active:bg-neutral-secondary border-2 border-transparent rounded-sm hover:border-brand active:border-brand hover:no-underline">{item.icon}</span>
-                                <span class="hidden sm:inline decoration-2 decoration-brand hover:underline active:underline">{item.label}</span>
-                            </a>
-                        </li>
-                    ))}
-            </ul>
-        </div>
+  class="bg-neutral-primary w-full z-20 top-0 inset-s-0 border-b-0 border-default">
+  <div
+    class="max-w-3xl flex flex-wrap items-center justify-start mx-auto px-4 py-4 lg:px-0">
+    <div class="w-full" id="navbar-default">
+      <ul class="font-semibold text-3xl sm:text-xl flex flex-row gap-6 mt-4">
+        {
+          navigationItems.map((item) => (
+            <li>
+              <a href={item.href} class="block text-heading">
+                <span class="block sm:hidden p-1 hover:bg-neutral-secondary active:bg-neutral-secondary border-2 border-transparent rounded-sm hover:border-brand active:border-brand hover:no-underline">
+                  {item.icon}
+                </span>
+                <span class="hidden sm:inline decoration-2 decoration-brand hover:underline active:underline">
+                  {item.label}
+                </span>
+              </a>
+            </li>
+          ))
+        }
+      </ul>
     </div>
+  </div>
 </nav>

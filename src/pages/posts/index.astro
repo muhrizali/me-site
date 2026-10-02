@@ -5,9 +5,15 @@ import PostMap from "../../components/PostMap.astro";
 import { getAllPostCategories } from "../../scripts/utils";
 
 const categories = await getAllPostCategories();
+
+const metadata = {
+    title: "Posts",
+    description: "Collection of all the blog posts, books, projects and notes I have worked on. Also contains all the categories and tags these of the posts."
+}
+
 ---
 
-<Layout title="Posts">
+<Layout metadata={metadata}>
     {
         categories?.map(
             (category: string) => (
@@ -15,6 +21,5 @@ const categories = await getAllPostCategories();
             )
         )
     }
-
-<PostMap />
+    <PostMap />
 </Layout>

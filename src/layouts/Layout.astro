@@ -3,39 +3,29 @@ import "../styles/global.css";
 import Navigation from "../components/Navigation.astro";
 import Footer from "../components/Footer.astro";
 import Main from "../components/Main.astro";
+import Head from "../components/Head.astro";
+import { Metadata } from "../scripts/types";
 
-import { ClientRouter } from "astro:transitions";
-import { Font } from "astro:assets";
+// BASE LAYOUT: 
+// Used for any html or astro page which does 
+// not use markdown
 
-const { title = "Muhriz Ali" } = Astro.props;
+interface Props {
+    metadata: Metadata;
+}
+
+const { metadata } = Astro.props;
+
 ---
 <!doctype html>
 <html 
   lang="en"
   data-theme="warm">
   <head>
-    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
-    <link rel="icon" href="/favicon.ico" />
-    <link rel="stylesheet" href="../../node_modules/flowbite/dist/flowbite.min.css" />
-    <meta name="generator" content={Astro.generator} />
-
-    <!-- Primary Meta Tags -->
-    <title>{title}</title>
-    <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width" />
-    <meta name="robots" content="index,find" />
-    <meta name="googlebot" content="index,find" />
-    <meta name="description" content="A description for the page" />
-
-    <!-- Astro Fonts Config -->
-    <Font cssVariable="--font-fira-code" />
-    <Font cssVariable="--font-ubuntu-mono" />
-    
-    <!-- Astro View Transitions -->
-    <ClientRouter />
+    <Head metadata={metadata} />
   </head>
   <body class="bg-neutral-primary">
-     <Navigation />
+    <Navigation />
 
     <Main>
       <slot />

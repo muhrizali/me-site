@@ -2,6 +2,7 @@
 import Layout from "../../layouts/Layout.astro";
 import CategorySection from "../../components/CategorySection.astro";
 import { getAllPostCategories } from "../../scripts/utils";
+import { Metadata } from "../../scripts/types";
 
 
 export async function getStaticPaths() {
@@ -10,9 +11,14 @@ export async function getStaticPaths() {
 }
 
 const { category } = Astro.params;
----
 
-<Layout>
+const metadata: Metadata = {
+    title: `${category} Category`,
+    description: `Collection of all posts belonging to category: ${category}`
+}
+
+---
+<Layout metadata={metadata}>
     <CategorySection category={category} />
 </Layout>
 

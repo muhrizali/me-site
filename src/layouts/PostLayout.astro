@@ -2,12 +2,20 @@
 import Layout from "./Layout.astro";
 import Writing from "../components/Writing.astro";
 import PostBanner from "../components/PostBanner.astro";
+import { Metadata } from "../scripts/types";
+
+// MARKDOWN ARTICLE LAYOUT
+// Used for any article created with markdown
+// which is part of any content collections
 
 const { frontmatter, headings } = Astro.props;
+const metadata: Metadata = {
+    title: frontmatter.title,
+    description: frontmatter.description
+}
 
 ---
-
-<Layout>
+<Layout metadata={metadata}>
     <PostBanner frontmatter={frontmatter} headings={headings} />
     <Writing>
         <slot />

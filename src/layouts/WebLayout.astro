@@ -1,13 +1,13 @@
 ---
 import Layout from "./Layout.astro";
-import Writing from "../components/Writing.astro";
 import { Metadata } from "../scripts/types";
 
-// MARKDOWN PAGE LAYOUT
+// MARKDOWN WEB LAYOUT
 // Used for any page created with markdown
-// but is not part of any content collections
+// but can contain interactive elements
 
 // Used for markdown pages which are not articles
+// and not just contains markdown
 
 interface Props {
     frontmatter: any;
@@ -21,7 +21,5 @@ const metadata: Metadata = {
 
 ---
 <Layout metadata={metadata}>
-    <Writing>
-        <slot />
-    </Writing>
+    <slot />
 </Layout>

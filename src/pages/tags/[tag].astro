@@ -2,6 +2,7 @@
 import Layout from "../../layouts/Layout.astro";
 import TagSection from "../../components/TagSection.astro";
 import { getAllPostTags } from "../../scripts/utils";
+import { Metadata } from "../../scripts/types";
 
 
 export async function getStaticPaths() {
@@ -10,9 +11,14 @@ export async function getStaticPaths() {
 }
 
 const { tag } = Astro.params;
+
+const metadata: Metadata = {
+    title: `${tag} Tag`,
+    description: `Collection of all posts containing the tag: ${tag}`
+}
 ---
 
-<Layout>
+<Layout metadata={metadata}>
     <TagSection tag={tag} />
 </Layout>
 

@@ -1,12 +1,76 @@
 ---
+import LeftSide from "./LeftSide.astro";
+import { Image } from "astro:assets";
+import myBaseImage from "../assets/my-base-image.jpg";
+import myGlassesImage from "../assets/my-glasses-image.jpg";
 ---
 
-<footer
-    class="">
-    <div class="border-t-2 border-default p-6">
-        <p
-            class="block text-xs text-body text-center">
-            &copy; 2026 <a href="https://raw.githubusercontent.com/muhrizali/me-site/refs/heads/master/LICENSE" class="underline">Muhriz Ali</a> | Made With ❤️ & <a href="https://astro.build/" class="underline decoration-1">Astro</a>
-        </p>
+<footer class="border-t-2 border-default">
+    <div class="max-w-3xl mx-auto">
+        <aside class="p-4">
+            <figure class="flex flex-col sm:flex-row gap-4 w-fit">
+                <div
+                    class="h-40 min-h-30 sm:h-30 w-40 min-w-30 sm:w-30 border-2 border-default mx-auto relative">
+                    <Image
+                        src={myGlassesImage}
+                        width={400}
+                        height={400}
+                        alt="Photo of me holding oddly colored glasses to look into your eyes straight"
+                        class="absolute w-full h-full z-0 top-0 left-0"
+                    />
+                    <Image
+                        src={myBaseImage}
+                        width={400}
+                        height={400}
+                        alt="Photo of me holding oddly colored glasses to look into your eyes straight"
+                        class="absolute w-full h-full z-10 top-0 left-0 hover:opacity-0 active:opacity-0 transition-opacity"
+                    />
+                </div>
+                <div>
+                    <figcaption
+                        class="typography-common text-sm/tight sm:text-sm/tight text-body-subtle">
+                        This guy thinks its funny to put a goofy photo of him
+                        from the day he was feeling particularly photogenic.
+                        <br />
+                    </figcaption>
+                    <ul
+                        class="border-0 mt-4 font-medium text-body list-none list-outside text-base/snug tracking-tight flex flex-row gap-4">
+                        <!-- <li class="">
+                            <a
+                                href="#"
+                                class="decoration-2 decoration-brand hover:underline active:underline">
+                                RSS
+                            </a>
+                        </li>
+                        <li class="">
+                            <a
+                                href="#"
+                                class="decoration-2 decoration-brand hover:underline active:underline">
+                                RSS
+                            </a>
+                        </li>
+                        <li class="">
+                            <a
+                                href="#"
+                                class="decoration-2 decoration-brand hover:underline active:underline">
+                                RSS
+                            </a>
+                        </li> -->
+                    </ul>
+                </div>
+            </figure>
+        </aside>
+
+        <div class="p-6">
+            <p class="block text-xs text-body text-center">
+                &copy; 2026 <a
+                    href="https://raw.githubusercontent.com/muhrizali/me-site/refs/heads/master/LICENSE"
+                    class="underline">Muhriz Ali</a
+                > | Made With ❤️ & <a
+                    href="https://astro.build/"
+                    class="underline decoration-1">Astro</a
+                >
+            </p>
+        </div>
     </div>
 </footer>

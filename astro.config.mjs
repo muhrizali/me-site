@@ -7,6 +7,8 @@ import mdx from '@astrojs/mdx';
 
 import cloudflare from '@astrojs/cloudflare';
 
+import alpinejs from '@astrojs/alpinejs';
+
 // https://astro.build/config
 export default defineConfig({
   
@@ -14,7 +16,7 @@ export default defineConfig({
   vite: {
     plugins: [tailwindcss()]
   },
-  integrations: [mdx()],
+  integrations: [mdx(), alpinejs()],
   adapter: cloudflare(),
   
   // PREFETCH: VIEW TRANSITIONS

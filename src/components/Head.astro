@@ -1,0 +1,34 @@
+---
+import { ClientRouter } from "astro:transitions";
+import { Font } from "astro:assets";
+import { Metadata } from "../scripts/types";
+
+interface Props {
+    metadata: Metadata;
+}
+
+const { metadata } = Astro.props;
+
+---
+<link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+<link rel="icon" href="/favicon.ico" />
+<link rel="stylesheet" href="../../node_modules/flowbite/dist/flowbite.min.css" />
+<meta name="generator" content={Astro.generator} />
+
+<!-- Primary Meta Tags -->
+<title>{metadata.title}</title>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width" />
+<meta name="robots" content="index,find" />
+<meta name="googlebot" content="index,find" />
+<meta name="description" content={metadata.description} />
+
+<!-- Scripts -->
+<script src="../scripts/htmx.min.js"></script>
+
+<!-- Astro Fonts Config -->
+<Font cssVariable="--font-fira-code" />
+<Font cssVariable="--font-ubuntu-mono" />
+
+<!-- Astro View Transitions -->
+<ClientRouter />
