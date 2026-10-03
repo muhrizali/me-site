@@ -1,0 +1,51 @@
+---
+import { getAllPostCategories, getOurCollection } from "../../../scripts/utils";
+import PostLink from "../../../components/PostLink.astro";
+import LoadButton from "../../../components/LoadButton.astro";
+import { CONFIG } from "../../../scripts/utils";
+import * as _ from "lodash-es";
+
+
+export async function getStaticPaths({ paginate }: any) {
+    // getting all categories from the collection
+    const allCategories = await getAllPostCategories();
+
+    // preparing the posts associated with each category
+    let categoryPostsMap: any = {};
+    for (const category of allCategories) {
+        const categoryItems = await getOurCollection({ 'category': category });
+        categoryPostsMap[category] = categoryItems;
+    }
+
+    return allCategories.flatMap((category) => {
+        // const filteredPosts = await getOurCollection({ 'category': category });
+        // const filteredPosts = _.filter(allPostItems, (item: any) => item.data["category"] === category);
+
+        // getting post items for given category
+        const filteredPosts = categoryPostsMap[category];
+        return paginate(filteredPosts, {
+            params: { 'category': category },
+            pageSize: CONFIG.sectionItemsCount,
+        });
+    });
+};
+
+export const partial = true;
+
+const { page } = Astro.props;
+const { category } = Astro.params;
+
+---
+{
+    page.data.map(
+        (item: any) => (
+            <PostLink postEntry={item} />
+        )
+    )
+}
+{
+    page.url.next
+        ? (
+            <LoadButton routeURL={`${page.url.next}`} />        )
+        : ( "" )
+}

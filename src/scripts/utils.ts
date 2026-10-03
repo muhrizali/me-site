@@ -58,13 +58,13 @@ function limitPosts({posts, count = null}: LimitOptions) {
 }
 
 interface CollectionOptions {
-    category: string | null;
-    tag: string | null;
-    sortby: "title" | "last_created" | "last_modified" | null;
-    count: number | null;
+    category?: string | null;
+    tag?: string | null;
+    sortby?: "title" | "last_created" | "last_modified" | null;
+    count?: number | null;
 }
 
-async function getOurCollection({category = null, tag = null, sortby = null, count = null}: CollectionOptions) {
+async function getOurCollection({category = null, tag = null, sortby = null, count = null}: CollectionOptions = {}) {
     let allPosts = await getValidPosts();
     if ((category === null) && (tag === null) && (sortby === null) && (count === null)) return allPosts;
 
@@ -103,4 +103,8 @@ async function getAllPostCategories() {
     return allCategories;
 }
 
-export { getOurCollection, getAllPostTags, getAllPostCategories };
+const CONFIG = {
+    sectionItemsCount: 3,
+}
+
+export { getOurCollection, getAllPostTags, getAllPostCategories, CONFIG };

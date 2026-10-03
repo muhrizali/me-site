@@ -1,8 +1,24 @@
 ---
 import { getAllPostCategories,  getAllPostTags } from "../scripts/utils";
 
-let categories = await getAllPostCategories();
-let tags = await getAllPostTags();
+interface Props {
+    scope?: "website" | "post";
+    frontmatter?: any;
+}
+
+const { scope = "website", frontmatter = null } = Astro.props;
+
+let categories = [];
+let tags = [];
+
+if (scope === "website") {
+    categories = await getAllPostCategories();
+    tags = await getAllPostTags();
+} else if (scope === "post") {
+    categories = [frontmatter?.category];
+    tags = frontmatter?.tags;
+}
+
 
 ---
 <div class="mt-10">

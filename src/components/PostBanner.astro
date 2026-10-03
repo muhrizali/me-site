@@ -11,15 +11,6 @@ const datePublished = DateTime.fromISO(frontmatter.datePublished).toLocaleString
 ---
 
 <div class="w-full my-4">
-    <ul class="flex flex-row gap-4 text-sm/snug mt-6">
-        {frontmatter.tags.map(
-            (item: any) => (
-                <li class="tag-link">
-                    <a href={`/tags/${item}`} class="h-full w-full">{item}</a>
-                </li>
-          )
-        )}
-    </ul>
     <h1 class="my-2 tracking-tighter font-bold text-heading text-3xl/tight">{frontmatter.title}</h1>
     <p class="tracking-tight text-base text-body-subtle">{datePublished}</p>
 

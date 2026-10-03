@@ -1,29 +1,53 @@
 ---
 import PostLink from "./PostLink.astro";
+import LoadButton from "./LoadButton.astro";
 // import { getCollection } from "astro:content";
 import * as _ from "lodash-es";
 import { getOurCollection } from "../scripts/utils";
-
-
 
 interface Props {
     category?: string;
     tag?: string;
     count?: number;
+    loadMore?: boolean;
 }
 
 
-let { category = null, tag = null, count = null, sortby = null } = Astro.props;
+let { category = null, tag = null, count = null, sortby = null, loadMore = false } = Astro.props;
+
+// let generatedSectionID: string;
+
+let generatedSectionID = `post-list-section`;
+let route = "";
+if (category) {
+    generatedSectionID = `category-${category}-section`;
+    route = category;
+} if (tag) {
+    generatedSectionID = `tag-${tag}-section`;
+    route = tag;
+}
 
 let collection = await getOurCollection({category, tag, count, sortby});
+let totalItems = (await getOurCollection({category, tag})).length;
+
+if (totalItems <= count) {
+    loadMore = false;
+}
 
 ---
-<ul class="space-y-2">
+<ul class="space-y-2" id={generatedSectionID}>
     {
         collection.map(
             (item) => (
                 <PostLink postEntry={item} />
             )
         )
+    }
+    {
+        loadMore
+            ? (
+                <LoadButton routeURL={`/htmx/${route}/2`} />
+            )
+            : ( "" )
     }
 </ul>

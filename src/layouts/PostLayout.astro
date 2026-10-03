@@ -2,6 +2,7 @@
 import Layout from "./Layout.astro";
 import Writing from "../components/Writing.astro";
 import PostBanner from "../components/PostBanner.astro";
+import PostMap from "../components/PostMap.astro";
 import { Metadata } from "../scripts/types";
 
 // MARKDOWN ARTICLE LAYOUT
@@ -20,4 +21,5 @@ const metadata: Metadata = {
     <Writing>
         <slot />
     </Writing>
+    <PostMap scope={"post"} frontmatter={frontmatter} />
 </Layout>

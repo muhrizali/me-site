@@ -19,7 +19,11 @@ export default defineConfig({
   integrations: [mdx(), alpinejs()],
   adapter: cloudflare(),
   
-  // PREFETCH: VIEW TRANSITIONS
+  // PREFETCH
+  prefetch: {
+    prefetchAll: true,
+    defaultStrategy: "viewport",
+  },
   
   // MARKDOWN CONFIG
   markdown: {
