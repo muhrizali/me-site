@@ -1,29 +1,25 @@
 // @ts-check
 import { defineConfig, fontProviders } from 'astro/config';
-
 import tailwindcss from '@tailwindcss/vite';
-
 import mdx from '@astrojs/mdx';
-
 import cloudflare from '@astrojs/cloudflare';
-
 import alpinejs from '@astrojs/alpinejs';
 
 // https://astro.build/config
 export default defineConfig({
-  
-  // EXTENSIONS/INTEGRATIONS
-  vite: {
-    plugins: [tailwindcss()]
-  },
-  integrations: [mdx(), alpinejs()],
-  adapter: cloudflare(),
   
   // PREFETCH
   prefetch: {
     prefetchAll: true,
     defaultStrategy: "viewport",
   },
+
+  // EXTENSIONS/INTEGRATIONS
+  vite: {
+    plugins: [tailwindcss()]
+  },
+  integrations: [mdx(), alpinejs()],
+  adapter: cloudflare(),
   
   // MARKDOWN CONFIG
   markdown: {

@@ -17,13 +17,10 @@ let { category = null, tag = null, count = null, sortby = null, loadMore = false
 
 // let generatedSectionID: string;
 
-let generatedSectionID = `post-list-section`;
 let route = "";
 if (category) {
-    generatedSectionID = `category-${category}-section`;
     route = category;
 } if (tag) {
-    generatedSectionID = `tag-${tag}-section`;
     route = tag;
 }
 
@@ -35,7 +32,7 @@ if (totalItems <= count) {
 }
 
 ---
-<ul class="space-y-2" id={generatedSectionID}>
+<ul class="space-y-2">
     {
         collection.map(
             (item) => (

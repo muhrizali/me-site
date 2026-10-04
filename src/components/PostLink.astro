@@ -19,10 +19,11 @@ const postDatePublished = DateTime.fromISO(postEntry.data.datePublished).toLocal
         <h3 class="typography-common text-lg/tight font-semibold text-heading">
             {postEntry.data.title}
         </h3>
-        <p class="typography-common mb-2 text-body-subtle text-base font-normal">
-            {postDatePublished}
+        <time
+            datetime={postEntry.data.datePublished} 
+            class="block mb-2 tracking-tight text-base text-body-subtle">{postDatePublished}
+        </time>
 
-        </p>
         <p class="typography-common text-body text-sm/tight line-clamp-2">
             {postEntry.data.description}
         </p>

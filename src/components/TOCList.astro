@@ -10,11 +10,11 @@ const { headings } = Astro.props;
         <summary class="font-medium cursor-pointer marker:text-brand">
             CONTENTS
         </summary>
-        <ul class="mt-1 ml-0 text-xs/tight">
+        <ul class="mt-0 text-sm/tight">
             {
                 headings.map(
                     (heading: any) => (
-                        <li style={`margin-left: ${0.5 * heading.depth}rem`} class="border-l-2 border-l-transparent hover:border-brand active:border-brand pl-1 pt-0.5">
+                        <li style={`margin-left: ${0.5 * heading.depth}rem`} class="pl-1 py-0.5 border-l-2 border-l-transparent hover:border-brand active:border-brand">
                             <a href={`#${heading.slug}`} class="block w-full h-full text-body hover:text-brand active:text-brand">{heading.text}</a>
                         </li>
                     )

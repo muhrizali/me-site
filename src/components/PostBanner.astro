@@ -12,10 +12,10 @@ const datePublished = DateTime.fromISO(frontmatter.datePublished).toLocaleString
 
 <div class="w-full my-4">
     <h1 class="my-2 tracking-tighter font-bold text-heading text-3xl/tight">{frontmatter.title}</h1>
-    <p class="tracking-tight text-base text-body-subtle">{datePublished}</p>
+    <time datetime={frontmatter.datePublished} class="tracking-tight text-base text-body-subtle">{datePublished}</time>
 
     <!-- Description -->
-    <div class="p-4 typography-common text-body-subtle text-lg/tight">
+    <div class="py-4 typography-common text-body-subtle text-lg/tight">
         <p><span class="text-brand font-bold">//</span> {frontmatter.description}</p>
     </div>
 
