@@ -36,6 +36,12 @@ export default defineConfig({
       cssVariable: "--font-fira-code",
       weights: [300, 400, 500, 600, 700, 800, 900],
     },
+    // {
+    //   provider: fontProviders.fontsource(),
+    //   name: "Source Sans 3",
+    //   cssVariable: "--font-source-sans",
+    //   weights: [300, 400, 500, 600, 700, 800, 900],
+    // },
     {
       provider: fontProviders.fontsource(),
       name: "Ubuntu Sans Mono",

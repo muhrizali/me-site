@@ -49,7 +49,8 @@
     --edge: #665c54;
 
     /* FONTS */
-    --font-main: var(--font-fira-code); /* SANS */
+    --font-main: var(--font-fira-code);
+    /* --font-main: var(--font-source-sans); */
     --font-old: var(--font-fira-code); /* SERIF */
     --font-code: var(--font-ubuntu-mono);
 }
