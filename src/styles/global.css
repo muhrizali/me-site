@@ -158,7 +158,7 @@
 }
 
 .writing a {
-    @apply typography-common text-brand decoration-2 hover:underline active:underline;
+    @apply typography-common text-brand decoration-2 active:decoration-brand hover:underline active:underline;
 }
 
 .writing figure figcaption a {

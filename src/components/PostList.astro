@@ -43,7 +43,9 @@ if (totalItems <= count) {
     {
         loadMore
             ? (
-                <LoadButton routeURL={`/htmx/${route}/2`} />
+              category 
+              ? <LoadButton routeURL={`/htmx/category/${route}/2`} />
+              : <LoadButton routeURL={`/htmx/tag/${route}/2`} />
             )
             : ( "" )
     }

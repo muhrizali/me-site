@@ -6,8 +6,8 @@ import Main from "../components/Main.astro";
 import Head from "../components/Head.astro";
 import { Metadata } from "../scripts/types";
 
-// BASE LAYOUT: 
-// Used for any html or astro page which does 
+// BASE LAYOUT:
+// Used for any html or astro page which does
 // not use markdown
 
 interface Props {
@@ -15,22 +15,22 @@ interface Props {
 }
 
 const { metadata } = Astro.props;
-
 ---
+
 <!doctype html>
-<html 
-  lang="en"
-  data-theme="warm">
-  <head>
-    <Head metadata={metadata} />
-  </head>
-  <body class="bg-neutral-primary">
-    <Navigation />
+<html lang="en" data-theme="warm">
+    <head>
+        <Head metadata={metadata} />
+    </head>
+    <body
+        hx-boost:inherited="true"
+        class="bg-neutral-primary">
+        <Navigation />
 
-    <Main>
-      <slot />
-    </Main>
+        <Main>
+            <slot />
+        </Main>
 
-    <Footer />
-  </body>
+        <Footer />
+    </body>
 </html>
