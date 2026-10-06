@@ -1,0 +1,306 @@
+---
+# astro: layout
+layout: "../../../layouts/PostLayout.astro"
+
+# metatdata
+title: "Linux"
+description: "Learning about the open-source operating system Linux. The Linux ecosystem has always been about empowering users and giving them the freedom of computing that big corporate organizations are always hesitant about."
+
+# organization
+category: "NOTES"
+tags:
+  - OS
+  - Linux
+
+# dates and times
+datePublished: "2025-04-06T10:32:43"
+dateModified: "2025-04-06T10:32:43"
+
+# states
+isDraft: false
+---
+import M from "../../../components/md/M.astro";
+import Q from "../../../components/md/Q.astro";
+import Img from "../../../components/md/Img.astro";
+// import myImage from "./images/image-1.jpg";
+
+Some simple linux commands
+- `date`: display current date and time
+- `uptime`: displays how long the system has been running
+- `df`: display free space for disk drives
+- `exit`: ending a terminal session
+- `clear`: clears the screen of command outputs
+
+The general syntax of the commands involves the executable command name, various options it accepts to change its behaviour and arguments passed to these options. The syntax generally looks like:
+
+`command --option --other-option args`
+
+Most programs in Linux has quick help guide through the `--help` or `-h` option. For a detailed guide we use `man` command to get the command's manual like `man cat`.
+
+For example `ls -la` and `echo -f "Hello World"`.
+
+Linux has a very simple directory structure filesystem. It organizes its files and folders in a tree-like heirarchical directory structure which begins with the root directory.
+
+Root directory `/` is the first directory in any Linux distribution from where everything begins. It contains various standard files and directories which contain even more files and directories.
+
+Linux always has a single filesystem tree regardless of how many drives or storages are attached to the machine (unlike Windows which has a separate file system tree for each storage device).
+
+
+At any given moment in the terminal, we are always inside a directory. The directory we are currently in is called "current working directory".
+
+`pwd`: displays the current working directory we are in
+
+When we first log in to our machine (via terminal), the current working directory is set to "home directory" where we land. Home directory is the directory designated to a single user of the computer. Each user account is given its own home directory.
+
+`ls`: listing the files and folders in the current working directory
+- `ls -l` will list the contents in a tabular format with various columns
+- `ls -a` will list all the contents in a directory including hidden ones that begins with `.` and `..`
+
+It is recommended to NOT use spaces when renaming or creating files, instead use either `-` or `_` to represent spaces or separations.
+
+We can navigate our Linux filesystem or home directory from our current working directory to another directory.
+
+`cd`: command used to navigate and change directories
+- `cd` alone will change to your home directory
+- `cd -` will change to previous directory you were in
+- `cd ~user` will change to home directory of `user`
+
+
+Two types of pathnames;
+- Absolute Pathnames: Paths to files or folders that begins from the starting of the Linux filesystem, that is, from the root directory `/` like `cd /home/jake/Desktop`.
+- Relative Pathnames: Paths to files or folders that are relative to our current working directory like `./Desktop/Notes.txt` or `../john/Desktop/Notes.txt`. Single dot `.` refers to path of current working directory and double dots `..` refers to the parent/previous directory of current working directory.
+
+**Exploring the filesystem**
+
+`less`: view the contents of files in scrollable page
+- related command `cat`: prints the contents of file in terminal output
+- related command `bat`: modern replacement of `cat` command
+
+`file`: determine the type of given file
+- the command tries to accurately determine the type of file irrespective of the file extension
+
+Some important directories in a Linux filesystem:
+- `/` root directory from where everything begins
+- `/dev` contains list of all devices (nodes) attached to machine
+- `/etc` contains system-wide configuration files
+- `/home` contains home accounts for users
+- `/opt` contains optional software installed in our computer
+- `/root` home directory for the root user
+- `/usr` contains all programs and support files used by users
+	- `/usr/local` contains programs not included with distribution (our programs)
+	- `/usr/share` contains shared data used by all users and programs in `/usr/bin`
+- `~/.config` and `~/.local`: user specific configuration and program files
+
+
+A linux concept: "Everything is a file".
+
+**Manipulating Files and Folders**
+
+`touch`: create empty files
+
+`mkdir`: create directories in the current path
+- `mkdir -p` for skipping when directories already exists, creating otherwise
+
+`cp`: used to copy files and folders from one path to another
+- `cp notes.txt notes-duplicate.txt` makes a duplicate copy
+- related command `rsync`: efficient and reliable alternative to `cp` (i often use `rsync -azvP`)
+
+`mv`: move or rename files
+- `mv notes.txt notebook/` works like cutting or moving
+- `mv notes.txt new-notes.txt` works like renaming
+
+`rm`: remove files and folders from filesystem
+- `rm -rf` deletes everything inside a folder; be careful when using these options
+
+Wildcards are special patterns that are used to refer to various files or folders based on criteria. It allows us to select files/folders matching some specific pattern like `*.jpg` or `ali*`. We can use wildcards with various commands like `cp` to copy specific files.
+
+**Hard links** are a way of creating links (at some location) to files (that are present at another location). Every file has a default single hard link that gives the file its name. When we create a hard link we create an additional entry for the file. 
+
+When the original file is removed all of its hard links will continue to exist because hard links are actual reference to the file in the filesystem.
+
+Some limitations of hard links:
+1. Hard links cannot reference a file outside its own filesystem. A link cannot reference a file that is not on the same disk partition.
+2. Hard links cannot reference a directory or folder.
+
+Symbolic links are also a way of creating links which overcomes the limitations of hard links. They simply work by creating a special type of file that contains a text pointer to the reference file or directory. 
+
+When the original file or folder is removed, all of its symbolic links will continue to exist but will not point to anything as the original path is missing (broken links).
+
+Symbolic removes all the limitations of hard links:
+1. They can reference a file outside their own filesystem
+2. They can reference a directory in addition to simple files
+
+`ln`: Command to create links for files
+- `ln (source) (link)` for creating hard links
+- `ln -s (source) (link)` for creating symbolic links, the link path should always be absolute
+
+**working with commands**
+
+various types of commands in a shell:
+1. an executable program: like the ones stored in `/usr/bin` or `/bin`, these are compiled binaries of programs
+2. a shell built-in: commands that are provided by the shell we are using like `cd`
+3. a shell function: miniature shell scripts incorporated into the environment
+4. an alias: commands that we can build ourselves using other commands combined together
+
+`type`: determine the type of the command
+
+`which`: display the program's/command's executable path currently in use
+
+`whereis`: display all the program paths where its executable is stored in PATH
+
+`whatis`: one line manual for programs and commands
+
+`man`: open the manual for a given command
+
+`alias`: can be used to create our commands in current session
+
+
+**file permissions**
+
+Operating systems like Unix and its derivatives like Linux are not only multi-tasking systems but also mult-user systems. They are designed inherently to be used by more than one user at a time.
+
+To make this practical, a method had to devised to protect the users from one another, which means that the actions of one user should not the affect other users or the whole operating system. A user can also not interfere with another user's files.
+
+Linux permissions is a Unix security model which grants the users, groups and others certain rights over certain files and folders.
+- **User:** A user may own files and folders and has control over its access rights like read, write and execute.
+- **Group:** Users can belong to a group consisting of one or more users who are given access rights to files and folders by their respective owners (users).
+- **Others:** An owner user may also grant access rights to "others" which are users who are not the owner of the file/folder and who are not in the owner's group.
+
+When a user account is created, users are assigned a numeric ID called user ID (UID) and a primary group ID (GID). For the sake of humans, the user IDs are mapped to the usernames of the user. A user may belong to additional groups apart from his own group (of the same as username).
+
+`id`: to find information about your user identity
+- The output maybe different depending on the distribution you are using.
+
+All the information regarding user accounts and user groups are simply in text files in Linux.
+- `/etc/passwd` stores user accounts and `/etc/shadow` stores information about their passwords.
+- `/etc/group` stores information related to various groups in the system.
+
+
+**Access Rights**
+Access rights to various files and directories in Linux are defined in terms of read access (`r`), write access (`w`) and execution access (`x`). These access rights can be determined from file attributes when listing the contents with `ls -l`.
+
+File attributes are strings consisting of 10 characters per file which indicates the type of file (first character) and file permissions (remaining nine characters).
+
+The first character of file attributes indicates various types of files in Linux:
+- **File:** A simple regular file represented as `-` or `.`
+- **Directory:** A simple directory or folder represented as `d`
+- **Symbolic Link:** A reference soft link represented as `l`, the file attributes are always dummy values being `rwxrwxrwx`. The real attributes are those of the file that the symbolic link points to.
+- **Character File:** A character special file represented as `c`, which refers to data as a stream of bytes.
+- **Block File:** A block file represented as `b`, which handles data in blocks like SSDs, HDDs or DVDs.
+
+The remaining nine characters of file attributes indicates the file permissions called the file mode. It describes the read, write and execute permissions for the file's owner, file's group owner and everybody else (others):
+- User: `rwx`, Group: `rwx`, Other: `rwx`
+
+The meanings of access rights are different depending on whether the file is regular file or a directory.
+
+For regular files:
+- `r`: Allows the files to be opened and read
+- `w`: Allows the files to be edited and truncated, but does not allow files to be renamed or deleted (these are described by directory attributes)
+- `x`: Allows the files to be treated as a program and executed. Files also need to be readable `r` to be executed
+
+For directories:
+- `r`: Allows the directory contents to be listed, but no file information will be shown (unless the execute `x` attribute is also set).
+- `w`: Allows files within a directory to be created, deleted and renamed if the execute attribute is also set.
+- `x`: Allows a directory to be entered and file information to be accessed. File operations such as `cp`, `rm` and `mv` requires this access to the directory.
+
+`chmod`: Command used to change the mode (permissions) of a file or directory. Only the file owner or the root user (superuser) can change the ownership of the file or directory. There are two ways of changing the mode, octal number representation and symbolic representation.
+- The syntax for specifying the file mode permissions of a file or directory looks like `chmod (who)(operator)(permissions) file/folder`.
+- `chmod u=rwx,g=rw,o=r user.txt`
+- `chmod u=rwx,g+x,o-r user.txt`
+
+The symbolic representations of the file consists of three parts:
+- **Who the change will affect:** The symbols `u` for file owner (user), `g` for group, `o` for others (who are not former) and `a` for all of them, are used for specifying who the change will affect. When nothing is specified, `a` will be used.
+- **Which operation will be performed:** The operators `+` for adding permissions, `-` for removing permissions and `=` for exactly setting given permissions, are used for managing the permissions for users.
+- **What permissions will be set:** The notations `r` for read access, `w` for write access and `x` for execute access, are used to describe the permissions for the mode.
+
+`umask`: Command is used to set the default permissions for created files and folders in the current terminal session. Accepts permissions declaration as octal representation as well as symbolic.
+- `umask` for seeing the default permissions currently set
+- `umask [mode]` for setting default mode for future files and folders
+
+
+**CHANGING IDENTITIES**
+
+`su`: Change and start shell session with an alternate user and group IDs.
+- `su -` or `su -l` can be used to change the identity to the root user.
+- `su - jake` or `su -l jake` can be used to change the identity to another regular user.
+- `su -c 'command'` can be used to execute commands as root user rather than switching the identity.
+
+`sudo`: Change and execute commands as an alternate user like `su`.
+- Adds additional capabilities than `su` command. Allows users to execute commands as another user (usually superuser root) in a controlled way. Does not start a new shell session.
+- Using `sudo` does not require the root user password. Authenticating using `sudo` requires the user's own password. 
+- `sudo -i` can be used to switch to the root user just like `su -`
+- `sudo -l` can be used to see what privileges we are allowed
+
+`passwd`: Command to set or change password for yourselves or for another user.
+- `passwd jake` can be used to change or set password for user `jake`
+
+`adduser`, `useradd`
+`usermod`
+
+**MANAGING RUNNING PROCESSES**
+
+Linux is a multi-tasking system where many programs can be running at the same time. An instance of a running program is referred to as a process. Linux provides various tools for listing and managing processes.
+
+A process is identified on the system by what is referred to as a process ID (PID). That PID is unique to the current process of the current system, no other process can take the PID while the first process is still running.
+
+There are more attributes associated with a running process. Each process is associated with a particular user account and group account. This account information helps determine what system resources the process can access.
+
+`ps`: Commands used to list the processes currently running in the system.
+- `ps ux | less`: Listing all processes for the current user account 
+- `ps aux | less`: Listing all process across the system
+
+**Foreground Processes:** The processes that are active in front of us, whose progress we can see. All the processes we spawn in our terminal are foreground processes (listing files, updating the system).
+
+**Background Processes:** The processes that are behind the scenes, away from our sight, whose progress we cannot see but they are running. All the system processes that the Linux needs for functioning are background processes.
+
+**Putting Processes to Backgrounds:** To put processes from commands to the background, we add ampersand `&` at the end of the command. 
+
+**Stopping Processes:** If we want to put current process in the background we can press `Ctrl + Z` at it.
+
+**Putting Processes to Foreground:** To put background running processes to foreground, we use `fg` command like `fg %(job number)` to bring the background with job number into the foreground.
+
+**Starting Stopped Background Processes:** To start our stopped background processes, we use `bg` command like `bg %(job number)`.
+
+`jobs`: Command to display all the background jobs started or stopped in current session
+
+**KILLING PROCESSES**
+
+`kill` and `killall` commands are used to send valid signals to the running processes. There are various signals we can send to various running processes.
+
+Some common signals:
+- `SIGTERM (15)`: For terminating process, the default (killing cleanly) 
+- `SIGKILL (9)`: For killing process
+- `SIGSTOP (19)`: For stopping a process
+- `SIGCONT (18)`: For continue/starting a process
+
+`kill`: For sending signals to processes through their process IDs (PIDs)
+- We can send signals to processes through their integer IDs like `kill -9 (PID to signal)` or through their names like `kill -SIGKILL (PID to signal)`.
+
+`killall`: For sending signals to processes through their names
+- We can send signals to processes through their integer IDs like `killall -9 (command to signal)` or through their names like `killall -SIGKILL (command to signal)`.
+
+
+**MANAGING USERS**
+
+`useradd [options] (username)`: Command to create and add new user accounts in the Linux system.
+- `--groups (groups list)`: For adding user to list of supplmental groups
+- `--gid (group)`: For changing the primary group of the user
+- `-D [user account options]`: For setting the default to options for creating accounts
+
+`passwd (username)`: Command to create or modify password for user account
+
+How to add user accounts to the Linux system
+1. `useradd --comment "Muhriz Ali" muhrizali`
+2. `passwd muhrizali`
+
+**User Records:** The standard file `/etc/passwd` contains all user account records in the Linux system. Each record contains the following fields separated by colon `:`
+- `(username):(password):(user ID):(primary group ID):(full name):(home directory):(shell)`
+
+**Group Records:** The standard file `/etc/group` contains information about all the groups in the Linux system and their members. Each record contains the following fields separated by colon `:`
+`(group name):(group password):(group ID):(users in group)`
+
+The `password` fields in both the files `/etc/passwd` and `/etc/group` usually contains the field `x` that indicates that the password is contained in a shadow file.
+
+TODO: **Modifying Users**
+
+

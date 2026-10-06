@@ -5,22 +5,30 @@ layout: "../../../layouts/PostLayout.astro"
 # metatdata
 title: "Template Title"
 description: "Template Description"
+
+# organization
 category: "Template Category"
 tags:
   - Template
 
 # dates and times
-datePublished: "2026-07-14T20:19:00"
-dateModified: "2026-07-14T20:19:00"
+datePublished: "2004-01-01T00:00:00"
+dateModified: "2004-01-01T00:00:00"
 
 # states
 isDraft: true
 ---
-import Me from "../../../components/Me.astro";
-import BlockQuote from "../../../components/BlockQuote.astro";
-import Figure from "../../../components/Figure.astro";
+import M from "../../../components/md/M.astro";
+import Q from "../../../components/md/Q.astro";
+import Img from "../../../components/md/Img.astro";
+import myImage from "./images/image-1.jpg";
 
-Write something here...Here we go again, another self-proclaimed and entitled broken lover going over how much pain he went through and how much "she" meant to him Here we go again, another self-proclaimed and entitled broken lover going over how much pain he went through and how much "she" meant to him
+<Img path={myImage} 
+  alt="This is my image" 
+  caption="This is my image and it looks fire as fuck" 
+/>
+
+Write something here... Here we go again, another self-proclaimed and entitled broken lover going over how much pain he went through and how much "she" meant to him Here we go again, another self-proclaimed and entitled broken lover going over how much pain he went through and how much "she" meant to him
 
 Here we go again, another self-proclaimed and entitled broken lover going over how much pain he went through and how much "she" meant to him
 

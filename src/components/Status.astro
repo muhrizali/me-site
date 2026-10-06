@@ -1,5 +1,5 @@
 ---
-import BlockQuote from "./BlockQuote.astro";
+import Q from "./md/Q.astro";
 import { DateTime } from "luxon";
 
 interface Props {
@@ -9,6 +9,6 @@ interface Props {
 const { date } = Astro.props;
 const statusDate = DateTime.fromISO(date).toLocaleString(DateTime.DATE_MED);
 ---
-<BlockQuote source={statusDate}>
+<Q source={statusDate}>
     <slot />
-</BlockQuote>
+</Q>

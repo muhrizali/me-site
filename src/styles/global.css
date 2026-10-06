@@ -49,9 +49,9 @@
     --edge: #665c54;
 
     /* FONTS */
+    /* --font-main: var(--font-fira-code); */
     --font-main: var(--font-fira-code);
-    /* --font-main: var(--font-source-sans); */
-    --font-old: var(--font-fira-code); /* SERIF */
+    /* --font-old: var(--font-fira-code); SERIF */
     --font-code: var(--font-ubuntu-mono);
 }
 
@@ -112,6 +112,11 @@
     --font-mono: var(--font-code);
 }
 
+body {
+    font-variant-ligatures: discretionary-ligatures;
+    font-feature-settings: "calt" 1, "liga" 1;
+}
+
 @utility typography-common {
     @apply text-body text-base/snug tracking-tight hyphens-auto;
 }
@@ -160,6 +165,10 @@
 .writing a {
     @apply typography-common text-brand decoration-2 active:decoration-brand hover:underline active:underline;
 }
+
+/* .writing figure figcaption p {
+    @apply pt-1 text-body-subtle text-xs/tight tracking-tight hyphens-auto;
+} */
 
 .writing figure figcaption a {
     @apply text-xs decoration-1 underline text-body-subtle;

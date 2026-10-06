@@ -1,0 +1,386 @@
+---
+# astro: layout
+layout: "../../../layouts/PostLayout.astro"
+
+# metatdata
+title: "Large Language Models"
+description: "Further sub-field of deep learning and machine learning which focuses on learning, understanding, and generating human language. Large language models are about creating intelligent computer systems focused on understanding every context of human language."
+
+# organization
+category: "NOTES"
+tags:
+  - Data-Science
+  - Deep-Learning
+  - LLMs
+
+# dates and times
+datePublished: "2026-02-22T19:06:50"
+dateModified: "2026-02-22T19:06:50"
+
+# states
+isDraft: false
+---
+import M from "../../../components/md/M.astro";
+import Q from "../../../components/md/Q.astro";
+import Img from "../../../components/md/Img.astro";
+// import myImage from "./images/image-1.jpg";
+
+## BASICS / STARTING
+
+**Artifical Intelligence (AI)**
+
+Artificial Intelligence (AI) is used to describe computer systems dedicated to performing tasks close to human intelligence such as speed recognition, language translation and visual perception.
+
+It is the field of science and engineering aimed at creating intelligent computer systems (software).
+
+**NATURAL LANGUAGE PROCESSING (NLP)**
+
+A field of AI focused on making computers to understand, interpret and generate human language.
+
+A field of linguistics and machine learning focused on understanding everything related to human language, to understand the words of a text individually and also to understand the context of those words.
+
+**LARGE LANGUAGE MODELS (LLMs)**
+
+Powerful subset of NLP models characterised by their ability to perform wide range of language-related tasks with minimal task-specific training.
+
+They are complex mathematical models trained on very large amounts of text data to understand and generate human-like text. Models like Llama, GPT, BERT, Gemini, Claude are some examples.
+
+Some of the characteristics of LLMs are:
+- **Scale:** The may contain millions, billions or even hundreds of billions of parameters.
+- **Learning Capabilities:** They can perform multiple tasks without task-specific training, and can even learn from examples in inputs.
+- **Emergent Abilities:** As the LLMs grow in size, they demonstrate capabilities that weren't explicitly programmed or anticipated.
+
+LLMs have significant limitations too:
+- **Hallucinations:** Can generate incorrect information confidently, lacks true understanding of the topic.
+- **Bias:** They may result and reproduce bias that might be present in the input data that it was trained upon.
+- **Resources:** Requires huge resources, both in terms of computational resources (hardware like RAM, storage, CPU/GPU) and also in terms of data used for training the models.
+
+## TRANSFORMER MODELS
+Transformer models are used to solve all kinds of tasks across different modalities, including NLP, computer vision, audio processing and more. Organizations like Meta, Google, Microsoft contribute and share many popular transformer models. 
+
+**PRE-TRAINING**
+
+All transformer models have been trained on large amounts of raw text language data in a self-supervised fashion, which means that the objective is automatically computed from the inputs. 
+
+This is called pre-training and it allows the model to develop a statistical understanding of the language it was trained upon. It is the process of training a model from scratch, where the parameter weights are randomly initialised and the model has no prior knowledge of the language.
+
+The pre-training is done on very large amounts of text data which can require large amounts of compute resources and can even take several weeks or months.
+
+**FINE-TUNING**
+
+After pre-training, the model will be called a pre-trained model but it is not in the stage to be useful for any task. The pre-trained model goes through an additional process of transfer learning (or fine-tuning) in which the knowledge that the model acquires during pre-training transferred.
+
+Fine-tuning is the additional training done after a model has been pre-trained with a dataset specific to the task. The task-specific dataset usually consists of labeled human-annotated data with inputs associated with their outputs. This training can be carried out even with very limited compute resources and with limited amounts of data. 
+
+**ENVIRONMENTAL IMPACT**
+
+Training a large language model from scratch (pre-training) requires huge amounts of training data, large compute resources (in terms of storage, RAM, CPU and GPU) and considerable time for training (few weeks or even months).
+
+This leads to huge environmental impact through carbon emissions from the machines and is considered an environment hazard for the surrounding.
+
+This is why organizations (Meta, Google, Microsoft) share their large language models (model weights and parameters). Sharing trained model weights and building on top of it reduces overall compute costs.
+
+**General Transformer Architecture:** A transformer model is primarily composed of mainly two blocks: Encoder block and Decoder block; Each of these blocks may be used independently or with each other depending on the task.
+- **Encoder Block:** The encoder block receives an input and builds a representation of data (its features), for the models to understand; this model is optimized to acquire understanding from the input.
+- **Decoder Block:** The block that uses the encoder's representations (the features) of features along with other inputs to generate a target sequence; this model is optimized for generating outputs.
+
+**Types of Models:** Each of the two blocks of transformer models can be used independently or with each other, depending on the task. There are three types of models based on the blocks used:
+- **Encoder-Only Models:** 
+  (like BERT) Uses bidirectional approach to understand context from both the directions; best suited for tasks that require deep understanding of the text like text-classification, named-entity-recognition and sentiment-analysis.
+- **Decoder-Only Models:** 
+  (like GPT, Llama) Processes text from left to right; best suited for generation tasks like completing sentences, writing essays and generate programming code.
+- **Encoder-Decoder (Sequence-to-Sequence) Models:** 
+  (like T5, BART): Combines both the blocks, uses encoder block to understand the input and decoder block to generate the output from the understanding; best suited for sequence-to-sequence tasks like text-translation, summarization, question-answerwing.
+
+**ATTENTION LAYERS**
+
+Transformer models are built with special layers called attention layers which tell the models to pay specific attention to certain words more than others in the input text based on the context. It all happens when processing the representation of input text.
+
+Through these attention layers the model interprets the words and phrases differently depending on the overall context of the text inputs.
+
+**Some Common Terms:**
+- **Architecture:** Skeletal structure of the transformer model and definition of each layer and each operation that happens within the model.
+- **Checkpoint:** The weights/parameters loaded in a given architecture of the transformer model.
+- **Model:** Umbrella term used to refer to an architecture as well as checkpoint.
+
+**WORKING OF TRANSFORMER MODELS**
+
+Transformer models are language models are designed to understand and generate human language by learning the statistical patterns and relationships between words or tokens in the text.
+
+Language models work by being trained to predict the probability of a word given the context of surrounding words. Allows them the foundational understanding of the language that can generalize to other tasks as well.
+
+There are two approaches for training a transformer model:
+1. **Masked Language Modelling (MLM):** 
+	- Used by encoder models like BERT, this approach randomly masks some tokens in the input text and trains the model to predict the original tokens based on the surrounding context.
+	- Allows the model to learn bidirectional context, by looking at words from both the directions, before and after the masked token.
+2. **Causal Language Modelling (CLM):** 
+	- Used by decoder models like GPT, this approach predicts the next token based on all previous tokens in the sequence. 
+	- The model can only use context from the left (previous tokens) to predict the next token.
+
+## TRANSFORMERS LIBRARY
+
+The Hugging Face (HF) `transformers` Python library provides the functionalities to create and use these shared transformer models. The huggingface model hub contains millions of pre-trained models that anyone can download and use.
+- `pip install -U transformers datasets evaluate accelerate timm`: Installing HuggingFace transformers library for working with transformer models along with other libraries for AI datasets, evaluation of trained models and optimizing the training of LLMs. 
+
+The library provides a simple and powerful API for interacting and making use of NLP/LLM models for various tasks. These tasks can include various NLP tasks like text classification, named entity recognition, zero shot classification, computer vision, audio processing and more.
+
+**Transformer Pipeline Function:** The most fundamental function in the HF transformers library is the `pipeline()` function instantiates and connects a transformer model with its necessary pre-processing and post-processing steps.
+
+**Transformer Pipeline in Python:**
+1. `from transformers import pipeline`: 
+   Importing `pipeline` function.
+2. `classifier = pipeline("sentiment-analysis")`: 
+   Providing the pipeline function with the type of task we want to carry out `"sentiment-analysis"` and it selects a particular model that has been fine-tuned for the task. The transformer model interface object is returned to `classifier`.
+3. `classifier(["I love you!", "I hate you!"])`: 
+   Making use of the model by giving inputs in the form of sentences, the model returns simple dictionary objects indicating the `NEGATIVE` and `POSITIVE` probabilities.
+
+**Available Pipelines:** The `pipeline()` function supports multiple modalities which allows us to work with various kinds of data like text, images, audio and even multi-modal tasks.
+- **Text Pipelines:** 
+  `"text-generation"`, `"text-classification"`, `"text-summarization"`, `"translation"`, `"zero-shot-classification"`
+- **Image Pipelines:** 
+  `"image-to-text"`, `"image-classification"`, `"object-detection"`
+- **Audio Pipelines:** 
+  `"automatic-speech-recognition"`, `"audio-classification"`, `"text-to-text"`
+- **Multi-modal Pipelines:** `"image-text-to-text"`
+
+**How does transformer models work?:** Though the `pipeline()` function provides an easy and simple API for working with transformer models, we can also manually create our transformer model interface from scratch for finer control over the steps. The `pipeline()` function groups together three crucial steps for the transformer model: pre-processing of inputs, passing inputs through the model and post-processing for external applications. 
+
+**Pre-Processing with Tokenizers:** Transformer models cannot make sense of the raw text inputs we provide, so we have to convert our text inputs into integer IDs that the model can understand. These integer IDs are actually language vocabulary IDs already stored inside the transformer models which it has learned during the pre-training phase.
+- This process is carried out by a tokenizer which is responsible for splitting the text into words, sub-words and symbols called tokens, mapping each piece to an integer ID and adding additional input tokens that may be useful to the model.
+
+**Passing through the model:** After tokenization of our raw input text, the returned token integer IDs are passed to the base transformer model. The base transformer model processes these token inputs and tries to create an understanding of them (their meaning and context) and then returns these understanding as a complex matrix called hidden states.
+- **Hidden States:** After processing, the transformer model returns a very high-dimensional vector (matrix) called "Hidden States". These hidden states usually consists of features (qualities) of our text inputs representing their contextual understanding by the model. Different types of hidden states can be returned by different transformer models.
+- **Transformer Head:** The hidden states returned by the transformer model are usually inputs to another part of the model called the model head. The model heads take the high-dimensional vector of hidden states as inputs and project them onto a different dimension for post-processing. They are usually composed of one or few more linear layers.
+- Different tasks can be performed with only a single transformer architecture but each of these tasks will have a different head associated with it. The model head is different depending on the task we want to carry out.
+
+**Post-Processing the Output:** The model head takes the high-dimensional vectors of hidden states as input and then returns a vector much simpler and much lower in dimension called the logits.
+- The logits returned by model head does not necessarily make sense by themselves; they are processed further by another layer called the post-processing layer, of which the final outputs we see as predictions when using the transformer from `pipeline()` function.
+- The post-processing layer is usually responsible for making final predictions of the model as structured and meaningful as possible for end user or external applications.
+
+## TOKENIZERS
+
+Tokenizers are the core components of an LLM/NLP pipeline that translates our raw text inputs into integer data that our transformer models can make sense of (as models can only process numbers). Tokenizers first decomposes/splits our text into separate words and then convert these words into integer IDs.
+
+The goal of tokenizers is to find the most meaningful and the smallest representation of our text for transformer model. Some of the common types of tokenizers to go about this are: word-based, character-based and subword-base:
+- **Word-based Tokenizers:** A pretty simple approach for tokenizers where the text is simply split into words separated by spaces. With these types of tokenizers, we can end up with some pretty large "vocabularies". There can be a lot of tokens here that are processed as unknown.
+- **Character-based Tokenizers:** These tokenizers splits the text into characters rather than words. Here the vocabulary is much smaller and there few out-of-vocabulary (unknown) tokens (since every word can be built from characters). Characters are less meaningful than words.
+- **Subword Tokenizers:** Relies on the principle that frequently used words should not be split into smaller subwords but rare words should decomposed into meaningful subwords. These subwords provides a lot of semantic meaning like when word `tokenization` is split into `token` and `ization`, and `annoyingly` is split into `annoying` and `ly`. 
+
+**TOKENIZERS IN TRANSFORMERS LIBRARY**
+
+The `AutoTokenizer` class from the transformers library is used to work with tokenizers:
+1. `from transformers import AutoTokenizer`:
+   Importing the `AutoTokenizer` class for creating tokenizer instances.
+2. `tokenizer = AutoTokenizer.from_pretrained(checkpoint)`:
+   Creating the tokenizer object with our provided checkpoint name. The `checkpoint` is the name of tokenizer we want to use (must be same as the checkpoint for transformer model).
+3. `outputs = tokenizer(["Hello, I am a sentence!"], padding=True, truncation=True)`:
+   Processing our text inputs through the tokenizer, returns a dictionary with keys `input_ids`, `token_type_ids` and `attention_mask`. The key `input_ids` contains integer IDs of the tokens for transformer model, `token_type_ids` separates the text inputs with antother set of IDs and `attention_mask` tells which tokens should transformer attend to and which should not. 
+
+**Tokenizer Options:** There are additional options for instantiating the tokenizer that facilitate the tokenizer to work properly with transformer models.
+- **Padding Inputs:** The `padding=True` option pads the inputs that will make all the sentences in our text inputs of same length by adding a special padding token to the sentences that are shorter than the longest one. This padding token will have the integer ID 0 and attention mask will also be 0 because these tokens will not be analyzed by the model. 
+- **Truncating Inputs:** The `truncation=True` (with `max_length`) option allows to truncate (cut short) the text sequences when the text input sequences becomes too long for the transformer model.
+- **Return Tensors Type:** The `return_tensors` option allows us to set the return value types of tensors (from the tokenizer). By default, tensors will be returned as native Python lists but we can set `return_tensors="pt"` to get back PyTorch tensors or `return_tensors="np"` to get NumPy arrays.
+
+**LOADING AND SAVING TOKENIZERS**
+
+We can save and load our trained tokenizer to our local filesystem from the tokenizer object. It allows us to work with our tokenizer, save it locally and load it again for the next session.
+- `tokenizer.save_pretrained("our_tokenizer_folder")`: To save our tokenizer in a folder in the current working directory.
+- `tokenizer.from_pretrained("our_tokenizer_folder")`: To load our tokenizer from current working directory back into the program.
+
+**ENCODING**
+
+Translating the raw text into integer IDs that the transformer model can understand is called encoding. Encoding text inputs consists of two steps; Tokenization and converting tokens to numbers.
+
+**Tokenization:** Refers to splitting the text into words, sub-words, punctuation symbols and more depending on the tokenizer (checkpoint) used. Depending on the tokenizer used, it can also add some special tokens to convey special meaning like beginning (`[CLS]`), ending or separation of text sequences (`[SEP]`). The split pieces are called tokens. It is important to use the same checkpoint name to instantiate both the tokenizer and the transformer model.
+- `tokens = tokenizer.tokenize(text_sequence)`: Tokenization is performed through `.tokenize()` method of the tokenizer.
+
+**Converting Tokens to Integer IDs:** In this step, we convert our split tokens into integer IDs that the transformer can recognize. To do this, the tokenizer has a vocabulary of words and associated integer IDs for them.
+- `token_ids = tokenizer.convert_tokens_to_ids(ids)`: The split tokens are converted to integer IDs using the `.convert_tokens_to_ids()` method of the tokenizer.
+
+**Decoding:** The process of converting the token IDs back to the original text sequence (from vocabulary IDs to get a string).
+- `decoded_sequence = tokenizer.decode(token_ids)`: 
+
+## TRANSFORMERS
+
+After our text sequences are pre-processed by the tokenizer, the integer IDs are passed to the transformer model. The transformer models interpret the token IDs and tries to build an understading of the text inputs.
+
+**TRANSFORMERS IN TRANSFORMERS LIBRARY**
+
+The `AutoModel` is the most simple class in transformers library that allows us to work with transformer models.
+1. `from transformers import AutoModel`:
+   Importing `AutoModel` class for creating and instantiating transformer model interface.
+2. `model = AutoModel.from_pretrained(checkpoint)`:
+   Creating the transformer model via the `.from_pretrained()` method from the `checkpoint` name. Checkpoint is the name of transformer model we want to use (must be same as the tokenizer checkpoint name).
+3. #TODO `TODO: further doing shit`:
+   dskldk sdlksldk
+
+**Different Transformer Architectures:** There are many transformer architectures available in the HF transformers library with each one designed around accomplishing a specific task. The `AutoModel` we used above is the most simple class which is used for experimenting and testing our outputs with transformer model.
+
+There are more specialized transformer model classes for specific tasks. These model classes corresponds to the different tasks we provide as argument to the `pipeline()` function.
+- `AutoModelForSequenceClassification`
+- `AutoModelForTokenClassification`
+- `AutoModelForQuestionAnswering`
+- `AutoModelForMultipleChoice`
+- `AutoModelForMaskedLM`
+- `AutoModelForCausalLM`
+- and more.
+
+**LOADING AND SAVING TRANSFORMERS**
+
+We can also save and load our transformer model just like the tokenizer to our local filesystem from the transformer object. It allows us to train/work with our tokenizer, save it locally and load it again for the next session (or for sharing purposes).
+- `model.save_pretrained("our_tokenizer_folder")`: To save our transformer model in a folder in the current working directory. Two files are saved in the folder, `config.json` consists of attributes for the transformer model used, metadata for the model and transformers library version number, and `model.safetensors` contains the transformer model weights/parameters.
+- `model.from_pretrained("our_tokenizer_folder")`: To load the transformer model from current working directory back into the program.
+
+## DATASETS
+
+The HuggingFace datasets is a library for easily accessing and sharing AI datasets for Audio, Computer Vision and Natural Language Processing (NLP) tasks. It allows us to easily load a dataset and perform powerful data processing and streaming methods to quickly get our dataset ready for training a deep learning model.
+
+**HuggingFace Hub:** The HF hub is an HuggingFace and community-driven collection of datasets for computer vision, audio and NLP tasks. We can use and work with many datasets for our tasks here.
+
+**Loading Datasets:** The `load_dataset` function is used load the datasets from HF hub; it is the primary way to load various kinds of datasets for our task. It is imported into our Python program like `from datasets import load_dataset`.
+
+The `load_dataset` function first downloads the dataset and cache it for future use. It returns an object called `DatasetDict` object which is a dictionary-like object consisting of all the splits of the dataset. The splits of `DatasetDict` object contains the separate distinct datasets of `"train"`, `"validation"` and `"test"`.
+- `ds_dict = load_dataset('org_name/dataset')`: Returns the `DatasetDict` object (containing all the splits) associated with the dataset to `dataset` variable. We can also do `load_dataset("...", split="train")` to load a specific split.
+- `ds_train_split = ds_dict["train"]`: After loading the dataset, we can use regular indices to load a specific dataset split like `ds_dict["validation"]` and `ds_dict["test"]`.
+
+**Loading Datasets from Other In-Memory Data:** We can also load our dataset from various in-memory data structures like dictionaries, list of dictionaries and Pandas' DataFrames. We need to first import our required class `Dataset` like `from datasets import Dataset`.
+- `ds = Dataset.from_dict(our_dict)`: Loading datasets from an existing dictionary; the keys of dictionary acts as column names and values as list of values will turn into column values.
+- `ds = Dataset.from_list(our_dict_list)`: Loading datasets from a list of dictionaries; each key in the dictionary acts as the column name and value acts as a single row value.
+- `ds = Dataset.from_pandas(our_dataframe)`: Loading our dataset from existing Pandas dataframe object.
+
+**EXPLORING DATASETS** 
+
+Datasets loaded from the datasets library are a special kind of object that acts like a dictionary as well as a list.
+
+**Inspecting the Features:** The `.features` attribute allows us to glance over the features of our dataset.
+- `ds.features` - returns overview of our dataset
+
+**Getting Individual Row:** The listing indexing syntax `ds[i]` returns individual data point (row) from datasets as a dictionary-like object.
+- `ds[0]` - returns first data point 
+- `ds[-1]` - returns last data point
+
+**Getting Column Values:** The dictionary indexing syntax `ds["column"]` returns all the values in the column `"column"` from datasets as a list-like object. 
+- `ds['text']` - returns all the values in the `'text'` column
+- `ds['label']` - returns all values in the `'label'` column
+
+**Getting Multiple Rows:** The list slicing syntax `ds[start:stop:step]` returns multiple data points from the datasets as another dataset-like object.
+- `ds[:2]` - returns first two rows 
+- `ds[-2:]` - returns last two rows.
+
+**Getting Individual Values:** We can also combine the row and column syntax to get specific values from datasets, 
+- `ds[0]['label']` - returns value from first row and column `'label'`
+- `ds['label'][0]` - returns first value among all the values in the column `'label'`
+
+**Sorting Datasets:** The `.sort()` method is used to sort the data points based on the column values.
+- `sorted_ds = ds.sort('label')` - sorts data points on `'label'` column
+- `sorted_ds = ds.sort('text')` - sorts data points on `'text'` column
+
+**Selecting Data Points:** The `.select()` method is used to select and return the specific data points by indices from the dataset.
+- `ds.select([1, 5, 9])` - returns first, fifth and ninth data points
+
+**Renaming Columns:** The `.rename_column()` is used to rename existing columns in datasets.
+- `ds.rename_column('old', 'new')` - renaming the column `'old'` to `'new'`
+
+**Removing Columns:** The `.remove_columns()` is used to remove existing columns from datasets and `.select_columns[]` allows us to keep only selected columns.
+- `ds.remove_columns(['colA', 'colB'])` - removes the columns `'colA'` and `'colB'`
+- `ds.select_columns(["colA", "colB"])` - removes all columns and keeps only `'colA'` and `'colB'`
+
+#TODO flatten dataset through `.flatten()`
+
+## FINE-TUNING TRANSFORMERS
+
+Fine-tuning refers to additional training done after the transformer model has been pre-trained (from scratch) for specific tasks. It does not require huge amounts of data or compute resources to be carried out.
+
+Fine-tuning of transformer models consists of three steps:
+1. Collecting datasets for our task training and pre-processing them
+2. Training the transformer model through pre-processed datasets
+3. Evaluate the transformer model performance and optimize the training process
+
+**PRE-PROCESSING DATASETS**
+
+`raw_dataset = load_dataset(dataset_name)`:
+- Loading our dataset from the datasets library as a `DatasetDict` object; most of the time the dataset loaded will consist of splits like `"train"`, `"validation"` and `"test"`.
+- The whole dataset will always be loaded as the `DatasetDict` object consisting of various splits; we can access the `Dataset` underlying splits as `Dataset` object by accessing through their indices like `raw_dataset["train"]` and `raw_dataset["validation"]`.
+
+`tokenizer = AutoTokenizer.from_pretrained(checkpoint)`:
+-  Loading the tokenizer object from the transformers library with the checkpoint name; the checkpoint name should be the same as the one used with transformer model. 
+
+`def tokenize_dataset_fn(dataset): ...`:
+- Now, we have to create our tokenize function which acts on our dataset and returns its tokenized version.
+- `return tokenizer(dataset['featA'], dataset['featC'], truncation=True)`: Inside the function we will pass all the required features (columns) of our datasets to our tokenizer object to be processed and also enable truncation.
+
+`tokenized_dataset = raw_dataset.map(tokenize_dataset_fn, batched=True)`:
+- The `.map()` method maps our raw datasets through our defined tokenize function to get the processed tokenized datasets that the transformer models can make sense of. 
+- The `batched=True` will speed up the tokenization process.
+
+`tokenized_dataset`:
+- While inspecting our final tokenized dataset, we will find that our tokenize function has added new fields to every split in our dataset `"input_ids"`, `"attention_mask"` and `"token_type_ids"`.
+- These new fields are the pre-processed outputs of our input features required for transformer model training. We can also remove rest of the fields.
+
+**DYNAMIC PADDING AND DATA COLLATOR FUNCTION**
+**Dynamic Padding:** After pre-processing our datasets, we need to pad all the elements (data points) to the length of the longest element when we batch elements together. This is called dynamic padding.
+
+**Data Collator Function:** The function responsible for putting all elements together inside a batch is called the collate function. Transformers library provides the collate function which takes care of dynamic padding as well batching the inputs with `DataCollatorWithPadding` class.
+
+`data_collator = DataCollatorWithPadding(tokenizer=tokenizer)`:
+- Creating the data collator function through `DataCollatorWithPadding` class which takes tokenizer as an argument.
+- Class is imported through the statement `from transformers import DataCollatorWithPadding`.
+
+`data_collator(tokenized_dataset['train'][:10])`:
+- We can use some samples from tokenized training dataset to test out our created data collator function. 
+- The result would be a dataset with all the elements padded to the maximum element length.
+
+**MODEL PERFORMANCE AND EVALUATION METRIC FUNCTION**
+
+After our transformer model has been trained from the training datasets, we would need a way to evaluate the model performance, to check how correct our model has predicted against the true reference values. These methods are provided by the evaluate library from HuggingFace, in the form of a `compute_metrics` function that we create.
+
+`metric = evaluate.load('accuracy')`:
+- Creating the metric object by loading a module metric type from evaluation library, imported like `import evaluate`. 
+- There are several more metric types that we can use (like `precision`).
+
+`def compute_metrics(eval_preds): ...`:
+- We create our `compute_metrics` function that will evaluate the performance of our trained transformer model. 
+- The function takes a single argument of `EvalPrediction` object which is a named tuple containing fields `predictions` and `label_ids`.
+- `preds, labels = eval_preds`: Getting the fields `predictions` and `label_ids` values from named tuple `eval_preds` by unpacking tuples.
+- `predictions = np.argmax(preds, axis=-1)`: Processing the predictions through NumPy function `argmax` to get back the most probable predicted outcomes from model predictions; NumPy imported like `import numpy as np`.
+- `return metric.compute(predictions=predictions, references=labels)`: Finally, returning the evaluation metric object, the return value (will also be an `EvalPrediction` object?) consists of three fields: `predictions`, `label_ids` and `metrics` which will contain our evaluation performance results depending on metric used.
+
+**TRAINING ARGUMENTS AND THE TRAINER**
+
+Transformers library provides a `Trainer` class to help us fine-tune any of the provided pre-trained models with modern best practices and also provides `TrainingArguments` class that will contain all the hyperparameters that `Trainer` will use for training and evaluation. Thus, the `TrainingArguments` is instantiated before the trainer.
+
+`training_args = TrainingArguments('our-model-path')`: 
+- Creating the training arguments object from `TrainingArguments` class imported like `from transformers import TrainingArguments`. 
+- The only required argument we have to provide is the folder path where the trained model will be saved. We will also set our desired hyperparameters for training/evaluation here to manage the learning curves of the model.
+
+`model = AutoModelForSequenceClassification.from_pretrained(checkpoint, num_labels=2, dtype="auto", device_map="auto")`: 
+- Creating our pre-trained transformer model object from the `checkpoint` name (should be same as tokenizer checkpoint) and passing required appropriate arguments for the task we want to carry out like `num_labels`.
+- The arguments `dtype="auto"` and `device_map="auto"` are passed so that the model is optimally loaded into the program; the `dtype="auto"` ensures that the model weights are directly initialized in the data type they are stored in (avoiding loading the weights twice) and `device_map="auto"` automatically allocates the model weights to fastest device first (like among CPU or GPU).
+- Transformer model classes are imported like `from transformers import AutoModel` or `from transformers import AutoModel*`.
+
+`trainer = Trainer(model=model, args=training_args, train_dataset=tokenized_dataset['train'], eval_dataset=tokenized_dataset['validation'], data_collator=data_collator, processing_class=tokenizer, compute_metrics=compute_metrics)`:
+- Creating our trainer object by making use of all the previous components: model, tokenizer, datasets, training arguments, data collator function and compute metrics function.
+
+`trainer.train()`:
+- Finally we would call the `.train()` method on the trainer object to start the fine-tuning training process on the model. This process will take considerable amount depending on the hardware used for training.
+
+**USING TRAINED MODEL**
+
+After our transformer model has been fine-tuned, the final model will be saved locally in the folder path we passed earlier to the `TrainingArguments` object. We can also upload our trained model to the HuggingFace Hub through the `push_to_hub=True` argument in training arguments object and/or through the `.push_to_hub()` method.
+
+`device = Accelerator().device`:
+- Using the accelerate library for detecting and selecting the appropriate accelerate device for model inference. Accelerate library selects the fastest CPU or GPU for inference.
+
+`pipe = pipeline('sentiment-analysis', model='our-model-path', device=device)`:
+- We use the same `pipeline()` function from the transformers library to load and use our trained model for inference through desired task name `sentiment-analysis`, our trained model `'our-model-path'` and accelerate device `device`.
+- Here we have loaded our model from the locally stored model path. We can also load our model from Hub using our organization username and the model name by setting `model` parameter like `model='organization/our-model'`.
+
+`pipe(["I hate you", "I love you"])`:
+- Now, we can use our model from the pipeline just as we have used pipeline for other tasks.
+
+#TODO **LEARNING CURVES AND HYPERPARAMETERS**
+
+#TODO **QUANTIZATION**
+
+
+## References

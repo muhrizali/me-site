@@ -1,0 +1,30 @@
+---
+import Image from "astro/components/Image.astro";
+
+interface Props {
+    path: ImageMetadata;
+    caption: string;
+    alt: string
+}
+
+const { path, alt = "", caption = "" } = Astro.props;
+
+---
+<!-- should be replaced with markdown directives -->
+<figure class="px-0 mb-5">
+    <Image
+        src={path} 
+        alt={alt}
+        class="mx-auto w-full border-2 border-default"
+        height={900}
+        width={1200}
+    />
+    {
+        caption && (
+            <figcaption 
+                class="pt-1 text-body-subtle text-xs/tight tracking-tight hyphens-auto">
+                {caption}
+            </figcaption>
+        )
+    }
+</figure>

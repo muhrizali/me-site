@@ -1,0 +1,419 @@
+---
+# astro: layout
+layout: "../../../layouts/PostLayout.astro"
+
+# metatdata
+title: "Deep Learning"
+description: "The sub-field of machine learning which makes use of simple, scalable and powerful architecture of neural networks. The neural networks mimics the working neurons present in the human mind."
+
+# organization
+category: "NOTES"
+tags:
+  - Data-Science
+  - Deep-Learning
+  - Machine-Learning
+
+# dates and times
+datePublished: "2026-07-13T21:32:30"
+dateModified: "2026-07-13T21:32:30"
+
+# states
+isDraft: false
+---
+import M from "../../../components/md/M.astro";
+import Q from "../../../components/md/Q.astro";
+import Img from "../../../components/md/Img.astro";
+// import myImage from "./images/image-1.jpg";
+
+## BASCIS / STARTING
+
+Deep learning is subfield of artificial intelligence and machine learning that is inspired by the structure of a human brain neuron. They attempt to draw similar conclusions as human minds would. They continually analyze data with a given logical structure called Neural Network.
+
+The fundamental unit of neural network (deep learning) is a logical structure called perceptron that acts behaves similarly like a neuron in the human brain. The network of these neurons connected together to analyze data forms a neural network.
+
+**REPRESENTATION LEARNING**
+
+The method consisting of a set of techniques that allows a system to automatically extract the essential or necessary features from raw input data is called representation learning or features learning. It discovers the representations needed for feature detection from input data which is not structured at all (like in a tabular form).
+
+Deep learning is a big family of machine learning methods and techniques that are based on artificial neural networks with representation learning or features learning. The core base structure of deep learning models (the perceptron) allows automatic representation learning from raw data.
+
+This means that deep learning models automatically extracts the essential features from our raw input data. We don't need to manually create features for data points like we did manually in machine learning models. This allows us to learn and analyze the format of data points that we have not even imagined were possible like images, video files, audio files, raw text documents and more.
+
+**COMPARED TO MACHINE LEARNING**
+
+Deep learning is fundamentally different from most of the machine learning models. Machine learning most of the time uses statistical techniques to learn and predict from various data points whereas deep learning makes use of various neural network architectures for representations.
+- **Large Datasets:** Most of the time deep learning models requires large amounts of data for optimal results, for identifying patterns and for proper convergence.
+- **Powerful Hardware:** Since deep learning models uses highly complex mathematical computations like high dimensional matrix multiplications, it requires very powerful hardware like GPUs.
+- **Training Time:** Deep learning requires higher training time than machine learning. It could take days, weeks or even months.
+- **Features Progression:** Deep learning goes from low-level simple features to mid-level features and finally to higher level complex features during representation learning.
+- **Interpretability:** Deep learning intermediate steps are not interpretable, because the features are learnt randomly and automatically.
+- **Complex Structure:** Deep learning models uses multiple layers to progressively extract higher-level features from the raw input data.
+
+Deep learning cannot replace machine learning. One is not better than the other and both have their purposes and use cases.
+
+**Why Deep Learning Is Getting So Famous?**
+
+- **Applicability:** There are various domains, studies and fields that are benefitting from the deep learning like medical image analysis, object detection, board games and more.
+- **Accuracy Performance:** Most of the time deep learning models results in state-of-the-art performance which is sometimes even better than human experts employed to train them.
+
+**TYPES OF NEURAL NETWORKS**
+
+- Artificial Neural Networks (ANN): Multi Layer Perceptrons (MLPs)
+- Convolutional Neural Network (CNN): For Visual Graphics Like Images
+- Recurrent Neural Network (RNN): For Speech/Text Data
+- Auto Encoders
+- Generative Adversial Network (GAN): For Generating Text/Images
+
+**PERCEPTRONS**
+
+A perceptron is an architectural mathematical model for machine learning which is the building block of deep learning. It functions like the neuron in human brains.
+
+The collection of multiple perceptrons connected together is called a neural network. This is the reason that this kind of machine learning is called deep learning because the layers of perceptrons can be very deep.
+
+## SINGLE LAYER PERCEPTRON
+
+**THE ARCHITECTURE**
+
+**The Input Layer:** The first layer of a single-layer perceptron consists of the multiple nodes that represents features of the data point. The features are usually represented as an array of numbers `[x1, x2...xn]`. The number of features will be different for different datasets. The features array will be different for each data point in the dataset.
+- `[x1, x2, x3]` - Data point consisting of three features
+- `[x1, x2, x3, x4, x5]` - Data point consisting of five features
+
+**The Arrow Weights:** Each node in the input features layer is connected to the output node `Z` by arrows. These arrows represents weights for each of the node in the input layer. The weights are usually represented as arrows `[w1, w2...wn]` pointing from each nodes in input layer to the single node `Z` in output layer. 
+
+There will be as much arrow weights as the number of nodes in the input layer. There is also one more weight called bias represented by `w0` or `b` connected from `1` to the output node `Z`. These weights and bias are the parameters that our perceptron model needs to learn to find the best values.
+- `n(parameters) = n(arrow_weights) + n(biases)`
+	- `n(arrow_weights) = n(input_layer_nodes)`
+	- `n(biases) = 1`
+
+**The Weighted Sum:** Each node in the input layer is connected to a single output layer node `z` called the weighted sum by arrows called weights. The weighted sum is a single value computed from the linear of combination of features `[x1, x2...xn]` and weights `[w0, w1, w2...wn]`. The raw output value `z` is also sometimes called logits.
+
+**The Activation Function:** The weighted sum `z` is passed to some activation function `A()` which returns a more meaningful value `A(z)` in a range compared to the raw `z` value. It tries to convert the raw `z` value into an output value based on a threshold (depending on the activation function used) that we need for prediction. This output value from the activation function `A(z)` is called the activation.
+
+**The Loss Function:** The result from the activation function `A(z)` is treated as the predicted target value by the model and then compared against the actual target value through a loss or error function `L(y_true, y_pred)`. This function results in a value that tells us how far the predicted target value is from the actual target value, it tells how wrong our model really is in predicting the target.
+
+**THE COMPUTATION**
+
+**Linear Combination:** The input features layer, the output node and the arrow weights connecting both of them results in a linear combination formula that calculates the weighted sum value `z`.
+- `z = (w0 * 1) + (w1 * x1) + (w2 * x2) + (w3 * x3)`
+- `z = b + (w1 * x1) + (w2 * x2) + (w3 * x3)`
+- `z = (w1 * x1) + (w2 * x2) + (w3 * x3) + b`
+ 
+**Computing Activation:** The weighted sum calculated as `z` is passed to the activation function `A()` to turn the raw input value into the predicted target value `y_pred = A(z)`.
+
+**Forward Propagation:** The single process of calculating the activation `A(z)` from a single data point input features and their corresponding weights is called the forward propagation or forward pass. For the initial run (first run) the values of weights for each feature are random.
+
+**Computing Loss:** The predicted target value `y_pred` is passed to the loss function to compare it against the actual target value `y_true` to compute the loss or error value `L(y_true, y_pred)`. This loss function tells us what and how to improve the current weights of the neuron to nudge it in the right direction. This is very important.
+
+**Backward Propagation:** After computing the loss for the current weights, the iteration shifts the focus to the values of weights and update their values through the help of gradient descent (getting to know which weights have the problem and which weights need to be adjusted).
+
+**The Loop:** The computation of the perceptron continues for the next data point with improved weights. The computation again reaches the loss function, calculates the loss and again updates the weights according to it. The model would be considered optimal when it finds the values of weights that results in the minimum loss.
+
+**Some Hyperparameters**
+
+- **Epochs:** The total number of iterations to run one complete loop. We can set any value but usually the values between `100` and `1000` are chosen.
+- **Learning Rate:** The rate at which the parameters (weights and biases) are updated. Higher values means the updates will be larger (faster updates through iterations) and lower values means the updates will be smaller (slower updates through iterations). Common starting values are `0.01`, `0.001` and `0.0001`.
+
+
+**LIMITATIONS**
+
+Perceptrons can only work with datasets which are linear or sort of linear. These are the datasets which can be separated by a line (two features), a plane (three features) or a hyperplane (more than two features).
+
+Perceptrons will always fail on the datasets which are non-linear, datasets whose data points cannot be linearly separated on the graph.
+
+## MULTI-LAYER PERCEPTRON
+
+Multi-layer perceptrons are different from single-layer perceptrons in the architecture. It introduces multiple hidden layers between the input layer and output layer.
+
+**THE ARCHITECTURE**
+
+**The Input Layer:** The first layer of a multi-layer perceptrons consists of the multiple nodes that represents features of the data point `[x1, x2...xn]` just like the single-layer perceptrons. 
+- `[x1, x2, x3]` - Data point consisting of three features
+- `[x1, x2, x3, x4, x5]` - Data point consisting of five features
+
+**The Arrow Weights:** Each node in the input features layer is connected to each node in the next hidden layer by arrows. These arrows represents weights for each of the node in the input layer pointing to each node in the hidden layer. Which means that for each node in the hidden layer, there will be arrows pointing to it from all the nodes in the input layer.
+
+There will be as much arrow weights as the number of nodes in the input layer multiplied by the number of nodes in the next hidden layer. There is also one more weight called bias represented by `w0` or `b` connected from `1` (node in the input layer) to each node in the next hidden layer. These weights and bias are the parameters that our perceptron model needs to learn to find the best values.
+- `n(parameters) = n(arrow_weights) + n(biases)`
+	- `n(arrow_weights) = n(input_layer_nodes) * n(next_hidden_layer_nodes)`
+	- `n(biases) = n(next_hidden_layer)`
+
+**The Hidden Layers:** Each node in the input layer is connected to each node in the next hidden layer by arrow weights. The hidden layer is represented as an array of nodes `[h1, h2...hn]`. There can be any number of consecutive hidden layers and there can be any number of nodes in each of those hidden layers. 
+
+Each node in the hidden layer acts like a weighted sum which is the linear combination of previous weighted sums and weights of previous layers (input layer or preceding hidden layers).
+
+**The Weighted Sum:** All nodes in the input layer are connected to each node in the hidden layer `hi` (could be `h1`, `h2`, `h3` and so on) by arrows called weights. 
+
+The node `hi` represents the weighted sum which is a single value computed from the linear combination of features in input layer `[x1, x2...xn]` and arrow weights `[w0, w1, w2...wn]` pointing from it. This weighted sum will be computed for each node in the hidden layer `hi`. The raw output value `hi` is also sometimes called logits.
+
+**The Activation Function:** The weighted sum `hi` is passed to some activation function `A()` which returns a more meaningful value `ai = A(hi)` in a range compared to the raw `hi` value. It tries to convert the raw `hi` value into an output value based on a threshold (depending on the activation function used) that we need for next hidden layers or output layer. 
+
+This output value from the activation function `ai` is called the activation. The activation `ai` will be calculated for each node in the hidden layer (`a1` for node `h1`, `a2` for node `h2` and so on).
+
+**The Output Layer:** The output layer is the final layer of the multi-layer perceptron (present after input layer, all the hidden layers and their activations). All the nodes from the preceding hidden layer points to each node in the output layer. 
+
+The output layer can consist of one node `[o]` as well as more than one nodes `[o1, o2, o3]` depending the machine learning problem we are working on.
+
+The output layer works very similar to the previous hidden layers except that the activation `A(oi)` from the output layer is considered the final predicted target value for the model.
+
+**The Loss Function:** The result (or results) from the activation function `A(oi)` is treated as the predicted target value by the model and then compared against the actual target value through a loss or error function `L(y_true, y_pred)`. 
+
+This function results in a value that tells us how far the predicted target value is from the actual target value, it tells how wrong our model really is in predicting the target.
+
+**THE COMPUTATION**
+
+**Linear Combination:** The input layer, the next hidden layer and the arrow weights connecting both of them results in a linear combination formula that calculates the weighted sum value `hi` for the node `hi` present in the hidden layer.
+
+The weighted sum will be calculated for each node in the hidden layer `h1`, `h2`, `h3` and so on.
+- `h1 = (w1 * x1) + (w2 * x2) + (w3 * x3) + b` where `w1`, `w2`, `w3` and `b` are parameter values specific to the node `h1`
+- `h2 = (w1 * x1) + (w2 * x2) + (w3 * x3) + b` where `w1`, `w2`, `w3` and `b` are parameter values specific to the node `h2`
+- `h3 = (w1 * x1) + (w2 * x2) + (w3 * x3) + b` where `w1`, `w2`, `w3` and `b` are parameter values specific to the node `h3`
+
+**Computing Activations:** The weighted sum calculated for each node in the hidden layer `h1`, `h2` and `h3` are passed to the activation function `A(hi)` to get the activation value `ai`.
+- `a1 = A(h1)` where `h1` is the weighted sum for hidden layer node `h1`
+- `a2 = A(h2)` where `h2` is the weighted sum for hidden layer node `h2`
+- `a3 = A(h3)` where `h3` is the weighted sum for hidden layer node `h3`
+
+**Consecutive Hidden Activations:** The activations computed for the current hidden layer `a1`, `a2` and `a3` will be treated as features for the next hidden layer. All nodes (their activations) in the current hidden layer is connected to each node in the next hidden layer `j1`, `j2` and `j3` through a different set of weights.
+
+The activations from the current hidden layer, the next hidden layer and the arrow weights connecting both of them results in a linear combination formula that calculates another weighted sum `ji` for each node in the next hidden layer.
+- `j1 = (a1 * w1) + (a2 * w2) + (a3 * w3) + b` where `w1`, `w2`, `w3` and `b` are parameter values specific to the node `j1`
+- `j2 = (a1 * w1) + (a2 * w2) + (a3 * w3) + b` where `w1`, `w2`, `w3` and `b` are parameter values specific to the node `j2`
+- `j3 = (a1 * w1) + (a2 * w2) + (a3 * w3) + b` where `w1`, `w2`, `w3` and `b` are parameter values specific to the node `j3`
+
+These weighted sums `j1`, `j2` and `j3` will be passed to the activation function `A()` to get the activation value `ai = A(ji)` for this layer. These activations will be treated as features for the next layer and the process is repeated for each consecutive layer.
+
+**Getting Predicted Output:** All the nodes in the last hidden layer (actually their activations `a1`, `a2` and `a3`) is connected to each node in the output layer `o1`, `o2` and `o3` through arrow weights. The weighted sum will be caculated for each node in the output layer and then passed to the activation function just as in the previous layers.
+- `o1 = (a1 * w1) + (a2 * w2) + (a3 * w3) + b` and then passed to activation function `A(o1)`
+- `o2 = (a1 * w1) + (a2 * w2) + (a3 * w3) + b` and then passed to activation function `A(o2)`
+- `o3 = (a1 * w1) + (a2 * w2) + (a3 * w3) + b` and then passed to activation function `A(o3)`
+
+The activations computed from the weight sums of each node in the output layer are considered the final predictions of the perceptron model.
+
+**Forward Propagation:** The process starts from computing the weighted sum of input features in the input layer to the weights of nodes in the next hidden layer and calculating their activations. Then the process is continued by calculating the weighted sum of previous layer activations to the weights of nodes in the next layer, until we reach the activations of output layer. 
+
+This process of passing the features of a data point into the perceptron and getting the predictions back from output layer is called forward propagation. For the initial run (first run) the values of weights for each of the nodes in layers are random.
+
+**Computing Loss:** The predicted target value (or values) `y_pred` is passed to the loss function to compare it against the actual target value `y_true` to compute the loss or error value `L(y_true, y_pred)`. This loss function tells us what and how to improve the current weights of the neuron to nudge it in the right direction. This is very important.
+
+**Backward Propagation:** After computing the loss for the current weights, the iteration shifts the focus back to the values of weights and update their values through the help of gradient descent (getting to know which weights have the problem, which weights need to be adjusted and how).
+
+**The Loop:** The computation of the perceptron continues for the next data point with improved weights. The computation again reaches the loss function, calculates the loss and again updates the weights according to it. The model would be considered optimal when it finds the values of weights that results in the minimum loss.
+
+**Some Hyperparameters**
+- **Epochs:** The total number of iterations to run one complete loop. We can set any value but usually the values between `100` and `1000` are chosen.
+- **Learning Rate:** The rate at which the parameters (weights and biases) are updated. Higher values means the updates will be larger (faster updates through iterations) and lower values means the updates will be smaller (slower updates through iterations). Common starting values are `0.01`, `0.001` and `0.0001`.
+
+**ADVANTAGES**
+- 
+
+**ACTIVATION FUNCTIONS**
+
+Activation functions introduces the concept of non-linearity into the neural network model which allows us to work together with non-linear datasets as well as linear datasets.
+
+These non-linear activation functions allows us the model to draw non-straight boundaries on graph to better separate the data points into their labels.
+
+There are various kinds of activation functions:
+- **Rectified Linear Unit:** Most popular non-linear activation function
+- **Sigmoid Function**
+- **Softmax Function:** Mostly used for multi-class classification problems
+
+**LOSS FUNCTIONS**
+
+Loss functions measures how wrong our neural network model's target prediction values are compared to the actual target values. There are various kinds of loss functions we can use in neural network model depending on the problem and dataset we are working with.
+- **For Binary Classification:** Binary cross entropy loss function is used most of the time.
+- **For Multi-Class Classification:** Cross entropy loss function is used most of the time.
+- **For Regression:** Mean absolute error (MAE, also called L1 loss) is used most of the time. We can also use mean squared error (MSE, also called L2 loss) for regression.
+
+**OPTIMIZERS**
+
+Optimizers works together with the loss functions and tells the neural network model how to update its parameters (weights and biases) to best lower the loss function.
+
+There are two of the most common types of optimizers we use in our neural network model:
+- **Stochastic Gradient Descent (SGD)**
+- **Adam**
+
+**EVALUATION METRICS**
+
+
+## PYTORCH
+
+PyTorch is a popular machine learning and deep learning framework which provides a replacement for numpy package for tensor computations as well as a deep learning research platform.
+- `pip install torch` - Installing PyTorch
+- `import torch` - Conventional PyTorch import
+
+## TENSORS
+
+Tensors are the most basic and fundamental building block of machine learning and deep learning. They are data structures that are used to represent data. 
+
+The PyTorch framework makes heavy use of tensors in various computations like matrix multiplication. All tensors in PyTorch belongs to the `torch.Tensor` data type (class) and are generally created through the `torch.tensor(...)` function.
+
+**Types Of Tensors:** There are various types of tensors for various tasks: scalars, vectors, matrices and higher-order matrices.
+
+**Scalars:** Tensors which represents single numeric values
+**Vectors:** Tensors which represents a one-dimensional array of numbers
+**Matrices:** Tensors which represents a two-dimensional rectangular array of numbers
+**High Order Matrices:** Tensors which numbers in more than two dimensions
+
+**CREATING TENSORS**
+
+
+- checking for gpu availability: 
+	- `torch.cuda.is_available()`
+	- `torch.cuda.current_device()`
+	- `torch.cuda.get_device_name()`
+	- `torch.cuda.get_device_capability()`
+	- `torch.cuda.get_device_properties()`
+- creating tensors:
+	- scalars: `torch.tensor(7)`
+	- vectors: `torch.tensor([1, 2, 3, 4, 5])`
+	- matrices: `torch.tensor([[1, 2], [3, 4]])`
+	- 3D tensors: `torch.tensor([ [ [1, 2], [3, 4] ], [ [5, 6], [7, 8] ] ])`
+	- data type of a tensor are described throught the `dtype` parameter like `torch.tensor(..., dtype=torch.int32)`; there are various data types available like `torch.int32`, `torch.float64` and `torch.bool`
+	- tensor attributes:
+		- `ts.shape`: shape as a tuple
+		- `ts.dtype`: the data type of tensor
+		- `ts.dim()`: total number of dimensions
+		- `ts.element_size()`: size of elements in byte
+- creating tensors from numpy arrays:
+	- `torch.from_numpy(np_array)`: to create pytorch tensors from numpy arrays
+- creating tensors with sequential values:
+	- `torch.arange(start, stop, step)`
+	- `torch.linspace(start, stop, divs)`
+	- `torch.logspace(start, stop, divs)`
+- creating tensors ones, zeroes and empty:
+	- `torch.zeros(shape)`
+	- `torch.ones(shape)`
+	- `torch.empty(shape)`
+	- `torch.full(shape_tuple, value)`
+- creating identity matrices:
+	- `torch.eye(shape)`
+- creating diagonal matrices:
+	- get the diagonal vector from matrix tensor: `torch.diag(matrix)`
+	- create matrix from diagonal vector tensor: `torch.diag(vector)`
+
+tensor manipulation methods
+- random tensors: `torch.rand(shape)`
+- basic operations: `+`, `-`, `*`
+- element-wise multiplication: `t1 * t2`
+- matrix multiplication: `t1 @ t2`, `torch.matmul(A, B)`
+- aggregation methods: `ts.min()`, `ts.max()`, `ts.type(torch.float32).mean()`
+	- aggregation functions: `torch.min(tensor).item()`, `torch.max(tensor).item()`, `torch.mean(tensor).item()`, `torch.std(tensor).item()`
+	- positional aggregate functions: `ts.argmin()`, `ts.argmax()`
+- reshaping the tensors: `torch.reshape(ts, shape)`, `ts.reshape(shape)`
+- views of the tensor extracts whole or part of the the tensor; changing the view changes the original tensor too: `ts.view(shape)`
+- stacking the tensors together: `torch.stack([ts, ts, ts], dim=0)`
+- remove all single dimensions from the tensor: `ts.squeeze()`
+- add single dimension to given dimension from: `ts.unsqueeze(dim=0)`
+- indexing values goes from outer dimension to inner dimension: `x[0]`, `x[0][0]`, `x[0][0][0]`
+	- multi-dimensional indexing: `ts[..,..]`, `:` to select all values in the dimension and `,` to add another dimension
+	- `ts[:, 1]` - all rows, second column
+	- `ts[1:6:2, 0:5:3]`
+- convert tensor from numpy array: `torch.from_numpy(np_array)`, `torch.from_numpy(np_arr).type(torch.float32)`
+- convert tensor to numpy array: `ts.numpy()`
+- random tensors:
+	- set manual seed: `torch.manual_seed(seed=42)`
+	- create random tensors from shape: `torch.rand(shape)`
+- gpu acceleration:
+	- moving tensors to gpu device: `ts.to(device)`, where `device` can be `"cpu"` or `"cuda"`
+	- tensors on different devices cannot be combined in an operation
+
+## PYTORCH WORKFLOW
+
+Building a neural network model in PyTorch consists of a few common steps:
+1. Getting your dataset, preparing it and turning it into tensors
+2. Build or pick a pretrained model to suit your problem, pick a loss function and an optimizer and build a training loop
+3. Train and fit the model to data and make a prediction from testing data
+4. Evaluate and check the model performance
+5. Improve the model through experimentation
+6. Save the model to persistent storage and then reload the trained model
+
+## PREPARING DATA
+
+Data in machine learning can be anything we can represent with numbers like a table of numbers, images of any kind, internet videos, audio files, protein structures, text and more.
+
+Primary steps to prepare your data for machine learning:
+1. Turn your raw data into numbers (a representation that our model can understand)
+2. Build or pick a model to learn these representations as best as possible
+
+**Two Components Of Data:** Our data should consist of two components
+- `X` represents a table consisting of features (columns) that serve as inputs to the machine learning model. Usually represented as an array of arrays.
+- `y` represents a single column of target that serve as the output for the features in `X` to the machine learning model. Usually represented as an array corresponding to `X`.
+
+**Splitting Datasets:** We need to split our dataset into training, testing and validation set
+- `X_train`, `y_train` for training dataset
+- `X_test`, `y_test` for testing dataset
+- `X_val`, `y_val` for validation dataset
+
+## BUILDING NEURAL NETWORK
+
+Most of the time we will be using just four or five essential modules of PyTorch to build any kind of neural network we want. These modules are:
+- `torch.nn`: All of the building blocks for creating neural network model computional graph
+- `torch.optim`: All of the optimizer objects for optimizing the training process.
+- `torch.utils.data.Dataset`: For building datasets
+- `torch.utils.data.DataLoader`: For loading data into the model
+
+**CREATING NEURAL NETWORK**
+To create a neural network in PyTorch, we create a class that represents our neural network. This is the neural network that we will be building and improving in the future.
+
+**Subclassing Module:** We create our neural network model by creating a class that inherits (or subclass) from `nn.Module` class like `class OurNN(nn.Module):`. The `nn.Module` is the base class for all neural network while the children classes serves all the building blocks for that nerual network.
+- `class OurNNModel(nn.Module):...`
+- `class LinearRegression(nn.Module):...`
+
+**Initialization & Parameters:** The constructor of our neural network class `__init__()` contains the base class initialization like `super().__init__()` and the model parameters. The parameters of our model includes weights and biases of hidden layers.
+- For hard-coded parameters, we can created them through `nn.Parameter()` classes which accepts tensors.
+- 
+
+**Forward Propagation:** All our neural network subclasses (classes that inherits from `nn.Module`) require a `forward()` method to be implemented. This `forward()` accepts an `x` tensor as its parameter and also returns  like `def forward(self, x: torch.Tensor)`
+- This method represents forward propagation, the computation that will take place when the data is passed to the model.
+- 
+
+---
+## FLEETS
+
+creating parameters of model through `nn.Parameters()`
+forward propagation, forward method
+checking the contents of the created model
+- checking the parameters
+- checking the state dict
+
+making predictions from the model
+- inference mode of the model
+
+training the model, to update its parameters on its own
+- loss function and its purpose
+- loss function for regression, binary classification, multi-class classification
+	- mean absolute error
+	- binary cross entropy
+	- cross entropy
+- optimizers and optimizer functions `SGD()`, `Adam()`
+	- "parameters" and "learning rate"
+
+meaning of epochs
+
+training loop
+- training mode for the nn
+- forward pass or propagation
+- calculating the loss between predictions and actual targetts
+- zeroing or resetting the gradients for the optimizer
+- perform backpropagation on the loss for every parameter
+- update each of the parameters through the optimizer step
+
+testing loop
+- testing or evaluation mode for the nn
+- forward pass or propagation
+- calculating the loss between predictions and targets
+- calculate performance through evaluation metrics (choosen)
+	- popular: accuracy, f1 score and more
+
+making predictions with a trained model (inference)
+- evaluation mode
+- inference mode
+- creating predictions for unknown data
+
+saving pytorch model into local filesystem
+- model state dict
+- saving the model dict vs saving the entire model
+
+`nn.Parameter()` and `nn.Linear()`
+- the linear layer defines the weights and biases automatically
+

@@ -36,6 +36,18 @@ export default defineConfig({
       cssVariable: "--font-fira-code",
       weights: [300, 400, 500, 600, 700, 800, 900],
     },
+    {
+      provider: fontProviders.fontsource(),
+      name: "IBM Plex Sans",
+      cssVariable: "--font-plex-sans",
+      weights: [300, 400, 500, 600, 700, 800, 900],
+    },
+    {
+      provider: fontProviders.fontsource(),
+      name: "IBM Plex Mono",
+      cssVariable: "--font-plex-mono",
+      weights: [300, 400, 500, 600, 700, 800, 900],
+    },
     // {
     //   provider: fontProviders.fontsource(),
     //   name: "Source Sans 3",
