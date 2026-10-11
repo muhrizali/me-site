@@ -7,7 +7,7 @@ title: "Template Title"
 description: "Template Description"
 
 # organization
-category: "Template Category"
+category: "Template"
 tags:
   - Template
 
@@ -21,6 +21,17 @@ isDraft: true
 import M from "../../../components/md/M.astro";
 import Q from "../../../components/md/Q.astro";
 import Img from "../../../components/md/Img.astro";
+import imagePath from "./images/image-1.jpg"
+import BookInfo from "../../../components/BookInfo.astro";
+
+<BookInfo 
+  imgref="https://ecx.images-amazon.com/images/P/0590353403.01._SX600_SY1200_SCRM_.jpg"
+  authors={["J.K. Rowling", "Harry Potter"]} 
+  links={{goodreads: "/gr", amazon: "/amazon"}}>
+  Rescued from the outrageous neglect of his aunt and uncle, a young boy with a great destiny proves his worth while attending Hogwarts School for Wizards and Witches.
+</BookInfo>
+
+<Img path={imagePath} alt="Hello" caption="This was the image I was talking about" />
 
 Write something here... Here we go again, another self-proclaimed and entitled broken lover going over how much pain he went through and how much "she" meant to him Here we go again, another self-proclaimed and entitled broken lover going over how much pain he went through and how much "she" meant to him
 

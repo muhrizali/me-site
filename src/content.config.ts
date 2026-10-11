@@ -3,6 +3,7 @@ import { defineCollection } from "astro:content";
 import { glob } from "astro/loaders";
 import { z } from "astro/zod";
 
+
 // posts
 const posts = defineCollection({
     loader: glob({ base: "./src/pages/posts", pattern: "*/index.{md,mdx}" }),
@@ -10,7 +11,8 @@ const posts = defineCollection({
         // metadata
         title: z.string(),
         description: z.string(),
-        // meta_description: z.string(),
+        
+        // organization
         category: z.string(),
         tags: z.array(z.string()),
 

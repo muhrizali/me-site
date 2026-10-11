@@ -3,7 +3,8 @@ import { defineConfig, fontProviders } from 'astro/config';
 import tailwindcss from '@tailwindcss/vite';
 import mdx from '@astrojs/mdx';
 import cloudflare from '@astrojs/cloudflare';
-import alpinejs from '@astrojs/alpinejs';
+// import icon from "astro-icon";
+// import alpinejs from '@astrojs/alpinejs';
 
 // https://astro.build/config
 export default defineConfig({
@@ -18,7 +19,7 @@ export default defineConfig({
   vite: {
     plugins: [tailwindcss()]
   },
-  integrations: [mdx(), alpinejs()],
+  integrations: [mdx()],
   adapter: cloudflare(),
   
   // MARKDOWN CONFIG
@@ -34,18 +35,6 @@ export default defineConfig({
       provider: fontProviders.fontsource(),
       name: "Fira Code",
       cssVariable: "--font-fira-code",
-      weights: [300, 400, 500, 600, 700, 800, 900],
-    },
-    {
-      provider: fontProviders.fontsource(),
-      name: "IBM Plex Sans",
-      cssVariable: "--font-plex-sans",
-      weights: [300, 400, 500, 600, 700, 800, 900],
-    },
-    {
-      provider: fontProviders.fontsource(),
-      name: "IBM Plex Mono",
-      cssVariable: "--font-plex-mono",
       weights: [300, 400, 500, 600, 700, 800, 900],
     },
     // {
