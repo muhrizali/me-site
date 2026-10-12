@@ -14,18 +14,18 @@ const postDatePublished = DateTime.fromISO(postEntry.data.datePublished).toLocal
 
 ---
 
-<li class="border-2 border-transparent hover:border-default active:border-default p-3">
-    <a href={`/posts/${postEntry.id}`}>
-        <h3 class="typography-common text-lg/tight font-semibold text-heading">
-            {postEntry.data.title}
-        </h3>
-        <time
-            datetime={postEntry.data.datePublished} 
-            class="block mb-2 tracking-tight text-base text-body-subtle">{postDatePublished}
-        </time>
-
-        <p class="typography-common text-body text-sm/tight line-clamp-2">
-            {postEntry.data.description}
-        </p>
+<li class="group p-2">
+    <a 
+        href={`/posts/${postEntry.id}`}>
+        <div>
+            <h3 
+                class="text-lg/tight font-bold group-active:text-brand group-hover:text-brand text-heading italic">
+                {postEntry.data.title}
+            </h3>    
+            <p 
+                class="typography-common text-body-subtle group-active:text-body group-hover:text-body text-sm/tight line-clamp-3">
+                {postEntry.data.description}
+            </p>
+        </div>
     </a>
 </li>

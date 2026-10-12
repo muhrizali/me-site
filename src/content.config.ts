@@ -20,6 +20,10 @@ const posts = defineCollection({
         datePublished: z.coerce.string(),
         dateModified: z.coerce.string(),
 
+        // images
+        // image: z.string(),
+        // imageCaption: z.string(),
+
         // states
         isDraft: z.boolean(),
     })

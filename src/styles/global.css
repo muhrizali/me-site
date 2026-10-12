@@ -106,7 +106,6 @@
 
     /* FONTS */
     --font-sans: var(--font-main);
-    /* --font-serif: var(--font-old); */
     --font-mono: var(--font-code);
 }
 
