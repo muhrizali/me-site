@@ -33,16 +33,10 @@ export default defineConfig({
   fonts: [
     {
       provider: fontProviders.fontsource(),
-      name: "Fira Code",
-      cssVariable: "--font-fira-code",
-      weights: [300, 400, 500, 600, 700, 800, 900],
+      name: "IBM Plex Mono",
+      cssVariable: "--font-plex-mono",
+      weights: [300, 400, 500, 600, 700],
     },
-    // {
-    //   provider: fontProviders.fontsource(),
-    //   name: "Source Sans 3",
-    //   cssVariable: "--font-source-sans",
-    //   weights: [300, 400, 500, 600, 700, 800, 900],
-    // },
     {
       provider: fontProviders.fontsource(),
       name: "Ubuntu Sans Mono",
@@ -50,5 +44,17 @@ export default defineConfig({
       // weights: [100, 200, 300, 400, 500, 600, 700, 800, 900],
       weights: [300, 400, 500, 600],
     },
+    // {
+    //   provider: fontProviders.fontsource(),
+    //   name: "Fira Code",
+    //   cssVariable: "--font-fira-code",
+    //   weights: [300, 400, 500, 600, 700],
+    // },
+    // {
+    //   provider: fontProviders.fontsource(),
+    //   name: "Source Sans 3",
+    //   cssVariable: "--font-source-sans",
+    //   weights: [300, 400, 500, 600, 700, 800, 900],
+    // },
   ],
 });

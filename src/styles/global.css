@@ -49,10 +49,8 @@
     --edge: #665c54;
 
     /* FONTS */
-    /* --font-main: var(--font-fira-code); */
-    --font-main: var(--font-fira-code);
-    /* --font-old: var(--font-fira-code); SERIF */
-    --font-code: var(--font-ubuntu-mono);
+    --font-main: var(--font-plex-mono);
+    --font-code: var(--font-fira-code);
 }
 
 [data-theme="cool"] {
@@ -175,7 +173,7 @@ body {
 }
 
 .writing blockquote {
-    @apply px-4 py-2 mb-5 border-s-4 border-default bg-neutral-secondary;
+    @apply px-2 py-2 mb-5 border-s-4 border-default bg-neutral-secondary;
 }
 
 .writing blockquote p {
