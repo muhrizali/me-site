@@ -33,14 +33,14 @@ export default defineConfig({
   fonts: [
     {
       provider: fontProviders.fontsource(),
-      name: "Iosevka",
-      cssVariable: "--font-iosevka",
+      name: "Fira Code",
+      cssVariable: "--font-fira-code",
       weights: [300, 400, 500, 600, 700],
     },
     {
       provider: fontProviders.fontsource(),
-      name: "Fira Code",
-      cssVariable: "--font-fira-code",
+      name: "Ubuntu Sans Mono",
+      cssVariable: "--font-ubuntu-mono",
       weights: [300, 400, 500, 600],
     },
   ],
