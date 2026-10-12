@@ -49,7 +49,7 @@
     --edge: #665c54;
 
     /* FONTS */
-    --font-main: var(--font-plex-mono);
+    --font-main: var(--font-iosevka);
     --font-code: var(--font-fira-code);
 }
 
@@ -115,7 +115,7 @@ body {
 }
 
 @utility typography-common {
-    @apply text-body text-base/snug tracking-tight hyphens-auto;
+    @apply text-body text-base/snug tracking-normal hyphens-auto;
 }
 
 @utility tag-common {

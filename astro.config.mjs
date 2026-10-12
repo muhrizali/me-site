@@ -33,8 +33,8 @@ export default defineConfig({
   fonts: [
     {
       provider: fontProviders.fontsource(),
-      name: "IBM Plex Mono",
-      cssVariable: "--font-plex-mono",
+      name: "Iosevka",
+      cssVariable: "--font-iosevka",
       weights: [300, 400, 500, 600, 700],
     },
     {
@@ -43,18 +43,5 @@ export default defineConfig({
       cssVariable: "--font-fira-code",
       weights: [300, 400, 500, 600],
     },
-    // {
-    //   provider: fontProviders.fontsource(),
-    //   name: "Ubuntu Sans Mono",
-    //   cssVariable: "--font-ubuntu-mono",
-    //   // weights: [100, 200, 300, 400, 500, 600, 700, 800, 900],
-    //   weights: [300, 400, 500, 600],
-    // },
-    // {
-    //   provider: fontProviders.fontsource(),
-    //   name: "Source Sans 3",
-    //   cssVariable: "--font-source-sans",
-    //   weights: [300, 400, 500, 600, 700, 800, 900],
-    // },
   ],
 });
