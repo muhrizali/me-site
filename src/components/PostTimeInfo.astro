@@ -1,0 +1,18 @@
+---
+import { DateTime } from 'luxon';
+interface Props {
+    frontmatter: any;
+}
+
+const { frontmatter } = Astro.props;
+
+const datePublished = DateTime.fromISO(frontmatter.datePublished).toLocaleString(DateTime.DATE_MED);
+const dateModified = DateTime.fromISO(frontmatter.dateModified).toLocaleString(DateTime.DATE_MED);
+
+---
+<section class="mt-8 text-sm/normal tracking-tight font-mono">
+    <time datetime={frontmatter.datePublished} class="text-body-subtle">{datePublished}</time> 
+    <br/>
+    <time datetime={frontmatter.dateModified} class="text-body-subtle">Modified On {dateModified}</time>
+    
+</section>

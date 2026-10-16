@@ -1,0 +1,12 @@
+---
+import Image from "astro/components/Image.astro";
+
+const { postEntry } = Astro.props;
+---
+
+<Image
+    src={postEntry.data.image}
+    alt={postEntry.data.imageCaption ?? "image banner for the blog post"}
+    width={200}
+    class="border-2 border-default group-active:border-brand group-hover:border-brand flex-none size-20"
+/>

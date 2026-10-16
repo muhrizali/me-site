@@ -1,8 +1,9 @@
 ---
-import PostLink from "./PostLink.astro";
+import PostListItem from "./PostListItem.astro";
+import PostTagListItem from "./PostTagListItem.astro";
 import LoadButton from "./LoadButton.astro";
 import * as _ from "lodash-es";
-import { getOurCollection } from "../scripts/utils";
+import { getOurCollection, CONFIG } from "../scripts/utils";
 
 interface Props {
     category?: string;
@@ -12,9 +13,7 @@ interface Props {
 }
 
 
-let { category = null, tag = null, count = null, sortby = null, loadMore = false } = Astro.props;
-
-// let generatedSectionID: string;
+let { category = null, tag = null, count = CONFIG.sectionItemsCount, sortby = null, loadMore = false } = Astro.props;
 
 let route = "";
 if (category) {
@@ -31,13 +30,23 @@ if (totalItems <= count) {
 }
 
 ---
-<ul class="space-y-2">
+<ul class="space-y-4">
     {
-        collection.map(
-            (item) => (
-                <PostLink postEntry={item} />
+        (tag)
+            ? (
+                collection.map(
+                    (item) => (
+                        <PostTagListItem postEntry={item} />
+                    )
+                )
             )
-        )
+            : (
+                collection.map(
+                    (item) => (
+                        <PostListItem postEntry={item} />
+                    )
+                )
+            )
     }
     {
         loadMore

@@ -1,6 +1,6 @@
 ---
 import { getAllPostTags, getOurCollection } from "../../../../scripts/utils";
-import PostLink from "../../../../components/PostLink.astro";
+import PostTagListItem from "../../../../components/PostTagListItem.astro";
 import LoadButton from "../../../../components/LoadButton.astro";
 import { CONFIG } from "../../../../scripts/utils";
 import * as _ from "lodash-es";
@@ -39,7 +39,7 @@ const { tag } = Astro.params;
 {
     page.data.map(
         (item: any) => (
-            <PostLink postEntry={item} />
+            <PostTagListItem postEntry={item} />
         )
     )
 }

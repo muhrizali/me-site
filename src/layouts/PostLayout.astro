@@ -2,6 +2,7 @@
 import Layout from "./Layout.astro";
 import Writing from "../components/Writing.astro";
 import PostBanner from "../components/PostBanner.astro";
+import PostTimeInfo from "../components/PostTimeInfo.astro";
 import PostMap from "../components/PostMap.astro";
 import { Metadata } from "../scripts/types";
 
@@ -21,5 +22,6 @@ const metadata: Metadata = {
     <Writing>
         <slot />
     </Writing>
+    <PostTimeInfo frontmatter={frontmatter} />
     <PostMap scope={"post"} frontmatter={frontmatter} />
 </Layout>

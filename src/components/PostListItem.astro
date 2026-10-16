@@ -1,0 +1,30 @@
+---
+import { DateTime } from 'luxon';
+import ListingSection from './ListingSection.astro';
+import ListingBlogImage from './ListingBlogImage.astro';
+import ListingBookImage from './ListingBookImage.astro';
+import ListingProjectImage from './ListingProjectImage.astro';
+import ListingNoteImage from './ListingNoteImage.astro';
+
+
+interface Props {
+    postEntry: any;
+}
+
+const { postEntry } = Astro.props;
+
+const postDatePublished = DateTime.fromISO(postEntry.data.datePublished).toLocaleString(DateTime.DATETIME_MED);
+
+---
+
+<li class="group">
+    <a 
+        href={`/posts/${postEntry.id}`} 
+        class="flex flex-row gap-2">
+        { (postEntry.data.category === "BLOGS") && <ListingBlogImage postEntry={postEntry} /> }
+        { (postEntry.data.category === "BOOKS") && <ListingBookImage postEntry={postEntry} /> }
+        { (postEntry.data.category === "PROJECTS") && <ListingProjectImage postEntry={postEntry} /> }
+        { (postEntry.data.category === "NOTES") && <ListingNoteImage postEntry={postEntry} /> }
+        <ListingSection postEntry={postEntry} />
+    </a>
+</li>

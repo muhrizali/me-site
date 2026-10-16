@@ -1,0 +1,16 @@
+---
+import Layout from "../../layouts/Layout.astro";
+import PostList from "../../components/PostList.astro";
+import PostMap from "../../components/PostMap.astro";
+import CategorySection from "../../components/CategorySection.astro";
+
+const metadata = {
+    title: "Books",
+    description: "Collection of all the books I have read and my thoughts about them."
+};
+---
+
+<Layout metadata={metadata}>
+    <CategorySection category={"PROJECTS"} loadMore={true} />
+    <CategorySection category={"NOTES"} loadMore={true} />
+</Layout>

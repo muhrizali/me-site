@@ -13,7 +13,7 @@ let { category = null, count = 0 } = Astro.props;
 let collection = await getOurCollection({category, count, tag: null, sortby: null});
 
 ---
-<ul class="ml-4 text-body list-disc list-outside text-base/snug tracking-tight">
+<ul class="text-body list-none list-outside typography-common">
     {
         collection.map(
             (item) => (

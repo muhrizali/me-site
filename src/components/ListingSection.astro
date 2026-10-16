@@ -1,0 +1,14 @@
+---
+const { postEntry } = Astro.props;
+---
+
+<section>
+    <h3
+        class="typography-common text-base/tight font-bold group-active:text-brand group-hover:text-brand text-heading line-clamp-2 mb-0">
+        {postEntry.data.title}
+    </h3>
+    <p
+        class="typography-common text-body-subtle group-active:text-body group-hover:text-body text-sm/tight line-clamp-2 sm:line-clamp-3">
+        {postEntry.data.description}
+    </p>
+</section>

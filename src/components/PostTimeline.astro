@@ -1,0 +1,14 @@
+---
+import { getAllPostCategories } from "../scripts/utils";
+import PostTimelineSection from "./PostTimelineSection.astro";
+
+const allCategories = await getAllPostCategories();
+---
+
+{
+    allCategories.map(
+        (item: any) => (
+            <PostTimelineSection category={item} />
+        )
+    )
+}

@@ -14,20 +14,27 @@
     --primary-subtle: #fe8019;
     --primary-strong: #fe8019;
 
-    --neutral-primary: #282828;
-    --neutral-primary-subtle: #282828;
+    --neutral-primary: oklch(27.685% 0.00003 271.152);
+    --neutral-primary-subtle: oklch(32.685% 0.00003 271.152);
     --neutral-primary-strong: #1d2021;
 
     --neutral-secondary: #3c3836;
 
     --neutral-tertiary: #504945;
 
+    --purple: #d3869b;
+    --purple-strong: #b16286;
+
+    --green: #b8bb26;
+    --green-strong: #98971a;
+
     /* BORDER COLORS */
     --edge: #665c54;
 
     /* FONTS */
-    --font-main: var(--font-fira-code);
-    --font-code: var(--font-ubuntu-mono);
+    --font-main: var(--font-hyper-next);
+    /* --font-main: var(--font-source-serif); */
+    --font-code: var(--font-fira-code);
 }
 
 [data-theme="cool"] {
@@ -81,6 +88,12 @@
 
     --color-neutral-tertiary: var(--neutral-tertiary);
 
+    --color-purple: var(--purple);
+    --color-purple-strong: var(--purple-strong);
+
+    --color-green: var(--green);
+    --color-green-strong: var(--green-strong);
+
     /* FONTS */
     --font-sans: var(--font-main);
     --font-mono: var(--font-code);
@@ -92,7 +105,7 @@ body {
 }
 
 @utility typography-common {
-    @apply text-body text-base/snug tracking-tight hyphens-auto;
+    @apply text-body text-base/tight tracking-normal hyphens-auto;
 }
 
 @utility tag-common {
@@ -174,7 +187,7 @@ body {
 }
 
 .writing code {
-    @apply inline px-1 break-all font-medium border border-default rounded-xs text-sm text-heading bg-neutral-secondary;
+    @apply inline px-0 break-all hyphens-auto font-normal text-sm/tight tracking-normal text-purple;
 }
 
 .writing pre {
@@ -189,7 +202,7 @@ body {
     @apply mb-4 border-t-2 border-default;
 }
 
-svg rect {
+/* svg rect {
     @apply fill-neutral-primary;
 }
 
@@ -199,4 +212,4 @@ svg text {
 
 svg path {
     @apply stroke-body-subtle;
-}
+} */

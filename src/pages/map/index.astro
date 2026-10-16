@@ -1,0 +1,17 @@
+---
+import Layout from "../../layouts/Layout.astro";
+import PostMap from "../../components/PostMap.astro";
+import PostTimeline from "../../components/PostTimeline.astro";
+
+const metadata = {
+    title: "Archives Map",
+    description: "Collection of all the books I have read and my thoughts about them."
+};
+---
+
+<Layout metadata={metadata}>
+    <div class="mb-8 mt-6">
+        <PostMap />
+        <PostTimeline />
+    </div>
+</Layout>

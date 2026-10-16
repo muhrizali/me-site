@@ -1,0 +1,22 @@
+---
+import { getOurCollection } from "../scripts/utils";
+import * as _ from "lodash-es";
+import PostTimelineListItem from "./PostTimelineListItem.astro";
+
+interface Props {
+    category: string;
+}
+
+const { category } = Astro.props;
+const collection = await getOurCollection({ category });
+
+---
+<ul class="text-body list-none list-outside text-base/snug tracking-tight">
+    {
+        collection.map(
+            (item) => (
+                <PostTimelineListItem postItem={item} />
+            )
+        )
+    }
+</ul>
