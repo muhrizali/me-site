@@ -33,6 +33,12 @@ export default defineConfig({
   fonts: [
     {
       provider: fontProviders.fontsource(),
+      name: "Source Serif 4",
+      cssVariable: "--font-source-serif",
+      weights: [300, 400, 500, 600, 700],
+    },
+    {
+      provider: fontProviders.fontsource(),
       name: "Atkinson Hyperlegible Next",
       cssVariable: "--font-hyper-next",
       weights: [300, 400, 500, 600, 700],

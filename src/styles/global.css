@@ -33,7 +33,7 @@
 
     /* FONTS */
     --font-main: var(--font-hyper-next);
-    /* --font-main: var(--font-source-serif); */
+    --font-old: var(--font-source-serif);
     --font-code: var(--font-fira-code);
 }
 
@@ -96,6 +96,7 @@
 
     /* FONTS */
     --font-sans: var(--font-main);
+    --font-serif: var(--font-old);
     --font-mono: var(--font-code);
 }
 
@@ -105,7 +106,7 @@ body {
 }
 
 @utility typography-common {
-    @apply text-body text-base/tight tracking-normal hyphens-auto;
+    @apply text-body text-base/snug tracking-normal hyphens-auto;
 }
 
 @utility tag-common {
