@@ -7,7 +7,7 @@ interface Props {
     alt: string
 }
 
-const { path, alt = "", caption = "" } = Astro.props;
+const { path, alt, caption, width = 1200, height = 900} = Astro.props;
 
 ---
 <!-- should be replaced with markdown directives -->
@@ -16,8 +16,8 @@ const { path, alt = "", caption = "" } = Astro.props;
         src={path} 
         alt={alt}
         class="mx-auto w-full border-2 border-default"
-        height={900}
-        width={1200}
+        height={height}
+        width={width}
     />
     {
         caption && (

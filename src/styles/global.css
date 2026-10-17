@@ -32,9 +32,9 @@
     --edge: #665c54;
 
     /* FONTS */
-    --font-main: var(--font-hyper-next);
-    --font-old: var(--font-source-serif);
-    --font-code: var(--font-fira-code);
+    --font-mono: var(--font-alias-mono);
+    --font-sans: var(--font-alias-sans);
+    --font-serif: var(--font-alias-serif);
 }
 
 [data-theme="cool"] {
@@ -95,9 +95,9 @@
     --color-green-strong: var(--green-strong);
 
     /* FONTS */
-    --font-sans: var(--font-main);
-    --font-serif: var(--font-old);
-    --font-mono: var(--font-code);
+    --font-sans: var(--font-sans);
+    --font-serif: var(--font-serif);
+    --font-mono: var(--font-mono);
 }
 
 body {
@@ -121,13 +121,17 @@ body {
     @apply tag-common border-brand text-body bg-neutral-secondary;
 }
 
+.writing {
+    @apply typography-common select-none;
+}
+
 .writing h1, 
 .writing h2, 
 .writing h3, 
 .writing h4, 
 .writing h5, 
 .writing h6 {
-    @apply mt-6 mb-2 tracking-tight font-bold text-heading;
+    @apply mt-6 mb-2 tracking-tight font-bold font-mono text-heading;
 }
 
 .writing h1 {
@@ -163,7 +167,7 @@ body {
 }
 
 .writing blockquote {
-    @apply px-2 py-2 mb-5 border-s-4 border-default bg-neutral-secondary;
+    @apply px-4 py-2 mb-5 border-s-4 border-default bg-neutral-secondary;
 }
 
 .writing blockquote p {
@@ -188,7 +192,7 @@ body {
 }
 
 .writing code {
-    @apply inline px-0 break-all hyphens-auto font-normal text-sm/tight tracking-normal text-purple;
+    @apply inline hyphens-auto font-medium text-sm text-purple;
 }
 
 .writing pre {

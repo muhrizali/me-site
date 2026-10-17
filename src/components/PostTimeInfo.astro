@@ -6,13 +6,16 @@ interface Props {
 
 const { frontmatter } = Astro.props;
 
-const datePublished = DateTime.fromISO(frontmatter.datePublished).toLocaleString(DateTime.DATE_MED);
+// const datePublished = DateTime.fromISO(frontmatter.datePublished).toLocaleString(DateTime.DATE_MED);
+const datePublished = DateTime.fromISO(frontmatter.datePublished).toFormat("LLL LL yyyy");
 const dateModified = DateTime.fromISO(frontmatter.dateModified).toLocaleString(DateTime.DATE_MED);
 
 ---
-<section class="mt-8 text-sm/normal tracking-tight font-mono">
-    <time datetime={frontmatter.datePublished} class="text-body-subtle">{datePublished}</time> 
-    <br/>
-    <time datetime={frontmatter.dateModified} class="text-body-subtle">Modified On {dateModified}</time>
-    
+<section class="mt-1 typography-common text-xs text-body-subtle font-mono font-medium uppercase">
+    <time datetime={frontmatter.datePublished} class="">{datePublished}</time> 
+    <span class="mx-2 text-brand">&bull;</span>
+    <span class="text-body">
+        <a href="/about">Muhriz Ali</a></span> 
+    <!-- <span class="mx-2">&bull;</span> -->
+        
 </section>

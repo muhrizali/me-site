@@ -5,16 +5,16 @@ interface Props {
 const { headings } = Astro.props;
 
 ---
-<div class="py-2 px-4 text-sm border-2 border-default bg-neutral-primary-strong">
+<div class="text-sm border-2 border-default bg-neutral-primary-strong font-mono">
     <details class="text-body-subtle">
-        <summary class="font-medium cursor-pointer marker:text-brand">
+        <summary class="font-medium py-2 px-4 cursor-pointer marker:text-brand">
             CONTENTS
         </summary>
-        <ul class="mt-0 text-sm/tight">
+        <ul class="mx-2 mb-2 text-sm/tight">
             {
                 headings.map(
                     (heading: any) => (
-                        <li style={`margin-left: ${0.5 * heading.depth}rem`} class="pl-1 py-0.5 border-l-2 border-l-transparent hover:border-brand active:border-brand">
+                        <li style={`margin-left: ${0.5 * ((heading.depth >= 2) ? (heading.depth-1) : 0)}rem`} class="pl-1 py-0.5 border-l-2 border-l-transparent hover:border-brand active:border-brand">
                             <a href={`#${heading.slug}`} class="block w-full h-full text-body hover:text-brand active:text-brand">{heading.text}</a>
                         </li>
                     )

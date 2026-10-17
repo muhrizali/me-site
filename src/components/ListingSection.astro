@@ -1,14 +1,25 @@
 ---
+import { DateTime } from "luxon";
+
 const { postEntry } = Astro.props;
+
+const datePublished = DateTime.fromISO(postEntry.data.datePublished).toFormat(
+    "yyyy LLL LL",
+);
 ---
 
-<section>
+<section class="my-auto">
     <h3
-        class="typography-common text-base/tight font-bold group-active:text-brand group-hover:text-brand text-heading line-clamp-2 mb-0">
+        class="text-base/tight font-bold group-active:text-brand group-hover:text-brand text-heading line-clamp-2">
         {postEntry.data.title}
     </h3>
+    <!-- <time
+        datetime={postEntry.data.datePublished}
+        class="font-mono font-medium text-body-subtle group-active:text-body group-hover:text-body text-sm/tight">
+        {datePublished}
+    </time> -->
     <p
-        class="typography-common text-body-subtle group-active:text-body group-hover:text-body text-sm/tight line-clamp-2 sm:line-clamp-3">
+        class="typography-common text-body-subtle group-active:text-body group-hover:text-body text-sm/tight line-clamp-2 sm:line-clamp-2">
         {postEntry.data.description}
     </p>
 </section>

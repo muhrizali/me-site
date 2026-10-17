@@ -34,19 +34,19 @@ export default defineConfig({
     {
       provider: fontProviders.fontsource(),
       name: "Source Serif 4",
-      cssVariable: "--font-source-serif",
+      cssVariable: "--font-alias-serif",
       weights: [300, 400, 500, 600, 700],
     },
     {
       provider: fontProviders.fontsource(),
       name: "Atkinson Hyperlegible Next",
-      cssVariable: "--font-hyper-next",
+      cssVariable: "--font-alias-sans",
       weights: [300, 400, 500, 600, 700],
     },
     {
       provider: fontProviders.fontsource(),
       name: "Fira Code",
-      cssVariable: "--font-fira-code",
+      cssVariable: "--font-alias-mono",
       weights: [300, 400, 500, 600],
     },
   ],
