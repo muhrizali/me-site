@@ -39,21 +39,17 @@ const navigationItems = [
 ];
 ---
 
-<nav class="bg-neutral-primary w-full mb-4">
+<nav class="w-full mb-4 bg-neutral-primary-subtle border-y-2 border-default ">
     <div
-        class="w-full mx-auto">
+        class="max-w-3xl px-4 w-fit mx-auto">
         <ul
-            class="w-full bg-neutral-primary-subtle py-2 font-semibold font-mono text-base md:text-lg flex flex-row justify-center items-center gap-4 sm:gap-6 border-y-2 border-default overflow-x-scroll scrollbar-none uppercase">
+            class="px-0 py-2 flex flex-row gap-4 overflow-x-auto scrollbar-none text-body text-lg md:text-xl font-medium font-mono uppercase">
             {
                 navigationItems.map((item) => (
-                    <li class="">
+                    <li class="block w-fit shrink-0">
                         <a 
                             href={item.href} 
-                            class="block text-body">
-                            {/* <span 
-                                class="block sm:hidden p-1 hover:bg-neutral-secondary active:bg-neutral-secondary border-2 border-transparent rounded-sm hover:border-brand active:border-brand">
-                                {item.icon}
-                            </span> */}
+                            class="">
                             <span 
                                 class="decoration-2 hover:decoration-brand active:decoration-brand hover:underline active:underline">
                                 {item.label}

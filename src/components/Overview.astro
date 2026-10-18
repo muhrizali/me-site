@@ -10,7 +10,7 @@ const allCategories = await getAllPostCategories();
         allCategories.map(
             (category: string) => (
                 <section class="p-2">
-                    <h3 class="text-xl/tight text-heading font-bold">
+                    <h3 class="text-xl/tight tracking-tight text-heading font-bold font-mono">
                         <a href={`/category/${category}`} class="decoration-2 decoration-brand hover:underline active:underline">{category}</a>
                     </h3>
                     <PostOverviewList category={category} count={3} />
