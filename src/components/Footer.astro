@@ -5,22 +5,21 @@ import myGlassesImage from "../assets/my-glasses-image.jpg";
 const footerLinks = [
     {
         label: "Status",
-        link: "/now"
+        link: "/now",
     },
     {
         label: "Archive",
-        link: "/map"
+        link: "/map",
     },
-]
-
+];
 ---
 
-<footer class="border-t-2 border-default bg-neutral-primary-subtle">
+<footer class="border-t-2 border-default-edge bg-surface-soft">
     <div class="max-w-3xl mx-auto">
         <aside class="py-4 px-4">
             <figure class="flex flex-row gap-4">
                 <div
-                    class="h-24 w-24 min-h-24 min-w-24 border-2 border-default mx-auto">
+                    class="h-24 w-24 min-h-24 min-w-24 border-2 border-default-edge mx-auto">
                     <Image
                         src={myGlassesImage}
                         width={400}
@@ -31,33 +30,39 @@ const footerLinks = [
                 </div>
                 <div>
                     <figcaption
-                        class="typography-common font-sans text-xs/tight sm:text-sm/tight text-body-subtle">
-                        This guy thinks its funny to put a goofy photo of him
-                        on his website from the day he was feeling particularly photogenic.
+                        class="typography-common font-sans text-xs/tight sm:text-sm/tight text-body-muted">
+                        This guy thinks its funny to put a goofy photo of him on
+                        his website from the day he was feeling particularly
+                        photogenic.
                         <br />
                     </figcaption>
                     <ul
                         class="border-0 mt-4 font-medium font-mono text-body list-none list-outside text-xs/snug tracking-tight flex flex-row gap-4 uppercase">
                         {
-                            footerLinks.map(
-                                (item: any) => (
-                                    <li class="">
-                                        <a
-                                            href={item.link}
-                                            class="decoration-1 decoration-brand hover:underline active:underline">
-                                            {item.label}
-                                        </a>
-                                    </li>
-                                )
-                            )
+                            footerLinks.map((item: any) => (
+                                <li class="">
+                                    <a
+                                        href={item.link}
+                                        class="decoration-1 decoration-primary hover:underline active:underline">
+                                        {item.label}
+                                    </a>
+                                </li>
+                            ))
                         }
+                        <!-- <li>
+                            <button
+                                class="cursor-pointer decoration-1 decoration-primary hover:underline active:underline">
+                                OPTIONS
+                            </button>
+                        </li> -->
                     </ul>
                 </div>
             </figure>
         </aside>
 
-        <div class="p-6">
-            <p class="block text-xs text-body text-center">
+        <div
+            class="p-6 font-mono text-xs/tight tracking-tight text-body text-center">
+            <p>
                 &copy; 2026 <a
                     href="https://raw.githubusercontent.com/muhrizali/me-site/refs/heads/master/LICENSE"
                     class="underline">Muhriz Ali</a

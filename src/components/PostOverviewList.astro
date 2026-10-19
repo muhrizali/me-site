@@ -18,7 +18,7 @@ let collection = await getOurCollection({category, count, tag: null, sortby: nul
         collection.map(
             (item) => (
                 <li>
-                    <a class="text-brand no-underline decoration-2 hover:underline active:underline line-clamp-1" href={`/posts/${item.id}`}>{item.data.title}</a>
+                    <a class="text-primary no-underline decoration-2 hover:underline active:underline line-clamp-1" href={`/posts/${item.id}`}>{item.data.title}</a>
                 </li>
             )
         )

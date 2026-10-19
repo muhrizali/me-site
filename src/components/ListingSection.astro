@@ -10,16 +10,16 @@ const datePublished = DateTime.fromISO(postEntry.data.datePublished).toFormat(
 
 <section class="my-auto">
     <h3
-        class="text-base/tight tracking-tight text-balance font-bold font-mono group-active:text-brand group-hover:text-brand text-heading line-clamp-2">
+        class="text-base/tight tracking-normal text-balance font-bold group-active:text-primary group-hover:text-primary text-body-strong line-clamp-2">
         {postEntry.data.title}
     </h3>
     <!-- <time
         datetime={postEntry.data.datePublished}
-        class="font-mono font-medium text-body-subtle group-active:text-body group-hover:text-body text-sm/tight">
+        class="font-mono font-medium text-body-muted group-active:text-body group-hover:text-body text-sm/tight">
         {datePublished}
     </time> -->
     <p
-        class="typography-common text-body-subtle group-active:text-body group-hover:text-body text-sm/tight line-clamp-2 sm:line-clamp-2">
+        class="typography-common text-body-muted group-active:text-body group-hover:text-body text-sm/tight line-clamp-2 sm:line-clamp-2">
         {postEntry.data.description}
     </p>
 </section>

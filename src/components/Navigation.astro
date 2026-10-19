@@ -39,19 +39,21 @@ const navigationItems = [
 ];
 ---
 
-<nav class="w-full mb-4 bg-neutral-primary-subtle border-y-2 border-default ">
+<nav class="flex flex-col justify-center items-center w-full mb-4 bg-surface-soft border-y-2 border-default-edge">
+    <!-- <div class="max-w-3xl border px-4 peer">
+    </div> -->
     <div
-        class="max-w-3xl px-4 w-fit mx-auto">
+        class="max-w-3xl px-4 w-auto">
         <ul
-            class="px-0 py-2 flex flex-row gap-4 overflow-x-auto scrollbar-none text-body text-lg md:text-xl font-medium font-mono uppercase">
+            class="px-0 py-2 w-full flex flex-row gap-4 overflow-x-auto scrollbar-none text-body text-lg md:text-xl font-bold font-mono uppercase">
             {
                 navigationItems.map((item) => (
-                    <li class="block w-fit shrink-0">
+                    <li class="block shrink-0">
                         <a 
                             href={item.href} 
                             class="">
                             <span 
-                                class="decoration-2 hover:decoration-brand active:decoration-brand hover:underline active:underline">
+                                class="decoration-2 hover:decoration-primary active:decoration-primary hover:underline active:underline">
                                 {item.label}
                             </span>
                         </a>

@@ -15,14 +15,14 @@ const { path, alt, caption, width = 1200, height = 900} = Astro.props;
     <Image
         src={path} 
         alt={alt}
-        class="mx-auto w-full border-2 border-default"
+        class="mx-auto w-full border-2 border-default-edge"
         height={height}
         width={width}
     />
     {
         caption && (
             <figcaption 
-                class="pt-1 text-body-subtle font-mono text-xs/tight tracking-tight hyphens-auto">
+                class="pt-1 text-body-muted font-mono text-xs/tight tracking-tight hyphens-auto">
                 [&uarr;] {caption}
             </figcaption>
         )

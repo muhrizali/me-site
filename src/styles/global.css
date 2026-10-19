@@ -2,101 +2,75 @@
 @plugin "flowbite/plugin";
 @source "../../node_modules/flowbite";
 
-/* WINTER WARM THEME */
+/* THEMES */
 
-[data-theme="warm"] {
-    /* COLORS */
+html {
+    @apply text-[100%] md:text-[125%] zoom-100 md:zoom-125;
+}
+
+html[data-theme="warm-dark"] {
+
+    --surface-soft: #343434;
+    --surface: #282828;
+    --surface-strong: #1d2021;
+    --surface-secondary: #3c3836;
+
+    --body-muted: #bdae93;
     --body: #ebdbb2;
-    --body-subtle: #bdae93;
     --body-strong: #fbf1c7;
+    
+    --primary-soft: oklch(84.107% 0.18197 51.682);
+    --primary: oklch(73.107% 0.18197 51.682);
+    --primary-strong: oklch(62.172% 0.18197 51.682);
 
-    --primary: #fe8019;
-    --primary-subtle: #fe8019;
-    --primary-strong: #fe8019;
+    --secondary-soft: oklch(86.553% 0.10771 137.711);
+    --secondary: oklch(75.553% 0.10771 137.711);
+    --secondary-strong: oklch(64.504% 0.09385 145.302);
 
-    --neutral-primary: oklch(27.685% 0.00003 271.152);
-    --neutral-primary-subtle: oklch(32.685% 0.00003 271.152);
-    --neutral-primary-strong: #1d2021;
+    --success: #b8bb26;
+    --success-strong: #98971a;
 
-    --neutral-secondary: #3c3836;
+    --info: #83a598;
+    --info-strong: #458588;
 
-    --neutral-tertiary: #504945;
-
-    --purple: #d3869b;
-    --purple-strong: #b16286;
-
-    --green: #b8bb26;
-    --green-strong: #98971a;
 
     /* BORDER COLORS */
-    --edge: #665c54;
+    --default-edge: #665c54;
 
     /* FONTS */
+    --font-main: var(--font-alias-sans);
+    /* --font-main: var(--font-alias-serif); */
     --font-mono: var(--font-alias-mono);
-    --font-sans: var(--font-alias-sans);
-    --font-serif: var(--font-alias-serif);
 }
 
-[data-theme="cool"] {
-    /* COLORS */
-    --body: #ebdbb2;
-    --body-subtle: #bdae93;
-    --body-strong: #fbf1c7;
-
-    --primary: oklch(69.266% 0.04197 169.873);
-    --primary-subtle: #83a598;
-    --primary-strong: #458588;
-
-    --neutral-primary: oklch(25% 0.00003 271.152);
-    --neutral-primary-subtle: oklch(30% 0.00003 271.152);
-    --neutral-primary-strong: oklch(25% 0.00488 219.928);
-
-    --neutral-secondary: #3c3836;
-
-    --neutral-tertiary: #504945;
-
-    /* BORDER COLORS */
-    --edge: #665c54;
-
-    /* FONTS */
-    --font-main: var(--font-fira-code); /* SANS */
-    --font-old: var(--font-fira-code); /* SERIF */
-    --font-code: var(--font-ubuntu-mono);
-}
+/* [data-theme="cool"] {} */
 
 @theme inline {
+    --color-surface-soft: var(--surface-soft);
+    --color-surface: var(--surface);
+    --color-surface-strong: var(--surface-strong);
+    --color-surface-secondary: var(--surface-secondary);
 
     /* TEXT COLORS */
+    --color-body-muted: var(--body-muted);
     --color-body: var(--body);
-    --color-body-subtle: var(--body-subtle);
-    --color-heading: var(--body-strong);
+    --color-body-strong: var(--body-strong);
 
     /* BORDER COLORS */
-    --color-default: var(--edge);
-
-    /* BRAND COLORS */
-    --color-brand: var(--primary);
-    --color-brand-subtle: var(--primary-subtle);
-    --color-brand-strong: var(--primary-strong);
+    --color-default-edge: var(--default-edge);
 
     /* COLORS */
-    --color-neutral-primary: var(--neutral-primary);
-    --color-neutral-primary-subtle: var(--neutral-primary-subtle);
-    --color-neutral-primary-strong: var(--neutral-primary-strong);
+    --color-primary-soft: var(--primary-soft);
+    --color-primary: var(--primary);
+    --color-primary-strong: var(--primary-strong);
 
-    --color-neutral-secondary: var(--neutral-secondary);
+    --color-secondary-soft: var(--secondary-soft);
+    --color-secondary: var(--secondary);
+    --color-secondary-strong: var(--secondary-strong);
 
-    --color-neutral-tertiary: var(--neutral-tertiary);
-
-    --color-purple: var(--purple);
-    --color-purple-strong: var(--purple-strong);
-
-    --color-green: var(--green);
-    --color-green-strong: var(--green-strong);
 
     /* FONTS */
-    --font-sans: var(--font-sans);
-    --font-serif: var(--font-serif);
+    --font-sans: var(--font-main);
     --font-mono: var(--font-mono);
 }
 
@@ -106,23 +80,23 @@ body {
 }
 
 @utility typography-common {
-    @apply text-body text-base/snug tracking-normal hyphens-auto;
+    @apply text-body text-base/tight tracking-normal hyphens-auto;
 }
 
 @utility tag-common {
-    @apply px-1.5 border-2 rounded-sm font-medium font-mono text-body-subtle tracking-tight border-neutral-tertiary;
+    @apply px-1.5 border-2 rounded-sm font-medium font-mono text-body-muted tracking-tight border-default-edge 
 }
 
 .tag-link {
-    @apply tag-common rounded-xs hover:border-brand active:border-brand hover:text-body active:text-body hover:bg-neutral-secondary active:bg-neutral-secondary;
+    @apply tag-common rounded-xs hover:border-primary active:border-primary hover:text-body active:text-body hover:bg-surface-secondary active:bg-surface-secondary;
 }
 
 .tag-heading {
-    @apply tag-common border-brand text-body bg-neutral-secondary;
+    @apply tag-common border-primary text-body bg-surface-secondary;
 }
 
 .writing {
-    @apply typography-common select-none;
+    @apply typography-common selection:bg-primary/50 selection:text-body-strong;
 }
 
 .writing h1, 
@@ -131,7 +105,7 @@ body {
 .writing h4, 
 .writing h5, 
 .writing h6 {
-    @apply mt-6 mb-2 tracking-tight font-bold font-mono text-heading;
+    @apply mt-6 mb-2 tracking-tight font-bold font-mono text-body-strong;
 }
 
 .writing h1 {
@@ -155,27 +129,27 @@ body {
 }
 
 .writing a {
-    @apply typography-common text-brand decoration-2 active:decoration-brand hover:underline active:underline;
+    @apply typography-common text-primary decoration-2 active:decoration-primary hover:underline active:underline;
 }
 
 /* .writing figure figcaption p {
-    @apply pt-1 text-body-subtle text-xs/tight tracking-tight hyphens-auto;
+    @apply pt-1 text-body-muted text-xs/tight tracking-tight hyphens-auto;
 } */
 
 .writing figure figcaption a {
-    @apply text-xs decoration-1 underline text-body-subtle;
+    @apply text-xs decoration-1 underline text-body-muted;
 }
 
 .writing blockquote {
-    @apply px-4 py-2 mb-5 border-s-4 border-default bg-neutral-secondary;
+    @apply px-4 py-2 mb-5 border-s-4 border-default-edge bg-surface-secondary;
 }
 
 .writing blockquote p {
-    @apply typography-common mb-4 last:mb-0 text-heading;
+    @apply typography-common mb-4 last:mb-0 text-body-strong;
 }
 
 .writing blockquote figcaption {
-    @apply text-body-subtle text-right mr-4;
+    @apply text-body-muted text-right mr-4;
 }
 
 .writing ul,
@@ -192,7 +166,7 @@ body {
 }
 
 .writing code {
-    @apply inline hyphens-auto font-medium text-sm text-purple;
+    @apply inline hyphens-auto font-medium text-sm text-secondary;
 }
 
 .writing pre {
@@ -204,17 +178,5 @@ body {
 }
 
 .writing hr {
-    @apply mb-4 border-t-2 border-default;
+    @apply mb-4 border-t-2 border-default-edge 
 }
-
-/* svg rect {
-    @apply fill-neutral-primary;
-}
-
-svg text {
-    @apply fill-body-subtle;
-}
-
-svg path {
-    @apply stroke-body-subtle;
-} */

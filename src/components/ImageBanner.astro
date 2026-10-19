@@ -19,12 +19,12 @@ const { source, alt, width = 1200, height = 480, caption = null } = Astro.props;
         alt={alt}
         height={height}
         width={width}
-        class="mx-auto w-full border-2 border-default"
+        class="mx-auto w-full border-2 border-default-edge"
     />
     {
         caption && (
         <figcaption 
-            class="mt-2 font-mono text-body-subtle text-xs/tight tracking-tight hyphens-auto">
+            class="mt-2 font-mono text-body-muted text-xs/tight tracking-tight hyphens-auto">
                     [&uarr;] {caption}
         </figcaption>
         )

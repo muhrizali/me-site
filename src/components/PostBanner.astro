@@ -11,13 +11,13 @@ const { frontmatter, headings } = Astro.props;
 ---
 
 <div class="w-full my-4">
-    <h1 class="my-2 text-2xl/tight tracking-tight text-balance text-heading font-bold font-mono">{frontmatter.title}</h1>
+    <h1 class="my-2 text-2xl/tight tracking-normal text-balance text-body-strong font-bold">{frontmatter.title}</h1>
     <PostTimeInfo frontmatter={frontmatter} />
 
 
     <!-- Description -->
-    <div class="py-4 typography-common text-body-subtle text-lg/tight">
-        <p><span class="text-brand font-bold font-mono">//</span> {frontmatter.description}</p>
+    <div class="py-4 typography-common text-body-muted text-lg/tight">
+        <p><span class="text-primary font-bold font-mono">//</span> {frontmatter.description}</p>
     </div>
 
     <!-- Table Of Contents -->

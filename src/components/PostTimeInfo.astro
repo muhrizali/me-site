@@ -11,9 +11,9 @@ const datePublished = DateTime.fromISO(frontmatter.datePublished).toFormat("LLL 
 const dateModified = DateTime.fromISO(frontmatter.dateModified).toLocaleString(DateTime.DATE_MED);
 
 ---
-<section class="mt-1 typography-common text-xs text-body-subtle font-mono font-medium uppercase">
+<section class="mt-1 typography-common text-xs text-body-muted font-mono font-medium uppercase">
     <time datetime={frontmatter.datePublished} class="">{datePublished}</time> 
-    <span class="mx-2 text-brand">&bull;</span>
+    <span class="mx-2 text-primary">&bull;</span>
     <span class="text-body">
         <a href="/about">Muhriz Ali</a></span> 
     <!-- <span class="mx-2">&bull;</span> -->

@@ -18,16 +18,14 @@ const { metadata } = Astro.props;
 ---
 
 <!doctype html>
-<html 
-    lang="en" 
-    data-theme="warm" 
-    class="scrollbar-none scroll-smooth">
+<html
+    lang="en"
+    data-theme="warm-dark"
+    class="scrollbar-none">
     <head>
         <Head metadata={metadata} />
     </head>
-    <body
-        hx-boost:inherited="true"
-        class="bg-neutral-primary">
+    <body hx-boost:inherited="true" class="bg-surface">
         <Navigation />
 
         <Main>
@@ -35,5 +33,6 @@ const { metadata } = Astro.props;
         </Main>
 
         <Footer />
+
     </body>
 </html>

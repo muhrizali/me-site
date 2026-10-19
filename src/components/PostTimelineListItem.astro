@@ -11,9 +11,9 @@ const datePublished = DateTime.fromISO(postItem.data.datePublished).toFormat("yy
 ---
 
 <li class="mb-0 font-mono line-clamp-1">
-    <span class="text-body-subtle">{datePublished}</span>
-    <span class="text-body"> | </span> 
+    <span class="text-body-muted">{datePublished}</span>
+    <span class="text-body"> &bull; </span> 
     <a 
-    class="inline text-brand no-underline decoration-2 hover:underline active:underline"
+    class="inline text-primary no-underline decoration-2 hover:underline active:underline"
     href={`/posts/${postItem.id}`}>{postItem.data.title}</a>
 </li>

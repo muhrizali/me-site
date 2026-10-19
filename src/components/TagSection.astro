@@ -11,7 +11,7 @@ const { tag, loadMore = false } = Astro.props;
 ---
 <section id="tag-section" class="mb-8">
     <h1 class="mt-6 mb-4 text-2xl/tight">
-        <span class="tag-heading">{tag}</span>
+        <span class="tag-body-strong">{tag}</span>
     </h1>
     <PostList tag={tag} count={CONFIG.sectionItemsCount} loadMore={loadMore} />
 </section>
