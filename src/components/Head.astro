@@ -21,8 +21,15 @@ const { metadata } = Astro.props;
 <meta name="googlebot" content="index,find" />
 <meta name="description" content={metadata.description} />
 
-<!-- Scripts -->
-<script src="../scripts/htmx.min.js"></script>
+<!-- HTMX Config -->
+<meta name="htmx-config" content='preload:{"autoBoost":false}'>
+
+
+<!-- HTMX Scripts -->
+<script>
+    import 'htmx.org';
+    import 'htmx.org/dist/ext/hx-preload';
+</script>
 
 <!-- Astro Fonts Config -->
 <Font cssVariable="--font-alias-sans" />

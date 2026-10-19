@@ -84,7 +84,7 @@ body {
 }
 
 @utility tag-common {
-    @apply px-1.5 border-2 rounded-sm font-medium font-mono text-body-muted tracking-tight border-default-edge 
+    @apply px-1.5 border-2 rounded-sm font-medium font-mono text-body-muted tracking-tight border-default-edge;
 }
 
 .tag-link {
