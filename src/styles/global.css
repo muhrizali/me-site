@@ -166,7 +166,7 @@ body {
 }
 
 .writing code {
-    @apply inline hyphens-auto font-medium text-sm text-secondary;
+    @apply inline break-all hyphens-auto font-medium text-sm text-secondary;
 }
 
 .writing pre {
