@@ -80,7 +80,7 @@ body {
 }
 
 @utility typography-common {
-    @apply text-body text-base/tight tracking-normal hyphens-auto;
+    @apply text-body text-base/snug tracking-normal hyphens-auto;
 }
 
 @utility tag-common {
@@ -125,7 +125,7 @@ body {
 }
 
 .writing p {
-    @apply typography-common mb-5;
+    @apply typography-common mb-4;
 }
 
 .writing a {
@@ -141,7 +141,7 @@ body {
 }
 
 .writing blockquote {
-    @apply px-4 py-2 mb-5 border-s-4 border-default-edge bg-surface-secondary;
+    @apply px-4 py-2 mb-4 border-s-4 border-default-edge bg-surface-secondary;
 }
 
 .writing blockquote p {
@@ -154,7 +154,7 @@ body {
 
 .writing ul,
 .writing ol {
-    @apply typography-common space-y-0.5 mb-5;
+    @apply typography-common space-y-0.5 mb-4;
 }
 
 .writing ul {
@@ -178,5 +178,5 @@ body {
 }
 
 .writing hr {
-    @apply mb-4 border-t-2 border-default-edge 
+    @apply mb-4 border-t-2 border-default-edge;
 }

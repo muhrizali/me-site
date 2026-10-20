@@ -7,8 +7,11 @@ interface Props {
 }
 
 const { date } = Astro.props;
-const statusDate = DateTime.fromISO(date).toLocaleString(DateTime.DATE_MED);
+const statusDate = DateTime.fromISO(date).toFormat("yyyy LLL dd");
+// const statusDate = DateTime.fromISO(date).toLocaleString(DateTime.DATE_MED);
 ---
-<Q source={statusDate}>
+
+<section class="border-b-2 border-default-edge">
+    <h4 class="text-body-muted! text-left">{statusDate}</h4>
     <slot />
-</Q>
+</section>
