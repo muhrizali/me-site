@@ -11,8 +11,11 @@ const { frontmatter, headings } = Astro.props;
 ---
 
 <div class="w-full my-4">
-    <h1 class="my-2 text-2xl/tight tracking-normal text-pretty text-body-strong font-bold">{frontmatter.title}</h1>
-    <PostTimeInfo frontmatter={frontmatter} />
+
+    <h1 
+        class="my-2 text-2xl/tight tracking-normal text-pretty text-body-strong font-bold">
+        {frontmatter.title}
+    </h1>
 
 
     <!-- Description -->
@@ -21,9 +24,5 @@ const { frontmatter, headings } = Astro.props;
     </div>
 
     <!-- Table Of Contents -->
-    {
-        headings.length > 0
-            ? (<TOCList headings={headings}/>)
-            : ""
-    }
+    { (headings.length > 0) && (<TOCList headings={headings}/>) }
 </div>

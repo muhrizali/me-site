@@ -40,7 +40,7 @@ export default defineConfig({
     {
       provider: fontProviders.fontsource(),
       name: "Atkinson Hyperlegible Next",
-      // name: "IBM Plex Mono",
+      // name: "DejaVu Sans Mono",
       cssVariable: "--font-alias-sans",
       weights: [300, 400, 500, 600, 700],
     },

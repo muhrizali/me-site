@@ -9,11 +9,13 @@ const { postItem } = Astro.props;
 
 const datePublished = DateTime.fromISO(postItem.data.datePublished).toFormat("yyyy-LL-dd");
 ---
-
-<li class="mb-0 font-mono line-clamp-1">
-    <span class="text-body-muted">{datePublished}</span>
-    <span class="text-body"> &bull; </span> 
-    <a 
-    class="inline text-primary no-underline decoration-2 hover:underline active:underline"
-    href={`/posts/${postItem.id}`}>{postItem.data.title}</a>
-</li>
+<tr class="">
+    <th scope="row" class="pr-2 py-0 w-1 font-normal text-body-muted whitespace-nowrap border-r-2 border-default-edge">
+        {datePublished}
+    </th>
+    <td class="px-2 py-0 whitespace-nowrap">
+        <a 
+        class="inline text-primary no-underline decoration-2 hover:underline active:underline"
+        href={`/posts/${postItem.id}`}>{postItem.data.title}</a>
+    </td>
+</tr>

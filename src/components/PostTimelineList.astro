@@ -11,12 +11,16 @@ const { category } = Astro.props;
 const collection = await getOurCollection({ category });
 
 ---
-<ul class="text-body list-none list-outside text-base/snug tracking-tight">
-    {
-        collection.map(
-            (item) => (
-                <PostTimelineListItem postItem={item} />
-            )
-        )
-    }
-</ul>
+<div class="relative overflow-x-auto scrollbar-thumb-default-edge scrollbar-thin">
+    <table class="w-full text-sm text-left font-mono rtl:text-right text-body">
+        <tbody>
+                {
+                    collection.map(
+                        (item) => (
+                            <PostTimelineListItem postItem={item} />
+                        )
+                    )
+                }
+        </tbody>
+    </table>
+</div>

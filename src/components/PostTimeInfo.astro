@@ -8,14 +8,20 @@ const { frontmatter } = Astro.props;
 
 // const datePublished = DateTime.fromISO(frontmatter.datePublished).toLocaleString(DateTime.DATE_MED);
 const datePublished = DateTime.fromISO(frontmatter.datePublished).toFormat("LLL dd yyyy");
-// const dateModified = DateTime.fromISO(frontmatter.dateModified).toLocaleString(DateTime.DATE_MED);
+const dateModified = DateTime.fromISO(frontmatter.dateModified).toFormat("LLL dd yyyy");
 
 ---
-<section class="mt-1 typography-common text-xs text-body-muted font-mono font-medium uppercase">
-    <time datetime={frontmatter.datePublished} class="">{datePublished}</time> 
-    <span class="mx-2 text-primary">&bull;</span>
-    <span class="text-body">
-        <a href="/about">Muhriz Ali</a></span> 
+<section class="mt-10 typography-common text-body-muted font-mono text-sm font-medium">
+    <p>
+        <time datetime={frontmatter.datePublished} class="">/ {datePublished}</time> <br />
+        <time datetime={frontmatter.datePublished} class="">/ Last Updated: {dateModified}</time>
+    </p>
+    <!-- <span class="text-body-muted">
+        by
+        <span class="text-body">
+            <a href="/about"> Muhriz Ali</a>
+        </span> 
+    </span> -->
     <!-- <span class="mx-2">&bull;</span> -->
         
 </section>
