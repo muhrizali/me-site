@@ -1,0 +1,19 @@
+---
+import { getOurCollection, CONFIG, type ContentCollection } from "../../../scripts/utils";
+import PostListItem from "../../../components/PostListItem.astro";
+import LoadButton from "../../../components/LoadButton.astro";
+
+export async function getStaticPaths({ paginate }: any) {
+
+    const desiredCollection: ContentCollection = "BOOKS";
+
+    const posts = await getOurCollection({ category: desiredCollection });
+    return paginate(posts, { pageSize: CONFIG.sectionItemsCount });
+}
+
+export const partial = true;
+const { page } = Astro.props;
+
+---
+{page.data.map((item: any) => (<PostListItem postEntry={item} />))}
+{page.url.next && (<LoadButton routeURL={`${page.url.next}`} />)}

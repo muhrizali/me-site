@@ -1,0 +1,40 @@
+---
+import { getAllPostTags, getOurCollection } from "../../../../scripts/utils";
+import PostListItem from "../../../../components/PostListItem.astro";
+import LoadButton from "../../../../components/LoadButton.astro";
+import { CONFIG, type ContentCollection } from "../../../../scripts/utils";
+import * as _ from "lodash-es";
+
+
+export async function getStaticPaths({ paginate }: any) {
+
+    const desiredCollection: ContentCollection = "NOTES";
+    
+    // getting all tags from the desired collection
+    const allTags = await getAllPostTags(desiredCollection);
+
+    // preparing the posts associated with each tag
+    let tagToPostsMap: any = {};
+    for (const tag of allTags) {
+        const tagItems = await getOurCollection({ category: desiredCollection, "tag": tag });
+        tagToPostsMap[tag] = tagItems;
+    }
+
+    return allTags.flatMap((tag) => {
+        // getting post items for given tag
+        const filteredPosts = tagToPostsMap[tag];
+        return paginate(filteredPosts, {
+            params: { "tag": tag },
+            pageSize: CONFIG.sectionItemsCount,
+        });
+    });
+};
+
+export const partial = true;
+
+const { page } = Astro.props;
+const { tag } = Astro.params;
+
+---
+{page.data.map((item: any) => (<PostListItem postEntry={item} />))}
+{page.url.next && (<LoadButton routeURL={`${page.url.next}`} />)}

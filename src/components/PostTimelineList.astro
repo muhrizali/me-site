@@ -1,17 +1,17 @@
 ---
-import { getOurCollection } from "../scripts/utils";
+import { getOurCollection, type ContentCollection } from "../scripts/utils";
 import * as _ from "lodash-es";
 import PostTimelineListItem from "./PostTimelineListItem.astro";
 
 interface Props {
-    category: string;
+    category: ContentCollection;
 }
 
 const { category } = Astro.props;
 const collection = await getOurCollection({ category });
 
 ---
-<div class="relative overflow-x-auto scrollbar-thumb-default-edge scrollbar-thin">
+<div class="relative overflow-x-auto scrollbar-thumb-default-edge scrollbar-thin pb-1">
     <table class="w-full text-sm text-left font-mono rtl:text-right text-body">
         <tbody>
                 {

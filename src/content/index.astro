@@ -1,0 +1,25 @@
+---
+import Layout from "../../layouts/Layout.astro";
+import PostSectionCategory from "../../components/PostSectionCategory.astro";
+import AllPostsDemograph from "../../components/AllPostsDemograph.astro";
+import { getAllPostCategories } from "../../scripts/utils";
+
+const categories = await getAllPostCategories();
+
+const metadata = {
+    title: "Posts",
+    description: "Collection of all the blog posts, books, projects and notes I have worked on. Also contains all the categories and tags these of the posts."
+}
+
+---
+
+<Layout metadata={metadata}>
+    {
+        categories?.map(
+            (category: string) => (
+                <PostSectionCategory category={category} />
+            )
+        )
+    }
+    <AllPostsDemograph />
+</Layout>

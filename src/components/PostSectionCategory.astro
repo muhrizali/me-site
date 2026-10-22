@@ -1,0 +1,15 @@
+---
+import PostList from "./PostList.astro";
+import { CONFIG, type ContentCollection } from "../scripts/utils";
+
+interface Props {
+    category: ContentCollection;
+    loadMore?: boolean;
+}
+
+const { category, loadMore = false } = Astro.props;
+---
+<section class="mb-8">
+    <h2 class="mt-6 mb-4 text-2xl/tight tracking-tight text-body-strong font-bold font-mono">{category}</h2>
+    <PostList category={category} count={CONFIG.sectionItemsCount} loadMore={loadMore} />
+</section>

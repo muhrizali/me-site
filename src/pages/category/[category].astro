@@ -1,6 +1,6 @@
 ---
 import Layout from "../../layouts/Layout.astro";
-import CategorySection from "../../components/CategorySection.astro";
+import PostSectionCategory from "../../components/PostSectionCategory.astro";
 import { getAllPostCategories } from "../../scripts/utils";
 import { Metadata } from "../../scripts/types";
 
@@ -19,7 +19,7 @@ const metadata: Metadata = {
 
 ---
 <Layout metadata={metadata}>
-    <CategorySection category={category} loadMore={true} />
+    <PostSectionCategory category={category} loadMore={true} />
 </Layout>
 
 

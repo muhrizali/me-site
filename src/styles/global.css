@@ -4,9 +4,13 @@
 
 /* THEMES */
 
-html {
-    @apply text-[100%] md:text-[125%] zoom-100 md:zoom-125;
+[x-cloak] {
+    display: none !important;
 }
+
+/* html {
+    @apply text-[100%] md:text-[125%] zoom-100 md:zoom-125;
+} */
 
 html[data-theme="warm-dark"] {
 

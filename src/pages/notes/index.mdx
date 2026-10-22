@@ -1,0 +1,21 @@
+---
+layout: "../../layouts/WebLayout.astro"
+
+# metadata
+title: "Notes"
+description: "Collection of all the notes about the things I have learnt and currently learning."
+
+---
+import Writing from "../../components/Writing.astro";
+import PostList from "../../components/PostList.astro";
+import Banner from "./Banner.astro";
+
+<Writing>
+<Banner />
+
+About Notes.
+
+---
+
+</Writing>
+<PostList category={"NOTES"} loadMore={true} />

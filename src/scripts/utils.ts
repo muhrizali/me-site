@@ -1,24 +1,26 @@
-import { getCollection } from "astro:content";
+import { getCollection, getEntry } from "astro:content";
 import type { CollectionEntry } from "astro:content";
 import _ from "lodash";
 
-async function getValidPosts() {
-    const allPosts =  await getCollection("posts");
-    return _.filter(allPosts, (item: any) => !item.data["isDraft"]);
+type ContentCollection = "POSTS" | "BLOGS" | "BOOKS" | "PROJECTS" | "NOTES";
+
+async function getValidPosts(collectionName: ContentCollection = "POSTS") {
+    let posts = await getCollection(collectionName);
+    return _.filter(posts, (item: any) => !item.data["isDraft"]);
 }
 
 interface CategoryOptions {
-    posts: CollectionEntry<"posts">[];
-    category: string | null;
+    posts: CollectionEntry<any>[];
+    category: ContentCollection;
 };
 
-function getCategory({posts, category = null}: CategoryOptions) {
-    if (category === null) return posts;
-    return _.filter(posts, (item: CollectionEntry<"posts">) => item.data["category"] === category);
+function getCategory({posts, category = "POSTS"}: CategoryOptions) {
+    if (category === "POSTS") return posts;
+    return _.filter(posts, (item: CollectionEntry<any>) => item.data["category"] === category);
 }
 
 interface TagOptions {
-    posts: CollectionEntry<"posts">[];
+    posts: CollectionEntry<any>[];
     tag: string | null;
 }
 
@@ -28,13 +30,13 @@ function getTag({posts, tag = null}: TagOptions) {
 }
 
 interface SortOptions {
-    posts: CollectionEntry<"posts">[];
+    posts: CollectionEntry<any>[];
     sortby?: "title" | "last_created" | "last_modified" | null;
     descending?: boolean;
 }
 
 function getSorted({posts, sortby = null, descending = true}: SortOptions) {
-    let collection: CollectionEntry<'posts'> = posts;
+    let collection: CollectionEntry<any> = posts;
     
     if  (sortby === "title") {
         collection = _.sortBy(posts, ["data.title"]);
@@ -48,7 +50,7 @@ function getSorted({posts, sortby = null, descending = true}: SortOptions) {
 }
 
 interface LimitOptions {
-    posts: CollectionEntry<"posts">[];
+    posts: CollectionEntry<any>[];
     count: number | null;
 }
 
@@ -58,14 +60,14 @@ function limitPosts({posts, count = null}: LimitOptions) {
 }
 
 interface CollectionOptions {
-    category?: string | null;
+    category: ContentCollection;
     tag?: string | null;
     sortby?: "title" | "last_created" | "last_modified" | null;
     count?: number | null;
 }
 
-async function getOurCollection({category = null, tag = null, sortby = null, count = null}: CollectionOptions = {}) {
-    let allPosts = await getValidPosts();
+async function getOurCollection({category = "POSTS", tag = null, sortby = null, count = null}: CollectionOptions) {
+    let allPosts = await getValidPosts(category);
     if ((category === null) && (tag === null) && (sortby === null) && (count === null)) return allPosts;
 
     if (category !== null) {
@@ -89,8 +91,18 @@ async function getOurCollection({category = null, tag = null, sortby = null, cou
     return allPosts;
 }
 
-async function getAllPostTags() {
-    let allPosts = await getValidPosts();
+interface CollectionItemOptions {
+    category: ContentCollection;
+    itemID: string;
+}
+
+async function getOurCollectionItem({ category, itemID }: CollectionItemOptions) {
+    const posts = await getOurCollection({ category });
+    return _.find(posts, { 'id': itemID });
+}
+
+async function getAllPostTags(category: ContentCollection = "POSTS") {
+    let allPosts = await getValidPosts(category);
     let allTags = _.uniq(_.flatMap(allPosts, (post: CollectionEntry<"posts">) => post.data["tags"]));
     allTags = _.sortBy(allTags);
     return allTags;
@@ -104,7 +116,13 @@ async function getAllPostCategories() {
 }
 
 const CONFIG = {
-    sectionItemsCount: 3,
-}
+    sectionItemsCount: 1,
+    routeTable: {
+        "BLOGS": "blog",
+        "BOOKS": "books",
+        "PROJECTS": "projects",
+        "NOTES": "notes",
+    },
+};
 
-export { getOurCollection, getAllPostTags, getAllPostCategories, CONFIG };
+export { getOurCollection, getOurCollectionItem, getAllPostTags, getAllPostCategories, CONFIG, type ContentCollection };

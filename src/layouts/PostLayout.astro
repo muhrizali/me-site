@@ -1,14 +1,18 @@
 ---
 import Layout from "./Layout.astro";
 import Writing from "../components/Writing.astro";
-import PostBanner from "../components/PostBanner.astro";
-import PostTimeInfo from "../components/PostTimeInfo.astro";
-import PostMap from "../components/PostMap.astro";
+import PostFront from "../components/PostFront.astro";
+import AllPostsDemograph from "../components/AllPostsDemograph.astro";
 import { Metadata } from "../scripts/types";
 
 // MARKDOWN ARTICLE LAYOUT
 // Used for any article created with markdown
 // which is part of any content collections
+
+interface Props {
+    frontmatter: any;
+    headings: any[];
+}
 
 const { frontmatter, headings } = Astro.props;
 const metadata: Metadata = {
@@ -18,10 +22,9 @@ const metadata: Metadata = {
 
 ---
 <Layout metadata={metadata}>
-    <PostBanner frontmatter={frontmatter} headings={headings} />
+    <PostFront frontmatter={frontmatter} headings={headings} />
     <Writing>
         <slot />
     </Writing>
-    <PostTimeInfo frontmatter={frontmatter} />
-    <PostMap scope={"post"} frontmatter={frontmatter} />
+    <AllPostsDemograph scope={"post"} frontmatter={frontmatter} />
 </Layout>

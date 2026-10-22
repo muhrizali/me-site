@@ -3,8 +3,8 @@ import { defineConfig, fontProviders } from 'astro/config';
 import tailwindcss from '@tailwindcss/vite';
 import mdx from '@astrojs/mdx';
 import cloudflare from '@astrojs/cloudflare';
+import alpinejs from '@astrojs/alpinejs';
 // import icon from "astro-icon";
-// import alpinejs from '@astrojs/alpinejs';
 
 // https://astro.build/config
 export default defineConfig({
@@ -39,8 +39,8 @@ export default defineConfig({
     },
     {
       provider: fontProviders.fontsource(),
-      name: "Atkinson Hyperlegible Next",
-      // name: "DejaVu Sans Mono",
+      // name: "Atkinson Hyperlegible Next",
+      name: "IBM Plex Mono",
       cssVariable: "--font-alias-sans",
       weights: [300, 400, 500, 600, 700],
     },

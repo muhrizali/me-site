@@ -1,0 +1,21 @@
+---
+layout: "../../layouts/WebLayout.astro"
+
+# metadata
+title: "Projects"
+description: "Collection of all the projects I have built over time."
+
+---
+import Writing from "../../components/Writing.astro";
+import PostList from "../../components/PostList.astro";
+import Banner from "./Banner.astro";
+
+<Writing>
+<Banner />
+
+About Projects.
+
+---
+
+</Writing>
+<PostList category={"PROJECTS"} loadMore={true} />

@@ -1,0 +1,46 @@
+---
+import { DateTime } from "luxon";
+import Image from "astro/components/Image.astro";
+
+
+interface Props {
+    frontmatter: any;
+}
+
+const { frontmatter } = Astro.props;
+const datePublished = DateTime.fromISO(frontmatter.datePublished).toFormat("LLL dd yyyy");
+const dateModified = DateTime.fromISO(frontmatter.dateModified).toFormat("LLL dd yyyy");
+
+---
+
+<div class="py-0">
+    <figure class="mb-6 flex flex-col sm:flex-row">
+        <Image
+            src={frontmatter.imageCover}
+            alt={`Book Cover For: ${frontmatter.title}`}
+            class="mx-auto min-w-40 w-40 min-h-52 h-52 border-2 border-default-edge"
+            width={450}
+            height={600}
+        />
+        <div class="px-0 sm:px-4 pt-4 sm:py-2">
+            <div
+                class="mb-4 typography-common font-mono text-body-muted text-sm/tight flex flex-row gap-8">
+                <div>
+                    <p>AUTHORS</p>
+                    { frontmatter.authors.map((item: any) => (<p class="text-body">{item}</p>)) }
+                </div>
+                <div>
+                    <p>PUBLISHED</p>
+                    <p class="text-body">
+                        <time datetime={frontmatter.datePublished} class="">{datePublished}</time>
+                    </p>
+                </div>
+            </div>
+
+            <figcaption
+                class="pt-2 text-body-muted font-mono typography-common text-sm/tight">
+                {frontmatter.description}
+            </figcaption>
+        </div>
+    </figure>
+</div>

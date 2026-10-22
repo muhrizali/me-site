@@ -1,26 +1,28 @@
 ---
 import PostListItem from "./PostListItem.astro";
-import PostTagListItem from "./PostTagListItem.astro";
+import PostListTagItem from "./PostListTagItem.astro";
 import LoadButton from "./LoadButton.astro";
 import * as _ from "lodash-es";
-import { getOurCollection, CONFIG } from "../scripts/utils";
+import { getOurCollection, CONFIG, type ContentCollection } from "../scripts/utils";
+
 
 interface Props {
-    category?: string;
+    category: ContentCollection;
     tag?: string;
     count?: number;
     loadMore?: boolean;
 }
 
 
-let { category = null, tag = null, count = CONFIG.sectionItemsCount, sortby = null, loadMore = false } = Astro.props;
+let { category, tag = null, count = CONFIG.sectionItemsCount, sortby = null, loadMore = false } = Astro.props;
 
-let route = "";
-if (category) {
-    route = category;
-} if (tag) {
+let route: string;
+if ((category === "POSTS") && tag) {
     route = tag;
+} else {
+    route = CONFIG.routeTable[category];
 }
+
 
 let collection = await getOurCollection({category, tag, count, sortby});
 let totalItems = (await getOurCollection({category, tag})).length;
@@ -36,7 +38,7 @@ if (totalItems <= count) {
             ? (
                 collection.map(
                     (item) => (
-                        <PostTagListItem postEntry={item} />
+                        <PostListTagItem postEntry={item} />
                     )
                 )
             )
@@ -50,11 +52,10 @@ if (totalItems <= count) {
     }
     {
         loadMore
-            ? (
-              category 
-              ? <LoadButton routeURL={`/htmx/category/${route}/2`} />
-              : <LoadButton routeURL={`/htmx/tag/${route}/2`} />
+            && (
+                (tag) 
+                    ? <LoadButton routeURL={`/${route}/partial/${tag}/2`} />
+                    : <LoadButton routeURL={`/${route}/partial/2`} />
             )
-            : ( "" )
     }
 </ul>

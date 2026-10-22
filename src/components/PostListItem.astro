@@ -1,10 +1,11 @@
 ---
 import { DateTime } from 'luxon';
-import ListingSection from './ListingSection.astro';
-import ListingBlogImage from './ListingBlogImage.astro';
-import ListingBookImage from './ListingBookImage.astro';
-import ListingProjectImage from './ListingProjectImage.astro';
-import ListingNoteImage from './ListingNoteImage.astro';
+import PostListItemSection from './PostListItemSection.astro';
+import PostListItemBlogImage from './PostListItemBlogImage.astro';
+import PostListItemBookImage from './PostListItemBookImage.astro';
+import PostListItemProjectImage from './PostListItemProjectImage.astro';
+import PostListItemNoteImage from './PostListItemNoteImage.astro';
+import { CONFIG } from "../scripts/utils";
 
 
 interface Props {
@@ -13,18 +14,31 @@ interface Props {
 
 const { postEntry } = Astro.props;
 
-const postDatePublished = DateTime.fromISO(postEntry.data.datePublished).toLocaleString(DateTime.DATETIME_MED);
+// const postDatePublished = DateTime.fromISO(postEntry.data.datePublished).toLocaleString(DateTime.DATETIME_MED);
+
+// let route;
+// if (postEntry.data.category === "BLOGS") {
+//     route = "blog";
+// } else if (postEntry.data.category === "BOOKS") {
+//     route = "books";
+// } else if (postEntry.data.category === "PROJECTS") {
+//     route = "projects";
+// } else if (postEntry.data.category === "NOTES") {
+//     route = "notes";
+// }
+
+const route = CONFIG.routeTable[postEntry.data.category];
 
 ---
 
 <li class="group">
     <a 
-        href={`/posts/${postEntry.id}`} 
+        href={`/${route}/${postEntry.id}`} 
         class="flex flex-row gap-2">
-        { (postEntry.data.category === "BLOGS") && <ListingBlogImage postEntry={postEntry} /> }
-        { (postEntry.data.category === "BOOKS") && <ListingBookImage postEntry={postEntry} /> }
-        { (postEntry.data.category === "PROJECTS") && <ListingProjectImage postEntry={postEntry} /> }
-        { (postEntry.data.category === "NOTES") && <ListingNoteImage postEntry={postEntry} /> }
-        <ListingSection postEntry={postEntry} />
+        { (postEntry.data.category === "BLOGS") && <PostListItemBlogImage postEntry={postEntry} /> }
+        { (postEntry.data.category === "BOOKS") && <PostListItemBookImage postEntry={postEntry} /> }
+        { (postEntry.data.category === "PROJECTS") && <PostListItemProjectImage postEntry={postEntry} /> }
+        { (postEntry.data.category === "NOTES") && <PostListItemNoteImage postEntry={postEntry} /> }
+        <PostListItemSection postEntry={postEntry} />
     </a>
 </li>

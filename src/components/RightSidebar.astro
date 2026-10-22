@@ -1,0 +1,73 @@
+---
+
+---
+
+<div x-data="{ 'showSidebar': false }">
+    <!-- drawer init and toggle -->
+    <div class="text-center">
+        <button
+            x-on:click="showSidebar = !showSidebar"
+            class="inline-flex items-center justify-center text-white bg-brand box-border border border-transparent hover:bg-brand-strong focus:ring-4 focus:ring-brand-medium shadow-xs font-medium leading-5 rounded-base text-sm px-4 py-2.5 focus:outline-none"
+            type="button"
+            data-drawer-target="drawer-right-example"
+            data-drawer-show="drawer-right-example"
+            data-drawer-placement="right"
+            aria-controls="drawer-right-example">
+            Show right drawer
+        </button>
+    </div>
+
+    <!-- drawer component -->
+    <div
+        x-cloak
+        x-on:click="showSidebar = false"
+        x-bind:class="{ 'hidden': !showSidebar }"
+        class="fixed top-0 right-0 z-30 h-screen w-screen bg-black/50">
+    </div>
+    <div
+        x-cloak
+        class="fixed top-0 right-0 z-40 h-screen p-4 overflow-y-auto transition-transform translate-x-0 bg-surface border-2 border-default-edge w-96"
+        x-bind:class="{ 'translate-x-0': showSidebar, 'translate-x-full': !showSidebar }"
+        id="drawer-right-example"
+        tabindex="-1"
+        aria-labelledby="drawer-right-label">
+        <div class="border-b border-default pb-4 mb-5 flex items-center">
+            <h5
+                id="drawer-right-example"
+                class="inline-flex items-center text-lg font-medium text-body">
+                Right drawer
+            </h5>
+            <button
+                x-on:click="showSidebar = false"
+                type="button"
+                data-drawer-hide="drawer-right-example"
+                aria-controls="drawer-right-example"
+                class="text-body bg-transparent hover:text-heading hover:bg-neutral-tertiary rounded-base w-9 h-9 absolute top-2.5 end-2.5 flex items-center justify-center">
+                <span class="">Close</span>
+            </button>
+        </div>
+        <p class="mb-3 text-sm text-body">
+            Upgrade your Figma toolkit with a design system built on top <a
+                href="#"
+                class="font-medium text-heading underline hover:no-underline"
+                >Flowbite CSS</a
+            > featuring variants, style guide and auto layout.
+        </p>
+        <p class="mb-5 text-sm text-body">
+            Recommended for professional developers and companies building
+            enterprise-level.
+        </p>
+        <div class="flex items-center gap-4">
+            <button
+                type="button"
+                class="text-body bg-neutral-secondary-medium box-border border border-default-medium hover:bg-neutral-tertiary-medium hover:text-heading focus:ring-4 focus:ring-neutral-tertiary shadow-xs font-medium leading-5 rounded-base text-sm px-4 py-2.5 focus:outline-none"
+                >Pricing & FAQ</button
+            >
+            <button
+                type="button"
+                class="inline-flex items-center justify-center text-white bg-brand box-border border border-transparent hover:bg-brand-strong focus:ring-4 focus:ring-brand-medium shadow-xs font-medium leading-5 rounded-base text-sm px-4 py-2.5 focus:outline-none">
+                Get access
+            </button>
+        </div>
+    </div>
+</div>

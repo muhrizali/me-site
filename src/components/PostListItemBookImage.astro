@@ -1,0 +1,13 @@
+---
+import Image from "astro/components/Image.astro";
+
+const { postEntry } = Astro.props;
+---
+
+<Image
+    src={postEntry.data.imageCover}
+    alt={`Book Cover for: ${postEntry.data.title}`}
+    width={600}
+    height={1200}
+    class="border-2 border-default-edge group-active:border-primary group-hover:border-primary flex-none h-24 w-18"
+/>
