@@ -41,7 +41,8 @@ export default defineConfig({
     },
     {
       provider: fontProviders.fontsource(),
-      name: "IBM Plex Mono",
+      // name: "IBM Plex Mono",
+      name: "Fira Code",
       cssVariable: "--font-alias-mono",
       weights: [300, 400, 500, 600],
     },

@@ -82,8 +82,12 @@ html[data-theme="warm-dark"] {
     @apply text-body text-base/snug tracking-normal hyphens-auto;
 }
 
+@utility ui {
+    @apply select-none;
+}
+
 @utility tag-common {
-    @apply px-1 py-0 inline-block border-2 rounded-sm font-medium font-mono text-body-muted border-default-edge;
+    @apply px-1 tracking-tight whitespace-nowrap inline-block border-2 rounded-sm font-medium font-mono text-body-muted border-default-edge ui;
     /* @apply px-1.5 font-mono text-primary tracking-tight; */
 }
 

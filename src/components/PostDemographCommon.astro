@@ -45,7 +45,7 @@ const { categories = [], tags = [] } = Astro.props;
                             {
                                 tags.map(
                                     (tagItem: DemographItem) => (
-                                        <a href={tagItem.link} class="inline-block tag-link m-0.5  whitespace-nowrap">#{tagItem.label}</a>
+                                        <a href={tagItem.link} class="inline-block tag-link m-0.5">#{tagItem.label}</a>
                                     )
                                 )
                             }
