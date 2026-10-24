@@ -33,20 +33,15 @@ export default defineConfig({
   fonts: [
     {
       provider: fontProviders.fontsource(),
-      name: "Source Serif 4",
-      cssVariable: "--font-alias-serif",
-      weights: [300, 400, 500, 600, 700],
-    },
-    {
-      provider: fontProviders.fontsource(),
-      // name: "Atkinson Hyperlegible Next",
-      name: "IBM Plex Mono",
+      name: "Atkinson Hyperlegible Next",
+      // name: "Source Serif 4",
+      // name: "Cousine",
       cssVariable: "--font-alias-sans",
       weights: [300, 400, 500, 600, 700],
     },
     {
       provider: fontProviders.fontsource(),
-      name: "Fira Code",
+      name: "IBM Plex Mono",
       cssVariable: "--font-alias-mono",
       weights: [300, 400, 500, 600],
     },

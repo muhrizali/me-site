@@ -27,7 +27,7 @@ const { categories = [], tags = [] } = Astro.props;
                             {
                                 categories.map(
                                     (category: DemographItem) => (
-                                        <a href={category.link} class="tracking-tight inline-block font-medium text-primary decoration-2 hover:underline active:underline m-0.5 font-mono">{category.label}</a>
+                                        <a href={category.link} class="inline-block font-medium text-primary decoration-2 hover:underline active:underline m-0.5 font-mono">{category.label}</a>
                                     )
                                 )
                             }

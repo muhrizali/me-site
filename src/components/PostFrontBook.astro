@@ -24,7 +24,7 @@ const dateModified = DateTime.fromISO(frontmatter.dateModified).toFormat("LLL dd
         />
         <div class="px-0 sm:px-4 pt-4 sm:py-2">
             <div
-                class="mb-4 typography-common font-mono text-body-muted text-sm/tight flex flex-row gap-8">
+                class="mb-4 typography-common font-mono text-body-muted text-sm flex flex-row gap-8">
                 <div>
                     <p>AUTHORS</p>
                     { frontmatter.authors.map((item: any) => (<p class="text-body">{item}</p>)) }
@@ -38,7 +38,7 @@ const dateModified = DateTime.fromISO(frontmatter.dateModified).toFormat("LLL dd
             </div>
 
             <figcaption
-                class="pt-2 text-body-muted font-mono typography-common text-sm/tight">
+                class="pt-2 text-body-muted font-mono typography-common text-sm">
                 {frontmatter.description}
             </figcaption>
         </div>
