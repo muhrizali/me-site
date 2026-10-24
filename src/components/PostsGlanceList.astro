@@ -1,5 +1,5 @@
 ---
-import { getOurCollection, type ContentCollection } from "../scripts/utils";
+import { getOurCollection, getPostRoute, type ContentCollection } from "../scripts/utils";
 import * as _ from "lodash-es";
 
 interface Props {
@@ -18,7 +18,7 @@ let collection = await getOurCollection({category, count, tag: null, sortby: nul
         collection.map(
             (item) => (
                 <li>
-                    <a class="text-primary no-underline decoration-2 hover:underline active:underline line-clamp-1" href={`/posts/${item.id}`}>{item.data.title}</a>
+                    <a class="text-primary no-underline line-clamp-1 decoration-2 hover:underline active:underline" href={`/${getPostRoute(category)}/${item.id}`}>{item.data.title}</a>
                 </li>
             )
         )

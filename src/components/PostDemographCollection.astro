@@ -1,0 +1,16 @@
+---
+import PostDemographCommon from "./PostDemographCommon.astro";
+import { getAllPostCategories,  getAllPostTags, getPostRoute, type ContentCollection } from "../scripts/utils";
+
+interface Props {
+    collection: ContentCollection;
+}
+
+const { collection } = Astro.props;
+
+let tags = await getAllPostTags(collection);
+let tagsWithLink = tags.map((item: string) => ({ 'label': item, 'link': `/${getPostRoute(collection)}/${item}` }));
+
+---
+
+<PostDemographCommon tags={tagsWithLink} />

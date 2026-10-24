@@ -1,0 +1,17 @@
+---
+import { type ContentCollection } from '../scripts/utils';
+import PostList from './PostList.astro';
+
+interface Props {
+    category: ContentCollection;
+    tag: string;
+}
+
+const { category, tag } = Astro.props;
+---
+
+<section class="">
+    <h1 class="my-2 tag-heading text-2xl/tight">#{tag}</h1>
+    <PostList category={category} tag={tag} loadMore={true} />
+</section>
+

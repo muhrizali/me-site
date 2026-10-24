@@ -1,0 +1,20 @@
+---
+import { getAllPostCategories,  getAllPostTags, getPostRoute, type ContentCollection } from "../scripts/utils";
+import PostDemographCommon from "./PostDemographCommon.astro";
+
+
+interface Props {
+    frontmatter: any;
+}
+
+const { frontmatter } = Astro.props;
+
+let categories = [frontmatter.category];
+let categoriesWithLink = categories.map((item: ContentCollection) => ({ 'label': item, 'link': `/${getPostRoute(item)}` }));
+
+let tags = frontmatter.tags;
+let tagsWithLink = tags.map((item: string) => ({ 'label': item, 'link': `/${getPostRoute(frontmatter.category)}/${item}` }));
+
+
+---
+<PostDemographCommon categories={categoriesWithLink} tags={tagsWithLink} />

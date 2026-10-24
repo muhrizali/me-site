@@ -1,10 +1,12 @@
 ---
 import PostListItem from "./PostListItem.astro";
-import PostListTagItem from "./PostListTagItem.astro";
 import LoadButton from "./LoadButton.astro";
 import * as _ from "lodash-es";
-import { getOurCollection, CONFIG, type ContentCollection } from "../scripts/utils";
+import { getOurCollection, getPostRoute, CONFIG, type ContentCollection } from "../scripts/utils";
+import { CollectionEntry } from "astro:content";
 
+// Requires at least the `category` value
+// Along with optional `tag` value
 
 interface Props {
     category: ContentCollection;
@@ -13,16 +15,10 @@ interface Props {
     loadMore?: boolean;
 }
 
-
 let { category, tag = null, count = CONFIG.sectionItemsCount, sortby = null, loadMore = false } = Astro.props;
 
-let route: string;
-if ((category === "POSTS") && tag) {
-    route = tag;
-} else {
-    route = CONFIG.routeTable[category];
-}
 
+let ROUTE = getPostRoute(category);
 
 let collection = await getOurCollection({category, tag, count, sortby});
 let totalItems = (await getOurCollection({category, tag})).length;
@@ -32,30 +28,14 @@ if (totalItems <= count) {
 }
 
 ---
-<ul class="space-y-4">
-    {
-        (tag)
-            ? (
-                collection.map(
-                    (item) => (
-                        <PostListTagItem postEntry={item} />
-                    )
-                )
-            )
-            : (
-                collection.map(
-                    (item) => (
-                        <PostListItem postEntry={item} />
-                    )
-                )
-            )
-    }
+<ul class="space-y-4 mt-4">
+    { (collection.map((item) => ( <PostListItem postEntry={item} /> ))) }
     {
         loadMore
             && (
                 (tag) 
-                    ? <LoadButton routeURL={`/${route}/partial/${tag}/2`} />
-                    : <LoadButton routeURL={`/${route}/partial/2`} />
+                    ? (<LoadButton routeURL={`/${ROUTE}/partial/${tag}/2`} />)
+                    : (<LoadButton routeURL={`/${ROUTE}/partial/2`} />)
             )
     }
 </ul>

@@ -1,0 +1,23 @@
+---
+import { getAllPostTags, getOurCollection, getOurCollectionItem } from '../../scripts/utils';
+import { type Metadata } from '../../scripts/types';
+import PostTagPage from '../../components/PostTagPage.astro';
+import Layout from '../../layouts/Layout.astro';
+
+export async function getStaticPaths () {
+    let allTags = await getAllPostTags("PROJECTS");
+    return allTags.map((tag: string) => ({ params: { 'tag': tag } }));
+}
+
+const { tag } = Astro.params;
+
+const metadata: Metadata = {
+    title: `${tag} Tag`,
+    description: `Collection of all project posts containing the tag: ${tag}`
+}
+---
+
+<Layout metadata={metadata}>
+    <PostTagPage category={"PROJECTS"} tag={tag} />
+</Layout>
+

@@ -1,0 +1,25 @@
+---
+import { render } from 'astro:content';
+import { getOurCollection, getOurCollectionItem } from '../../scripts/utils';
+import PostLayout from '../../layouts/PostLayout.astro';
+
+const { slug } = Astro.params;
+
+export async function getStaticPaths () {
+    let allBlogPosts = await getOurCollection({ category: "POSTS" });
+    return allBlogPosts.map((item: any) => ({ params: { 'slug': item.id } }));
+}
+
+const postItem = await getOurCollectionItem({ category: "POSTS", itemID: slug });
+
+if (!postItem) {
+    throw new Error("Collection Item Not Found");
+}
+
+const { Content, headings } = await render(postItem);
+
+---
+
+<PostLayout frontmatter={postItem.data} headings={headings}>
+    <Content />
+</PostLayout>

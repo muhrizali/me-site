@@ -1,0 +1,59 @@
+---
+import { getAllPostCategories,  getAllPostTags, getPostRoute, type ContentCollection } from "../scripts/utils";
+
+interface DemographItem {
+    label: string;
+    link: string;
+}
+
+interface Props {
+    categories?: DemographItem[];
+    tags?: DemographItem[];
+}
+
+const { categories = [], tags = [] } = Astro.props;
+
+---
+<div class="my-0">
+    <table class="w-full text-left rtl:text-right">
+        <tbody class="border-y-2 border-default-edge divide-y-2 divide-default-edge">
+            {
+                (categories.length > 0) && (
+                    <tr class="text-sm/tight">
+                        <th scope="row" class="hidden sm:table-cell w-20 max-w-20 p-1 font-bold font-mono text-body-muted whitespace-nowrap">
+                            TYPE
+                        </th>
+                        <td class="p-1 flex flex-row flex-wrap gap-2">
+                            {
+                                categories.map(
+                                    (category: DemographItem) => (
+                                        <a href={category.link} class="tracking-tight inline-block font-medium text-primary decoration-2 hover:underline active:underline m-0.5 font-mono">{category.label}</a>
+                                    )
+                                )
+                            }
+                        </td>
+                    </tr>
+                )
+            }
+            {
+                (tags.length > 0) && (
+                    <tr class="text-sm/tight">
+                        <th scope="row" class="hidden sm:table-cell w-20 max-w-20 text-left p-1 font-bold font-mono text-body-muted whitespace-nowrap">
+                            TAGS
+                        </th>
+                        <td class="p-1 flex flex-row flex-wrap">
+                            {
+                                tags.map(
+                                    (tagItem: DemographItem) => (
+                                        <a href={tagItem.link} class="inline-block tag-link m-0.5  whitespace-nowrap">#{tagItem.label}</a>
+                                    )
+                                )
+                            }
+                        </td>
+                    </tr>
+                )
+            }
+        </tbody>
+    </table>
+</div>
+

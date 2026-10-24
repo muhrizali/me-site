@@ -5,7 +5,7 @@ import PostListItemBlogImage from './PostListItemBlogImage.astro';
 import PostListItemBookImage from './PostListItemBookImage.astro';
 import PostListItemProjectImage from './PostListItemProjectImage.astro';
 import PostListItemNoteImage from './PostListItemNoteImage.astro';
-import { CONFIG } from "../scripts/utils";
+import { CONFIG, ContentCollection, getPostRoute, getPostURL } from "../scripts/utils";
 
 
 interface Props {
@@ -16,24 +16,14 @@ const { postEntry } = Astro.props;
 
 // const postDatePublished = DateTime.fromISO(postEntry.data.datePublished).toLocaleString(DateTime.DATETIME_MED);
 
-// let route;
-// if (postEntry.data.category === "BLOGS") {
-//     route = "blog";
-// } else if (postEntry.data.category === "BOOKS") {
-//     route = "books";
-// } else if (postEntry.data.category === "PROJECTS") {
-//     route = "projects";
-// } else if (postEntry.data.category === "NOTES") {
-//     route = "notes";
-// }
-
-const route = CONFIG.routeTable[postEntry.data.category];
+// const route: string = getPostRoute(postEntry.data.category);
+const postURL: string = getPostURL(postEntry);
 
 ---
 
 <li class="group">
     <a 
-        href={`/${route}/${postEntry.id}`} 
+        href={postURL}
         class="flex flex-row gap-2">
         { (postEntry.data.category === "BLOGS") && <PostListItemBlogImage postEntry={postEntry} /> }
         { (postEntry.data.category === "BOOKS") && <PostListItemBookImage postEntry={postEntry} /> }

@@ -1,0 +1,29 @@
+---
+import Image from "astro/components/Image.astro";
+
+interface Props {
+    frontmatter: any;
+}
+
+const { frontmatter } = Astro.props;
+
+---
+<div class="py-0">
+    <!-- <figure class="mb-6">
+        <Image
+            src={frontmatter.imageLandscape}
+            alt={frontmatter.imageCaption ?? "Featured Landscape Image For The Post"}
+            class="mx-auto w-full border-2 border-default-edge"
+            width={1200}
+            height={675}
+        />
+        <figcaption 
+            class="pt-2 text-body-muted font-mono text-sm/tight tracking-tight hyphens-auto">
+            <span class="text-primary font-bold font-mono">//</span> {frontmatter.description}
+        </figcaption>
+    </figure> -->
+    <p 
+        class="mb-6 pt-2 text-body-muted font-mono text-sm/tight tracking-tight hyphens-auto">
+        <span class="text-primary font-bold font-mono">//</span> {frontmatter.description}
+    </p>
+</div>

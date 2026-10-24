@@ -3,6 +3,8 @@ import { DateTime } from "luxon";
 import TOCList from "./TOCList.astro";
 import PostFrontBlog from "./PostFrontBlog.astro";
 import PostFrontBook from "./PostFrontBook.astro";
+import PostFrontProject from "./PostFrontProject.astro";
+import PostFrontNote from "./PostFrontNote.astro";
 
 // headings structure
 // {depth: (number), text: (string), slug: (string slug)}
@@ -10,18 +12,18 @@ import PostFrontBook from "./PostFrontBook.astro";
 const { frontmatter, headings } = Astro.props;
 const datePublished = DateTime.fromISO(frontmatter.datePublished).toFormat("LLL dd yyyy");
 const dateModified = DateTime.fromISO(frontmatter.dateModified).toFormat("LLL dd yyyy");
-
 ---
 
 <section class="w-full">
     <h1
-        class="mb-4 text-2xl/tight tracking-normal text-pretty text-body-strong font-bold">
+        class="mb-4 text-3xl/tight tracking-normal text-pretty text-body-strong font-bold">
         {frontmatter.title}
     </h1>
 
     { (frontmatter.category === "BLOGS") && (<PostFrontBlog frontmatter={frontmatter} />) }
     { (frontmatter.category === "BOOKS") && (<PostFrontBook frontmatter={frontmatter} />) }
-    { (frontmatter.category === "PROJECTS") && ("") }
+    { (frontmatter.category === "PROJECTS") && (<PostFrontProject frontmatter={frontmatter} />) }
+    { (frontmatter.category === "NOTES") && (<PostFrontNote frontmatter={frontmatter} />) }
 
 
     <div

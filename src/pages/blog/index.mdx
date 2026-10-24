@@ -8,6 +8,7 @@ description: "Collection of all the blog posts I have created over time."
 ---
 import Writing from "../../components/Writing.astro";
 import PostList from "../../components/PostList.astro";
+import PostDemographCollection from "../../components/PostDemographCollection.astro";
 import Banner from "./Banner.astro";
 
 <Writing>
@@ -19,7 +20,8 @@ A big part of the things I write here, I write for myself. It has helped me coun
 
 Here you will find all the blog posts I have created on this site about stuff that interest me. That includes topics like religion, literature, philosophy, clarity, discipline and the human condition.
 
----
-
 </Writing>
+
+<PostDemographCollection collection={"BLOGS"} />
+
 <PostList category={"BLOGS"} loadMore={true} />

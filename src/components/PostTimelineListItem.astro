@@ -1,5 +1,6 @@
 ---
 import { DateTime } from 'luxon';
+import { getPostURL } from '../scripts/utils';
 
 interface Props {
     postItem: any;
@@ -7,15 +8,18 @@ interface Props {
 
 const { postItem } = Astro.props;
 
+const postURL = getPostURL(postItem);
 const datePublished = DateTime.fromISO(postItem.data.datePublished).toFormat("yyyy-LL-dd");
 ---
-<tr class="">
+<tr>
     <th scope="row" class="pr-2 py-0 w-1 font-normal text-body-muted whitespace-nowrap border-r-2 border-default-edge">
         {datePublished}
     </th>
-    <td class="px-2 py-0 whitespace-nowrap">
-        <a 
-        class="inline text-primary no-underline decoration-2 hover:underline active:underline"
-        href={`/posts/${postItem.id}`}>{postItem.data.title}</a>
+    <td class="px-2 py-0 font-bold whitespace-nowrap">
+        <a
+            href={postURL} 
+            class="inline text-primary decoration-2 hover:underline active:underline">
+            {postItem.data.title}
+        </a>
     </td>
 </tr>

@@ -88,15 +88,17 @@ body {
 }
 
 @utility tag-common {
-    @apply px-1.5 border-2 rounded-sm font-medium font-mono text-body-muted tracking-tight border-default-edge;
+    @apply px-1 py-0 inline-block border-2 rounded-sm font-medium font-mono text-body-muted tracking-tight border-default-edge;
+    /* @apply px-1.5 font-mono text-primary tracking-tight; */
 }
 
 .tag-link {
     @apply tag-common rounded-xs hover:border-primary active:border-primary hover:text-body active:text-body hover:bg-surface-secondary active:bg-surface-secondary;
+    /* @apply tag-common lowercase decoration-1 decoration-primary hover:underline active:underline hover:text-body-strong active:text-body-strong; */
 }
 
 .tag-heading {
-    @apply tag-common border-primary text-body bg-surface-secondary;
+    @apply tag-common border-primary font-bold text-body-strong bg-surface-secondary;
 }
 
 .writing {

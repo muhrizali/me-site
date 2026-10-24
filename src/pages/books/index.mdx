@@ -8,6 +8,7 @@ description: "Collection of all the books I have read over time."
 ---
 import Writing from "../../components/Writing.astro";
 import PostList from "../../components/PostList.astro";
+import PostDemographCollection from "../../components/PostDemographCollection.astro";
 import Banner from "./Banner.astro";
 
 <Writing>
@@ -23,7 +24,7 @@ It does not matter whether the book is good or bad, it always has left me with s
 
 **Favorite Books:** A Thousand Splendid Suns / Atomic Habits / The Subtle Art Of Not Giving A F\*ck / The Way Of The Superior Man / Stoner
 
----
-
 </Writing>
+
+<PostDemographCollection collection={"BOOKS"} />
 <PostList category={"BOOKS"} loadMore={true} />

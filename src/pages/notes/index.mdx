@@ -8,14 +8,17 @@ description: "Collection of all the notes about the things I have learnt and cur
 ---
 import Writing from "../../components/Writing.astro";
 import PostList from "../../components/PostList.astro";
+import PostDemographCollection from "../../components/PostDemographCollection.astro";
 import Banner from "./Banner.astro";
 
 <Writing>
 <Banner />
 
-About Notes.
+This is how I spent most of my day, learning something new and taking notes in my own words. For the past few years I have realized that this "learning something, anything" ritual has become kind of second nature.
 
----
+Though the actual learning part can be a bit irregular and non-consistent sometimes, the realization that I am currently on this track or some other is comforting enough. It gives me a sense of purpose knowing that I am constantly working towards something.
 
 </Writing>
+
+<PostDemographCollection collection={"NOTES"} />
 <PostList category={"NOTES"} loadMore={true} />

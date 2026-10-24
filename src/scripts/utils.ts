@@ -103,26 +103,46 @@ async function getOurCollectionItem({ category, itemID }: CollectionItemOptions)
 
 async function getAllPostTags(category: ContentCollection = "POSTS") {
     let allPosts = await getValidPosts(category);
-    let allTags = _.uniq(_.flatMap(allPosts, (post: CollectionEntry<"posts">) => post.data["tags"]));
+    let allTags = _.uniq(_.flatMap(allPosts, (post: CollectionEntry<any>) => post.data["tags"]));
     allTags = _.sortBy(allTags);
     return allTags;
 }
 
 async function getAllPostCategories() {
     let allPosts = await getValidPosts();
-    let allCategories = _.uniq(_.flatMap(allPosts, (post: CollectionEntry<"posts">) => post.data["category"]));
+    let allCategories = _.uniq(_.flatMap(allPosts, (post: CollectionEntry<any>) => post.data["category"]));
     allCategories = _.sortBy(allCategories);
     return allCategories;
 }
 
+function getPostRoute(category: ContentCollection) {
+    if (category === "BLOGS") return "blog"
+    else if (category === "BOOKS") return "books"
+    else if (category === "PROJECTS") return "projects"
+    else if (category === "NOTES") return "notes"
+    // else if (category === "POSTS") return "posts"
+    else throw new Error(`Route: Invalid Content Collection Passed: ${category}`);
+}
+
+function getPostURL(collectionItem: CollectionEntry<any>) {
+    try {
+        return `/${getPostRoute(collectionItem.data.category)}/${collectionItem.id}`;
+    } catch (error) {
+        throw new Error(`URL: Invalid Post Item Passed: ${collectionItem.id} | ${collectionItem.data.category}`);
+    }
+}
+
 const CONFIG = {
-    sectionItemsCount: 1,
-    routeTable: {
-        "BLOGS": "blog",
-        "BOOKS": "books",
-        "PROJECTS": "projects",
-        "NOTES": "notes",
-    },
+    sectionItemsCount: 5,
 };
 
-export { getOurCollection, getOurCollectionItem, getAllPostTags, getAllPostCategories, CONFIG, type ContentCollection };
+export { 
+    type ContentCollection,
+    CONFIG, 
+    getOurCollection, 
+    getOurCollectionItem, 
+    getAllPostTags, 
+    getAllPostCategories, 
+    getPostRoute,
+    getPostURL,
+};

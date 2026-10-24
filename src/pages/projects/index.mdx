@@ -8,14 +8,17 @@ description: "Collection of all the projects I have built over time."
 ---
 import Writing from "../../components/Writing.astro";
 import PostList from "../../components/PostList.astro";
+import PostDemographCollection from "../../components/PostDemographCollection.astro";
 import Banner from "./Banner.astro";
 
 <Writing>
 <Banner />
 
-About Projects.
+Here some of the stuff that I have created over time. Some of the things were created as part of a school or a college curriculum but most of the others are my personal projects. 
 
----
+If it is not apparent from the following projects, I want to say that I am passionate about backend side of things. I like designing the architecture for a new system that will be used by various clients. 
 
 </Writing>
+
+<PostDemographCollection collection={"PROJECTS"} />
 <PostList category={"PROJECTS"} loadMore={true} />

@@ -1,14 +1,22 @@
 ---
 import PostTimelineList from "./PostTimelineList.astro";
+import PostDemographCollection from "./PostDemographCollection.astro";
+import { getPostRoute } from "../scripts/utils";
 interface Props {
     category: string;
 }
 
 const { category } = Astro.props;
+const route = getPostRoute(category);
+
 ---
 <section class="mt-6">
-    <h3 class="text-xl/tight tracking-tight text-body-strong font-bold mb-1">
-        <a href={`/category/${category}`} class="decoration-2 decoration-primary hover:underline active:underline font-mono">{category}</a>
-    </h3>
+    <h2 class="text-2xl/tight tracking-tight text-body-strong font-bold mb-1">
+        <a 
+            href={`/${route}`} 
+            class="decoration-2 decoration-primary hover:underline active:underline font-mono">{category}
+        </a>
+    </h2>
+    <PostDemographCollection collection={category} />
     <PostTimelineList category={category} />
 </section>

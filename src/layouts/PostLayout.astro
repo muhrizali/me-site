@@ -2,8 +2,8 @@
 import Layout from "./Layout.astro";
 import Writing from "../components/Writing.astro";
 import PostFront from "../components/PostFront.astro";
-import AllPostsDemograph from "../components/AllPostsDemograph.astro";
 import { Metadata } from "../scripts/types";
+import PostDemographItem from "../components/PostDemographItem.astro";
 
 // MARKDOWN ARTICLE LAYOUT
 // Used for any article created with markdown
@@ -26,5 +26,6 @@ const metadata: Metadata = {
     <Writing>
         <slot />
     </Writing>
-    <AllPostsDemograph scope={"post"} frontmatter={frontmatter} />
+
+    <PostDemographItem frontmatter={frontmatter} />
 </Layout>
