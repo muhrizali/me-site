@@ -1,0 +1,18 @@
+---
+import { DateTime } from "luxon";
+import { render } from "astro:content";
+
+interface Props {
+    postItem: any;
+}
+
+const { postItem } = Astro.props;
+
+const date = DateTime.fromISO(postItem.data.date).toFormat("yyyy LLL dd");
+const { Content } = await render(postItem);
+
+---
+<section class="border-b-2 border-default-edge">
+    <h5 class="text-body-muted! text-left">{date}</h5>
+    <Content />
+</section>

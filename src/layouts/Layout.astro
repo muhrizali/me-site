@@ -25,14 +25,12 @@ const { metadata } = Astro.props;
     <head>
         <Head metadata={metadata} />
     </head>
-    <body hx-boost:inherited="true" class="bg-surface">
+    <body hx-boost:inherited="true" class="bg-surface flex flex-col h-screen min-h-screen">
         <Navigation />
-
         <Main>
             <slot />
         </Main>
 
         <Footer />
-
     </body>
 </html>

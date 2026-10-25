@@ -1,5 +1,4 @@
 ---
-import Q from "./md/Q.astro";
 import { DateTime } from "luxon";
 
 interface Props {
@@ -8,7 +7,6 @@ interface Props {
 
 const { date } = Astro.props;
 const statusDate = DateTime.fromISO(date).toFormat("yyyy LLL dd");
-// const statusDate = DateTime.fromISO(date).toLocaleString(DateTime.DATE_MED);
 ---
 
 <section class="border-b-2 border-default-edge">

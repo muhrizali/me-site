@@ -1,0 +1,18 @@
+---
+import Layout from "../layouts/Layout.astro";
+import { Metadata } from "../scripts/types";
+
+const metadata: Metadata = {
+    title: "404: Not Found",
+    description: "The page you are trying to find is not available or does not exist."
+}
+
+---
+
+<Layout metadata={metadata}>
+    <section class="typography-common my-8">
+        <h1 class="text-5xl mb-2 font-bold text-body-strong text-center">404 MAN 😩!</h1>
+        <p class="text-2xl italic">The page you are trying to find does not exist. Someone definitely knows more than they are letting on. Call the chief of police ASAP!</p>
+        <!-- <p class="text-9xl italic text-body-muted text-right font-bold">404</p> -->
+    </section>
+</Layout>

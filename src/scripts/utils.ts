@@ -132,6 +132,11 @@ function getPostURL(collectionItem: CollectionEntry<any>) {
     }
 }
 
+async function getDiaryCollection() {
+    let collection = await getCollection('DIARIES');
+    return _.reverse(_.sortBy(collection, ['data.date']));
+}
+
 const CONFIG = {
     sectionItemsCount: 5,
 };
@@ -139,7 +144,8 @@ const CONFIG = {
 export { 
     type ContentCollection,
     CONFIG, 
-    getOurCollection, 
+    getOurCollection,
+    getDiaryCollection, 
     getOurCollectionItem, 
     getAllPostTags, 
     getAllPostCategories, 

@@ -5,7 +5,7 @@ import { z } from "astro/zod";
 
 // posts
 const posts = defineCollection({
-    loader: glob({ base: "./src/content", pattern: "*/*/index.{md,mdx}" }),
+    loader: glob({ base: "./src/content", pattern: "{blogs,books,notes,projects}/*/index.{md,mdx}" }),
     schema: ({ image }) => z.object({
         // essentials
         title: z.string(),
@@ -90,6 +90,13 @@ const notePosts = defineCollection({
     })
 });
 
+const diaryPosts = defineCollection({
+    loader: glob({ base: "./src/content/diaries", pattern: "*.{md,mdx}" }),
+    schema: z.object({
+        date: z.coerce.string(),
+    })
+});
+
 
 // exporting all collections
-export const collections = { 'POSTS': posts, 'BLOGS': blogPosts, 'BOOKS': bookPosts, 'PROJECTS': projectPosts, 'NOTES': notePosts };
+export const collections = { 'POSTS': posts, 'BLOGS': blogPosts, 'BOOKS': bookPosts, 'PROJECTS': projectPosts, 'NOTES': notePosts, 'DIARIES': diaryPosts };

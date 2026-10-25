@@ -1,0 +1,36 @@
+---
+import { getDiaryCollection } from "../../scripts/utils";
+import Diary from "../../components/Diary.astro";
+import PageLayout from "../../layouts/PageLayout.astro";
+import { Metadata } from "../../scripts/types";
+import * as _ from "lodash-es";
+
+const collection = await getDiaryCollection();
+const first = _.first(collection);
+const rest = _.slice(collection, 1);
+
+const metadata: Metadata = {
+    title: "Status",
+    description:
+        "Where I am, what am I up to and the things that are currently happening in my life these days. This is where I write about my current state.",
+};
+---
+
+<PageLayout frontmatter={metadata}>
+    <section>
+        <h2>NOW</h2>
+        <Diary postItem={first} />
+    </section>
+    <section>
+        <details class="mt-0 mb-10">
+            <summary class="list-none cursor-pointer">
+                <h2 class="inline-block">
+                    <span class="text-primary">&darr;</span> PREV.
+                </h2>
+            </summary>
+            <div>
+                {rest.map((item: any) => <Diary postItem={item} />)}
+            </div>
+        </details>
+    </section>
+</PageLayout>
