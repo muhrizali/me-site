@@ -26,14 +26,14 @@ const dateModified = DateTime.fromISO(frontmatter.dateModified).toFormat("LLL dd
             <div
                 class="mb-4 typography-common font-mono text-body-muted text-sm flex flex-row gap-8">
                 <div>
-                    <p>AUTHORS</p>
-                    { frontmatter.authors.map((item: any) => (<p class="text-body">{item}</p>)) }
-                </div>
-                <div>
-                    <p>PUBLISHED</p>
+                    <p class="font-medium">PUBLISHED</p>
                     <p class="text-body">
                         <time datetime={frontmatter.datePublished} class="">{datePublished}</time>
                     </p>
+                </div>
+                <div>
+                    <p class="font-medium">AUTHORS</p>
+                    { frontmatter.authors.map((item: any) => (<p class="text-body">{item}</p>)) }
                 </div>
             </div>
 

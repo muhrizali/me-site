@@ -27,17 +27,19 @@ const dateModified = DateTime.fromISO(frontmatter.dateModified).toFormat("LLL dd
 
 
     <div
-        class="pb-4 mb-6 font-mono text-body-muted typography-common text-sm/tight flex flex-col sm:flex-row gap-4 sm:gap-8 border-b-2 border-default-edge">
+        class="pb-4 mb-6 font-mono text-body-muted typography-common text-sm flex flex-col sm:flex-row gap-4 sm:gap-8 border-b-2 border-default-edge">
         <div>
-            <p>DATE</p>
+            <p class="font-medium">DATE</p>
             <p class="text-body">
                 <time datetime={frontmatter.datePublished} class="">{datePublished}</time>
                 <br />
-                <time datetime={frontmatter.datePublished} class="">Last Updated: {dateModified}</time>
+                { (datePublished !== dateModified) && (
+                    <time datetime={frontmatter.dateModified} class="">Last Updated: {dateModified}</time>
+                ) }
             </p>
         </div>
         <div>
-            <p>ME?</p>
+            <p class="font-medium">ME?</p>
             <p class="text-body">Muhriz Ali</p>
         </div>
     </div>

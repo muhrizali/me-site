@@ -33,8 +33,8 @@ export default defineConfig({
   fonts: [
     {
       provider: fontProviders.fontsource(),
-      name: "Atkinson Hyperlegible Next",
-      // name: "Source Serif 4",
+      // name: "Atkinson Hyperlegible Next",
+      name: "Fira Sans",
       // name: "Cousine",
       cssVariable: "--font-alias-sans",
       weights: [300, 400, 500, 600, 700],
