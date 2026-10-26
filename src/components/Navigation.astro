@@ -8,7 +8,7 @@ const navigationItems = [
     {
         label: "Blog",
         href: "/blog",
-        icon: "📝",
+        icon: "🧠",
     },
     {
         label: "Books",
@@ -23,13 +23,13 @@ const navigationItems = [
     {
         label: "Notes",
         href: "/notes",
-        icon: "🛠️",
+        icon: "📒",
     },
-    {
-        label: "About",
-        href: "/about",
-        icon: "😗",
-    },
+    // {
+    //     label: "About",
+    //     href: "/about",
+    //     icon: "😗",
+    // },
     // {
     //     label: "Now",
     //     href: "/now",
@@ -48,7 +48,7 @@ const navigationItems = [
     <!-- <div class="max-w-3xl border px-4 peer">
     </div> -->
     <div
-        class="max-w-3xl px-4 mx-auto w-full sm:w-auto">
+        class="max-w-3xl px-4 mx-auto">
         <!-- <div class="text-body-muted my-auto px-1 font-bold text-lg sm:hidden">
             «
         </div> -->
@@ -58,10 +58,12 @@ const navigationItems = [
                 navigationItems.map((item) => (
                     <li class="block shrink-0">
                         <a 
-                            href={item.href} 
-                            class="">
+                            href={item.href}>
+                            <span class="rounded-sm p-1 text-2xl inline sm:hidden border-2 border-transparent active:border-primary hover:border-primary active:active:bg-body/10 hover:active:bg-body/10">
+                                {item.icon}
+                            </span>
                             <span 
-                                class="decoration-2 hover:decoration-primary active:decoration-primary hover:underline active:underline">
+                                class="hidden sm:inline decoration-2 hover:decoration-primary active:decoration-primary hover:underline active:underline">
                                 {item.label}
                             </span>
                         </a>

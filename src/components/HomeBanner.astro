@@ -1,0 +1,21 @@
+---
+import profileImage from "../assets/my-profile.png";
+import Image from "astro/components/Image.astro";
+
+---
+<div class="flex flex-col sm:flex-row p-4 justify-center items-center gap-4">
+    <div class="">
+        <Image 
+            src={profileImage} 
+            alt={"Profile picture with swaying hair and sunlight behind"}
+            width={300}
+            height={300}
+            class="min-h-30 min-w-30 size-40 sm:size-30 rounded-full border-2 border-default-edge" />
+    </div>
+    <div class="text-body h-fit w-fit flex-none">
+        <section class="font-mono">
+            <h1 class="text-5xl font-bold text-body-muted mb-1">Hello,</h1>
+            <p class="text-3xl font-bold text-body-strong whitespace-nowrap">I am <span class="decoration-2 decoration-primary">Muhriz Ali </span></p>
+        </section>
+    </div>
+</div>

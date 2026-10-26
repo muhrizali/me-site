@@ -110,7 +110,7 @@ html[data-theme="warm-dark"] {
 .writing h4, 
 .writing h5, 
 .writing h6 {
-    @apply mt-6 mb-2 tracking-tight font-bold font-mono text-body-strong;
+    @apply mt-6 mb-2 tracking-normal font-bold text-body-strong text-pretty;
 }
 
 .writing h1 {
@@ -150,7 +150,7 @@ html[data-theme="warm-dark"] {
 }
 
 .writing blockquote p {
-    @apply typography-common mb-4 last:mb-0 text-body-strong;
+    @apply typography-common italic text-pretty mb-4 last:mb-0 text-body-strong;
 }
 
 .writing blockquote figcaption {
