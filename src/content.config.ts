@@ -5,7 +5,7 @@ import { z } from "astro/zod";
 
 // posts
 const posts = defineCollection({
-    loader: glob({ base: "./src/content", pattern: "{blogs,books,notes,projects}/*/index.{md,mdx}" }),
+    loader: glob({ base: "./src/content", pattern: "{blogs,books,notes,projects}/*.{md,mdx}" }),
     schema: ({ image }) => z.object({
         // essentials
         title: z.string(),
@@ -19,7 +19,7 @@ const posts = defineCollection({
 });
 
 const blogPosts = defineCollection({
-    loader: glob({ base: "./src/content/blogs", pattern: "*/index.{md,mdx}" }),
+    loader: glob({ base: "./src/content/blogs", pattern: "*.{md,mdx}" }),
     schema: ({ image }) => z.object({
         // essentials
         title: z.string(),
@@ -38,7 +38,7 @@ const blogPosts = defineCollection({
 });
 
 const bookPosts = defineCollection({
-    loader: glob({ base: "./src/content/books", pattern: "*/index.{md,mdx}" }),
+    loader: glob({ base: "./src/content/books", pattern: "*.{md,mdx}" }),
     schema: ({ image }) => z.object({
         // essentials
         title: z.string(),
@@ -57,7 +57,7 @@ const bookPosts = defineCollection({
 });
 
 const projectPosts = defineCollection({
-    loader: glob({ base: "./src/content/projects", pattern: "*/index.{md,mdx}" }),
+    loader: glob({ base: "./src/content/projects", pattern: "*.{md,mdx}" }),
     schema: ({ image }) => z.object({
         // essentials
         title: z.string(),
@@ -74,7 +74,7 @@ const projectPosts = defineCollection({
 });
 
 const notePosts = defineCollection({
-    loader: glob({ base: "./src/content/notes", pattern: "*/index.{md,mdx}" }),
+    loader: glob({ base: "./src/content/notes", pattern: "*.{md,mdx}" }),
     schema: ({ image }) => z.object({
         // essentials
         title: z.string(),

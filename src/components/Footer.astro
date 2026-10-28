@@ -21,64 +21,54 @@ const footerLinks = [
 
 <footer class="border-t-2 border-default-edge bg-surface-soft">
     <div class="max-w-3xl mx-auto">
-        <aside class="py-4 px-4">
-            <figure class="flex flex-row gap-4">
-                <div
-                    class="h-24 w-24 min-h-24 min-w-24 border-2 border-default-edge mx-auto">
-                    <Image
-                        src={myGlassesImage}
-                        width={400}
-                        height={400}
-                        alt="Photo of me holding oddly colored glasses to look into your eyes straight"
-                        class="w-full h-full"
-                    />
-                </div>
-                <div>
-                    <p
-                        class="typography-common font-sans text-sm text-body-muted">
-                        This guy thinks its funny to put a goofy photo of him on
-                        his website from the day he was feeling particularly
-                        photogenic.
-                        <br />
-                    </p>
-                    <ul
-                        class="border-0 mt-4 font-medium font-mono text-body list-none list-outside text-sm/snug tracking-tight flex flex-row gap-4 uppercase">
-                        {
-                            footerLinks.map((item: any) => (
-                                <li class="">
-                                    <a
-                                        href={item.link}
-                                        class="decoration-1 decoration-primary hover:underline active:underline">
-                                        {item.label}
-                                    </a>
-                                </li>
-                            ))
-                        }
-                        <!-- <li>
-                            <button
-                                class="cursor-pointer decoration-1 decoration-primary hover:underline active:underline">
-                                OPTIONS
-                            </button>
-                        </li> -->
-                    </ul>
-                </div>
+        <aside class="p-4">
+            <figure class="flex flex-col sm:flex-row gap-4">
+                <Image
+                    src={myGlassesImage}
+                    width={400}
+                    height={400}
+                    alt="Photo of me holding oddly colored glasses to look into your eyes straight"
+                    class="size-24 min-h-24 min-w-24 border-2 border-default-edge"
+                />
+                <figcaption
+                    class="typography-common font-sans text-sm text-body-muted">
+                    This guy thinks its funny to put a goofy photo of him on
+                    his website from the day he was feeling particularly
+                    photogenic.
+                    <br />
+                </figcaption>
             </figure>
+
+            <!-- FOOTER LINKS -->
+            <div>
+                <ul
+                    class="mt-4 font-medium font-mono text-body list-none list-outside text-sm/snug tracking-tight flex flex-row gap-4">
+                    {
+                        footerLinks.map((item: any) => (
+                            <li>
+                                <a
+                                    href={item.link}
+                                    class="decoration-1 decoration-primary hover:underline active:underline">
+                                    {item.label}
+                                </a>
+                            </li>
+                        ))
+                    }
+                    <!-- <li>
+                        <button
+                            class="cursor-pointer decoration-1 decoration-primary hover:underline active:underline">
+                            OPTIONS
+                        </button>
+                    </li> -->
+                </ul>
+            </div>
         </aside>
 
-        <!-- SIDEBAR OPTIONS -->
-        <!-- <RightSidebar /> -->
-
-
+        <!-- BOTTOM LINE -->
         <div
             class="p-6 font-mono text-xs/tight tracking-tight text-body text-center">
             <p>
-                &copy; 2026 <a
-                    href="https://raw.githubusercontent.com/muhrizali/me-site/refs/heads/master/LICENSE"
-                    class="underline">Muhriz Ali</a
-                > | Made With ❤️ & <a
-                    href="https://astro.build/"
-                    class="underline decoration-1">Astro</a
-                >
+                &copy; 2026 <a href="https://raw.githubusercontent.com/muhrizali/me-site/refs/heads/master/LICENSE" class="underline">Muhriz Ali</a> | Made With ❤️ & <a href="https://astro.build/" class="underline decoration-1">Astro</a>
             </p>
         </div>
     </div>

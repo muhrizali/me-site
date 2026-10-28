@@ -1,42 +1,32 @@
 ---
-# astro: layout
-
-# metatdata
-title: 'we accept the love we think we deserve'
+title: "we accept the love we think we deserve"
 description: "The one where I talk about how the simple realization that a girl I have longed for didn't even liked me made me truly realized the meaning of this quote I read in a book about high-school students."
-category: "BLOGS"
-
-# image
-imageSquare: "./featured-square-image.jpg"
-imageLandscape: "./featured-landscape-image.jpg"
-imageCaption: "we accept"
-
-# dates and times
+isDraft: false
 datePublished: "2026-09-20T18:15:00"
 dateModified: "2026-09-20T18:15:00"
-
-# states
-isDraft: false
+category: "BLOGS"
 tags:
   - Love
   - Meditation
+
+imageSquare: "./images/we-accept-featured-square-image.jpg"
+imageLandscape: "./images/we-accept-featured-landscape-image.jpg"
+imageCaption: "we accept"
 ---
-import M from "../../../components/md/M.astro";
-import Q from "../../../components/md/Q.astro";
 
-<M>Here we go again, another self-proclaimed and entitled broken lover going over how much pain he went through and how much "she" meant to him. Honestly, where do you people stop? Why can't you just go on with your life man?</M>
+_Here we go again, another self-proclaimed and entitled broken lover going over how much pain he went through and how much "she" meant to him. Honestly, where do you people stop? Why can't you just go on with your life man?_
 
-I hear you and get you, but I never said I was in pain or broken in any way or anything. I just want to talk about some things that I have (and needed) to make sense of. This is not a post about pity or mediocrity of it all, but about things to remember for future, a kind of meditation. 
+I hear you and get you, but I never said I was in pain or broken in any way or anything. I just want to talk about some things that I have (and needed) to make sense of. This is not a post about pity or mediocrity of it all, but about things to remember for future, a kind of meditation.
 
 I think it might be important for some people to hear if not all of them reading this. Maybe it will help someone at the right time. And where did you get that "broken lover" crap dude? How many people did you meet that claimed to be that?
 
-<M>Like what kind of things do you want to warn people about? Hit the gym more? Ignore her more? Never reply to her immediately? Consider your self-worth more than her? Or something like that? And yeah, I get this broken lover crap from miserable people like you (we'll see).</M>
+_Like what kind of things do you want to warn people about? Hit the gym more? Ignore her more? Never reply to her immediately? Consider your self-worth more than her? Or something like that? And yeah, I get this broken lover crap from miserable people like you (we'll see)._
 
 All the things you mentioned are more or less about ignoring or belittling the value of the other person in the relationship. If somehow you think you could get the upper hand this way, and feel less pain after the relationship does end, then best of luck (a meaningless path down there).
 
 Instead, what I am talking about (if you ever let me get to it) is almost opposite. I want to talk about attentive you should be of the signals your mind gives you, while in a relationship or before even starting one.
 
-<M>Okay. Lets see to it then. I don't have much expectations.</M>
+_Okay. Lets see to it then. I don't have much expectations._
 
 Shut the hell up.
 
@@ -44,15 +34,15 @@ Shut the hell up.
 
 A few months back when I was looking for a movie to watch, I came across a video on YouTube recommending some good Hollywood movies. One of the movies in that list was "The Perks Of Being A Wallflower". Few months after that (didn't see the movie) a book YouTuber recommended the book that this movie was based upon.
 
-<M>So you spend more time searching for "top 10" movies or books instead of actually settling your ass down and pick one up? Interesting. Try searching for "top 10 ways to not look stupid while talking to yourself in your blog" next time, you might just make it.</M>
+_So you spend more time searching for "top 10" movies or books instead of actually settling your ass down and pick one up? Interesting. Try searching for "top 10 ways to not look stupid while talking to yourself in your blog" next time, you might just make it._
 
-_\[Sigh]_
+*\[Sigh]
 
 The title has appeared so many times now, I thought I ought to give it a try. A simple search on the internet revealed that the book was one of the most wildly popular books of all time. So I read the book on Kindle in about 2–3 weeks.
 
 The book was about a seemingly-awkward boy named Charlie moving to high-school, moving through his adolescent life, making friends and learning about love. The book was about growing up.
 
-<M>Not gonna lie, the plot feels similar to other western books/movies written for teenagers or young adults where the characters just make a bigger deal out of the situations than they need to. Seems like the one where the characters just suffer from depression, trauma, anxiety (or some other buzzwords) without any meaning and about their stupid ways to deal with it.</M>
+_Not gonna lie, the plot feels similar to other western books/movies written for teenagers or young adults where the characters just make a bigger deal out of the situations than they need to. Seems like the one where the characters just suffer from depression, trauma, anxiety (or some other buzzwords) without any meaning and about their stupid ways to deal with it._
 
 I thought about that too before starting the book. But the story here felt way different then the ones you described. It felt more natural and somewhat realistic. It also talks about things that does not feel right in our society but we do it anyways.
 
@@ -62,13 +52,13 @@ Most of all I kept thinking about that one sentence. The one sentence that might
 
 > "We accept the love we think we deserve"
 
-<M>Though the understanding behind the quote feels obvious, but people never really think about it that much. People with low self-worth often tolerate bad relationships because deep down they do not believe they are worthy of healthy, kind affection. It is kind of sad, man.</M>
+_Though the understanding behind the quote feels obvious, but people never really think about it that much. People with low self-worth often tolerate bad relationships because deep down they do not believe they are worthy of healthy, kind affection. It is kind of sad, man._
 
 Oh you can feel sadness? I thought you were a lone-wolf nonchalant to the point that you don't care about what people feel but just feels a moral obligation to convey your "profound" opinions across.
 
 ## BOTTOM OF THE HEART
 
-I was sitting with a friend named "Leaf" on a bench, enjoying the peace and serenity of the greenery around us. The slightly cold wind was swaying slowly through our hair and ears, and it was soothing. I hadn't went outside for a few months and this felt very nice. 
+I was sitting with a friend named "Leaf" on a bench, enjoying the peace and serenity of the greenery around us. The slightly cold wind was swaying slowly through our hair and ears, and it was soothing. I hadn't went outside for a few months and this felt very nice.
 
 It was when we shift the topic to a mutual friend named "Moon". Now Leaf had told me before that she knew Moon and was friends with her. I was curious about it because both of the girls' personalities were very different.
 
@@ -78,7 +68,7 @@ It was when we shift the topic to a mutual friend named "Moon". Now Leaf had tol
 
 I was somewhat getting confused by that because I couldn't imagine Moon hanging out with Pot. I knew Pot and Moon quite well and she has made it certain that she didn't like Pot that much.
 
-<M>Oh come on, there was something wrong and you had a little suspicion about that. But you just never brought it out of your mouth. I kind of knew what Leaf was about to say next, you just couldn't accept it. Or didn't want to accept it.</M>
+_Oh come on, there was something wrong and you had a little suspicion about that. But you just never brought it out of your mouth. I kind of knew what Leaf was about to say next, you just couldn't accept it. Or didn't want to accept it._
 
 "You do know that Moon and Pot are in a relationship, don't you?" Leaf added after a brief pause.
 
@@ -94,31 +84,31 @@ Moon was a girl that I have liked for a long time. I really liked her company wh
 
 It does not matter how much I cry over this or how much I convince myself that it was all my fault. It was ultimately never about me. It was always about her, and I never had (shouldn't have) control over that.
 
-<M>You didn't cry. To my surprise, it was unexpected of you how you dealt with it, quite gently and silently with humor. But you are way off in saying that it was never about you. She had the control to be with Pot despite spending so much time with you (an overlap). But so did you.</M>
+_You didn't cry. To my surprise, it was unexpected of you how you dealt with it, quite gently and silently with humor. But you are way off in saying that it was never about you. She had the control to be with Pot despite spending so much time with you (an overlap). But so did you._
 
 How? How can I have control over things I don't know about? How can I have control over things going on behind my back?
 
-<M>I am not talking about that and you know that. I am talking about the signs. There were huge signs that she may not be interested in you. But you still wanted to chase that feeling and not let go. Even if what you were feeling was love, love is not the most important thing in a human relationship.</M>
+_I am not talking about that and you know that. I am talking about the signs. There were huge signs that she may not be interested in you. But you still wanted to chase that feeling and not let go. Even if what you were feeling was love, love is not the most important thing in a human relationship._
 
 I know but it just seems confusing to accept. I wanted to make it happen, wanted to make it work, wanted to manifest the future of what would have been our little family.
 
-<M>I know that at that moment it felt like it was all your fault. Like liking her in the first place, looking for obvious signs that she is not into you or not changing yourself enough into someone who she'd like. But it was not all yours, man. She or Pot could have told you about them. It could have been much simpler.</M>
+_I know that at that moment it felt like it was all your fault. Like liking her in the first place, looking for obvious signs that she is not into you or not changing yourself enough into someone who she'd like. But it was not all yours, man. She or Pot could have told you about them. It could have been much simpler._
 
 ## LATE-NIGHT NO-SLEEP THOUGHTS
 
 When allowed the freedom, people always accept the love they think they deserve. Unlike us our mind knows our self-worth better than us. It weighs the attributes, features, and personality of a prospective partner for us and makes the decision almost unconsciously.
 
-<M>Always? I don't think people always rely on this. Most of the people do but not all (at least I like to think that).</M>
+_Always? I don't think people always rely on this. Most of the people do but not all (at least I like to think that)._
 
 As you said, people with low self-worth and values often tolerate bad relationships because deep down they do not believe they are worthy or deserve healthy and kind affection. Even when they encounter someone who they can have a great relationship with, they will not accept that because their self-worth will not allow that (an imbalance).
 
-This concept kind of tells more about the person who chooses than the person being chosen. It tells us more about their self-worth and how much this person respects himself or herself. 
+This concept kind of tells more about the person who chooses than the person being chosen. It tells us more about their self-worth and how much this person respects himself or herself.
 
 Have you ever seen how some couples seems unmatched for one another? How they just don't look right for each other? Through this I have started to see people around me a little better. I have started to have an idea about why people have chosen the one they are with.
 
 I think the most important point however, is not the result of the decision that our self-worth makes for us but in realizing that it can be totally (sometimes severely) wrong any time.
 
-<M>So are you saying that Moon didn't see herself deserving you because you might have high self-worth compared to her? Are you saying she is with Pot because she could see herself deserving someone with as low values as Pot? Because if you are, then you are just coping and finding reasons to direct negative elements to people.</M>
+_So are you saying that Moon didn't see herself deserving you because you might have high self-worth compared to her? Are you saying she is with Pot because she could see herself deserving someone with as low values as Pot? Because if you are, then you are just coping and finding reasons to direct negative elements to people._
 
 I am not saying that. And even if I feel that, you would be right to point out that I am just coping and making reasons up for "why I am not to blame". In all honesty, I can't talk about how Pot and Moon sees each other and I whether one's personality or values is lower than the other.
 

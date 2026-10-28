@@ -1,5 +1,6 @@
 ---
 import { DateTime } from "luxon";
+import * as _ from "lodash-es";
 import Image from "astro/components/Image.astro";
 
 
@@ -8,9 +9,9 @@ interface Props {
 }
 
 const { frontmatter } = Astro.props;
-const datePublished = DateTime.fromISO(frontmatter.datePublished).toFormat("LLL dd yyyy");
-const dateModified = DateTime.fromISO(frontmatter.dateModified).toFormat("LLL dd yyyy");
+const datePublished = DateTime.fromISO(frontmatter.bookPublished).toFormat("LLL dd yyyy");
 
+const authorsString = _.join(frontmatter.authors, " / ")
 ---
 
 <div class="py-0">
@@ -24,16 +25,16 @@ const dateModified = DateTime.fromISO(frontmatter.dateModified).toFormat("LLL dd
         />
         <div class="px-0 sm:px-4 pt-4 sm:py-2">
             <div
-                class="mb-4 typography-common font-mono text-body-muted text-sm flex flex-row gap-8">
+                class="mb-4 typography-common font-mono text-body-muted text-sm flex flex-col sm:flex-row gap-4 sm:gap-8">
                 <div>
-                    <p class="font-medium">PUBLISHED</p>
+                    <p class="font-medium text-primary">PUBLISHED</p>
                     <p class="text-body">
                         <time datetime={frontmatter.datePublished} class="">{datePublished}</time>
                     </p>
                 </div>
                 <div>
-                    <p class="font-medium">AUTHORS</p>
-                    { frontmatter.authors.map((item: any) => (<p class="text-body">{item}</p>)) }
+                    <p class="font-medium text-primary">AUTHORS</p>
+                    <span class="text-body">{authorsString}</span>
                 </div>
             </div>
 

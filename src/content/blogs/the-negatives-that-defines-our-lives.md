@@ -1,40 +1,29 @@
 ---
-
-# metatdata
 isDraft: false
-
 title: "the negatives that define our lives"
-description: " The one where I talk about those empty and spacious moments that finds place between your work or studies. The same moments where we are not doing anything. Had an interesting realization that these moments affect the outcome more than the actual work."
-
+description: "The one where I talk about those empty and spacious moments that finds place between your work or studies. The same moments where we are not doing anything. Had an interesting realization that these moments affect the outcome more than the actual work."
 datePublished: "2026-04-20T20:19:00"
 dateModified: "2026-06-04T20:19:00"
-
 category: "BLOGS"
 tags:
-  # - Meta
-  - Mind
+  - Subtle
   - Work
 
-
-# image
-imageSquare: "./featured-square-image.jpg"
-imageLandscape: "./featured-landscape-image.jpg"
-imageCaption: "the negatives"
-
+imageSquare: "./images/the-negatives-featured-square-image.jpg"
+imageLandscape: "./images/the-negatives-featured-landscape-image.jpg"
+imageCaption: "banner for the post: the negatives that defines our lives"
 ---
 
-The idea behind the concept that came to my mind a few days back is hard to explain but I will try my best. Basically the idea revolves around two simple things: the first is the "conscious efforts" things where the matters demand attention and second is the "unconscious absence" of things where we don't do anything (like taking a break). 
+The idea behind the concept that came to my mind a few days back is hard to explain but I will try my best. Basically the idea revolves around two simple things: the first is the "conscious efforts" things where the matters demand attention and second is the "unconscious absence" of things where we don't do anything (like taking a break).
 
 Or it might be possible that you never got enough time to sit still for just a moment, with peace and calmness, and think about your mind. It may be that while working hard to make something better of your life, you may have forgotten about the life itself. And it did the same to you.
 
 **POSITIVES AND NEGATIVES**
-
 Anyways, let us try to divide all the matters and activities of life into two categories.
 
 I call the elements that consists of input things, activities and matters which has purpose, weight or value as the "Positives". These are the things where we do something, the things that requires attention and focus.
 
 Examples of Positives can include:
-
 - Writing or studying something with attention
 - Working out with exercises with various movements
 - Being with your lover and being attentive of each other
@@ -42,7 +31,6 @@ Examples of Positives can include:
 I call the elements that consists of void things, activities and matter which does not have any existence, weight or value as the "Negatives". Most of the things here represent void like emptiness, space, gap or absence of matter (absence of positives). These are the things where we are not doing anything, where things do not require much attention (or no attention at all).
 
 Examples of Negatives can include:
-
 - The breaks we take in between our study sessions
 - The rest we do in between workout exercises
 - The absence of your lover around you when you haven't met her for a couple of days
@@ -65,12 +53,10 @@ The fairly same thing applies to resting in-between your workout exercises. Your
 
 Working out for longer periods of time with very little breaks in between results in severe fatigue in the body and weakness throughout the day. On the other hand, working out for comparatively small periods of time with considerable amount of breaks in between rejuvenates your body and allows time for your muscles to regain.
 
-
 **DISTANCE FROM LOVER**
-
 Imagine you have that special sweetheart that you love genuinely. You two see each other regularly at school, college, workplace or go out of your way to meet. You both talk about how your day has been, how your life has been going and all the lovey-dovey bullshit that couples do.
 
-Now, say that you had gone out of town for some urgent business for a few weeks and you had to stay away from her. The love is still there, the feelings are still there and you both talk on phone around night. 
+Now, say that you had gone out of town for some urgent business for a few weeks and you had to stay away from her. The love is still there, the feelings are still there and you both talk on phone around night.
 
 But there is some part in your heart that feels empty inside. It almost feels like you long for something. At least I used to feel this strongly a few years back.
 

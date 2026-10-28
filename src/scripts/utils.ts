@@ -138,7 +138,8 @@ async function getDiaryCollection() {
 }
 
 const CONFIG = {
-    sectionItemsCount: 5,
+    // sectionItemsCount: 5,
+    sectionItemsCount: 1,
 };
 
 export { 

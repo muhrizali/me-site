@@ -23,19 +23,19 @@ html[data-theme="warm-dark"] {
     --body: #ebdbb2;
     --body-strong: #fbf1c7;
     
-    --primary-soft: oklch(84.107% 0.18197 51.682);
+    --primary-soft: oklch(62.172% 0.18197 51.682);
     --primary: oklch(73.107% 0.18197 51.682);
-    --primary-strong: oklch(62.172% 0.18197 51.682);
+    --primary-strong: oklch(84.107% 0.18197 51.682);
 
-    --secondary-soft: oklch(86.553% 0.10771 137.711);
+    --secondary-soft: oklch(64.504% 0.09385 145.302);
     --secondary: oklch(75.553% 0.10771 137.711);
-    --secondary-strong: oklch(64.504% 0.09385 145.302);
+    --secondary-strong: oklch(86.553% 0.10771 137.711);
 
-    --success: #b8bb26;
-    --success-strong: #98971a;
+    --success: #98971a;
+    --success-strong: #b8bb26;
 
-    --info: #83a598;
-    --info-strong: #458588;
+    --info: #458588;
+    --info-strong: #83a598;
 
 
     /* BORDER COLORS */
@@ -43,7 +43,7 @@ html[data-theme="warm-dark"] {
 
     /* FONTS */
     --font-main: var(--font-alias-sans);
-    /* --font-main: var(--font-alias-serif); */
+    --font-old: var(--font-alias-serif);
     --font-mono: var(--font-alias-mono);
 }
 
@@ -78,6 +78,10 @@ html[data-theme="warm-dark"] {
     --font-mono: var(--font-mono);
 }
 
+body {
+    @apply selection:bg-primary/50 selection:text-body-strong;
+}
+
 @utility typography-common {
     @apply text-body text-base/snug tracking-normal hyphens-auto;
 }
@@ -101,7 +105,7 @@ html[data-theme="warm-dark"] {
 }
 
 .writing {
-    @apply typography-common selection:bg-primary/50 selection:text-body-strong;
+    @apply typography-common;
 }
 
 .writing h1, 

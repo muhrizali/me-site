@@ -31,11 +31,16 @@ export default defineConfig({
 
   // FONTS USAGE
   fonts: [
+    // {
+    //   provider: fontProviders.fontsource(),
+    //   name: "Source Serif 4",
+    //   cssVariable: "--font-alias-serif",
+    //   weights: [300, 400, 500, 600, 700],
+    // },
     {
       provider: fontProviders.fontsource(),
       // name: "Atkinson Hyperlegible Next",
       name: "Fira Sans",
-      // name: "Cousine",
       cssVariable: "--font-alias-sans",
       weights: [300, 400, 500, 600, 700],
     },
